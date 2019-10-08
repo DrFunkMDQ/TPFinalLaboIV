@@ -12,8 +12,8 @@
   <div class="py-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-12"><a class="btn btn-dark" href="<?php echo FRONT_ROOT ?>Cinema/ShowAddCinema">Add Cinema</a></div>
-        <div class="col-md-12"><a class="btn btn-dark" href="<?php echo FRONT_ROOT ?>Movie/ShowNowPlaying">Movie List</a></div>
+        <div class="col-md-12"><a class="btn btn-dark" href="<?php echo FRONT_ROOT ?>  ">Add Cinema</a></div>
+        <div class="col-md-12"><a class="btn btn-dark" href="<?php echo FRONT_ROOT ?>Movie/ListNowPlayingMovies">Movie List</a></div>
       </div>
     </div>
   </div>

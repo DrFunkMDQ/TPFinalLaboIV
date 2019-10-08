@@ -12,7 +12,7 @@
             $this->cinemaDAO = new CinemaDAO();
         }
 
-        public function ShowAddCinema(){
+        public function ShowAddCinemaView(){
             require_once(VIEWS_PATH."addCinema.php");
         }        
 

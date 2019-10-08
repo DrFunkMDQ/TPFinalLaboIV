@@ -8,20 +8,17 @@
     {
         private $movieDAO;
 
-        /*public function __construct(){
-            $this->movieDAO = new CinemaDAO();
-        }*/
+        public function __construct(){
+            $this->movieDAO = new MovieDAO();
+        }
 
-        public function ShowNowPlaying(){
+        public function ShowNowPlayingView(){
             require_once(VIEWS_PATH."nowPlayingList.php");
         }        
 
         public function ListNowPlayingMovies(){
-
-            $json = file_get_contents("https://api.themoviedb.org/3/movie/now_playing?api_key=".API_KEY);
-            $result = json_decode($json, true);
-            var_dump($result);
-
+            $this->movieDAO->getAll();
+            $this->ShowNowPlayingView();
         }
 
         /*public function AddMovieList($name, $address, $capacity, $ticketPrice){

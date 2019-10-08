@@ -6,7 +6,8 @@ define("FRONT_ROOT", "/TPFinalLaboIV/");
 define("VIEWS_PATH", "Views/");
 define("CSS_PATH", FRONT_ROOT.VIEWS_PATH . "css/");
 define("JS_PATH", FRONT_ROOT.VIEWS_PATH . "js/");
-define("API_KEY", "3a826f6a0e7fb42cdf899bbba2e08621")
+define("API_KEY", "3a826f6a0e7fb42cdf899bbba2e08621");
+define("W500_IMG", "http://image.tmdb.org/t/p/w500");
 ?>
 
 
