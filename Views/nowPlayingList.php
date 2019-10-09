@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 
+<?php
+  $movieList = $this->movieDAO->GetAll();
+  $firstMovie = array_shift($movieList);
+?>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,41 +17,24 @@
   <div class="py-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-4">
           <div class="carousel slide" data-ride="carousel" id="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active"> <img class="d-block img-fluid w-100" src="<?php echo W500_IMG.'/zfE0R94v1E8cuKAerbskfD3VfUt.jpg';?>">
+            
+              <div class="carousel-item active"> <img class="d-block img-fluid w-342" src="<?php echo W342_IMG.$firstMovie->getImage()?>">
                 <div class="carousel-caption">
-                  <h5 class="m-0">Carousel</h5>
-                  <p>with controls</p>
+                  <h5 class="m-0"><?php echo $firstMovie->getMovieName();?></h5>
+                  <p></p>
                 </div>
               </div>
-
-                  <div class="carousel-item"> <img class="d-block img-fluid w-100" src="">
+              <?php foreach($movieList as $movieDisplayed):?>
+                  <div class="carousel-item"> <img class="d-block img-fluid w-342" src="<?php echo W342_IMG.$movieDisplayed->getImage();?>">
                     <div class="carousel-caption">
-                      <h5 class="m-0"><?phpecho $movieListed['MovieName'];?></h5>
-                      <p>with controls</p>
+                      <h5 class="m-0"><?php echo $movieDisplayed->getMovieName();?></h5>
+                      <p></p>
                     </div>
                   </div>
-
-              <div class="carousel-item"> <img class="d-block img-fluid w-100" src="http://image.tmdb.org/t/p/w500/zfE0R94v1E8cuKAerbskfD3VfUt.jpg">
-                <div class="carousel-caption">
-                  <h5 class="m-0">Carousel</h5>
-                  <p>with controls</p>
-                </div>
-              </div>
-              <div class="carousel-item"> <img class="d-block img-fluid w-100" src="http://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg">
-                <div class="carousel-caption">
-                  <h5 class="m-0">Carousel</h5>
-                  <p>with controls</p>
-                </div>
-              </div>
-              <div class="carousel-item"> <img class="d-block img-fluid w-100" src=" http://image.tmdb.org/t/p/w500/zfE0R94v1E8cuKAerbskfD3VfUt.jpg">
-                <div class="carousel-caption">
-                  <h5 class="m-0">Carousel</h5>
-                  <p>with controls</p>
-                </div>
-              </div>
+              <?php endforeach;?>
             </div> <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
           </div>
         </div>

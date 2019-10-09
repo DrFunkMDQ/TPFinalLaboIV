@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
 </head>
 
-<body class="align-items-end">
-  <div class="py-5">
+<body class="align-items-end bg-gray">
+  <div class="py-5 align">
     <div class="container  rounded">
       <div class="row rounded bg-dark text-uppercase text-light">
         <div class="col-md-3  font-weight-bold  ">Name</div>
@@ -20,10 +20,12 @@
       <?php
         foreach($this->cinemaDAO->GetAll() as $cinema):          ?>
           <div class="row bg-light">
-            <div class="col-md-3"><?php echo $cinema->getCinemaName();?></div>
-            <div class="col-md-3"><?php echo $cinema->getAddress();?></div>
-            <div class="col-md-2"><?php echo $cinema->getCapacity();?></div>
-            <div class="col-md-2"><?php echo $cinema->getTicketPrice();?></div>
+            <div class="col-md-3 py-1"><?php echo $cinema->getCinemaName();?></div>
+            <div class="col-md-3 py-1"><?php echo $cinema->getAddress();?></div>
+            <div class="col-md-2 py-1"><?php echo $cinema->getCapacity();?></div>
+            <div class="col-md-2 py-1"><?php echo $cinema->getTicketPrice();?></div>
+            <div class="col-md-1 py-1"><button>Modify</button></div>
+            <div class="col-md-1 py-1"><button>Delete</button></div>
           </div>
         <?php endforeach;
         ?>

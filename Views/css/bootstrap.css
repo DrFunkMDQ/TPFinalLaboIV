@@ -5853,6 +5853,7 @@ button.close {
   top: 0;
 }
 
+
 .carousel-item-next.carousel-item-left,
 .carousel-item-prev.carousel-item-right {
   -webkit-transform: translateX(0);
