@@ -10,9 +10,7 @@
 
         public function Add(Cinema $cinema){
             $this->RetrieveData();
-            
             array_push($this->cinemaList, $cinema);
-            
             $this->SaveData();
         }
 
@@ -24,9 +22,7 @@
 
         public function SaveData(){
             $arrayToEncode = array();
-
-            foreach($this->cinemaList as $cinema)
-            {
+            foreach($this->cinemaList as $cinema){   
                 $valuesArray["CinemaName"] = $cinema->getCinemaName();
                 $valuesArray["Address"] = $cinema->getAddress();
                 $valuesArray["Capacity"] = $cinema->getCapacity();
@@ -35,12 +31,19 @@
                 array_push($arrayToEncode, $valuesArray);
             }
 
+            var_dump($arrayToEncode);
+
             $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
             
             file_put_contents('Data/Cinemas.json', $jsonContent);
         }
 
+        public function Search(){
+
+        }
+
         public function Remove(){
+
             return 1;
         }
 

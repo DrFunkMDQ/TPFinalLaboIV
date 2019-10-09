@@ -14,7 +14,13 @@
 
         public function ShowAddCinemaView(){
             require_once(VIEWS_PATH."addCinema.php");
-        }        
+        }      
+        
+        public function ShowListCinemaView(){
+            $this->cinemaDAO->GetAll();
+            //var_dump($this->cinemaDAO);
+            require_once(VIEWS_PATH."cinemaList.php");
+        }     
 
         public function AddCinema($name, $address, $capacity, $ticketPrice){
             $cinema = new Cinema();
@@ -22,9 +28,8 @@
             $cinema->setAddress($address);
             $cinema->setCapacity($capacity);
             $cinema->setTicketPrice($ticketPrice);
-
             $this->cinemaDAO->Add($cinema);
-            $this->ShowAddCinema();
+            $this->ShowAddCinemaView();
         }
     }
 ?>

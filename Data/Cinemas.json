@@ -28,5 +28,29 @@
         "Address": "2",
         "Capacity": "3",
         "TicketPrice": "4"
+    },
+    {
+        "CinemaName": "xx",
+        "Address": "xxx",
+        "Capacity": "1",
+        "TicketPrice": "1"
+    },
+    {
+        "CinemaName": "zzz",
+        "Address": "zzz",
+        "Capacity": "1",
+        "TicketPrice": "1"
+    },
+    {
+        "CinemaName": "1",
+        "Address": "22",
+        "Capacity": "3",
+        "TicketPrice": "3"
+    },
+    {
+        "CinemaName": "1",
+        "Address": "22",
+        "Capacity": "3",
+        "TicketPrice": "3"
     }
 ]
