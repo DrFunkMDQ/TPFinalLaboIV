@@ -1,56 +1,8 @@
 [
     {
-        "CinemaName": "1",
-        "Address": "111",
-        "Capacity": "1",
-        "TicketPrice": "1"
-    },
-    {
-        "CinemaName": "1",
-        "Address": "1",
-        "Capacity": "1",
-        "TicketPrice": "1"
-    },
-    {
-        "CinemaName": "asd",
-        "Address": "asd",
-        "Capacity": "1",
-        "TicketPrice": "1"
-    },
-    {
-        "CinemaName": "1",
-        "Address": "1",
-        "Capacity": "1",
-        "TicketPrice": "1"
-    },
-    {
-        "CinemaName": "1",
-        "Address": "2",
-        "Capacity": "3",
-        "TicketPrice": "4"
-    },
-    {
-        "CinemaName": "xx",
-        "Address": "xxx",
-        "Capacity": "1",
-        "TicketPrice": "1"
-    },
-    {
-        "CinemaName": "zzz",
-        "Address": "zzz",
-        "Capacity": "1",
-        "TicketPrice": "1"
-    },
-    {
-        "CinemaName": "1",
-        "Address": "22",
-        "Capacity": "3",
-        "TicketPrice": "3"
-    },
-    {
-        "CinemaName": "1",
-        "Address": "22",
-        "Capacity": "3",
-        "TicketPrice": "3"
+        "CinemaName": "Cine03",
+        "Address": "Av. Luro 1254",
+        "Capacity": "750",
+        "TicketPrice": "220"
     }
 ]

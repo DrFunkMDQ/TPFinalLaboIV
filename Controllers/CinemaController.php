@@ -31,5 +31,10 @@
             $this->cinemaDAO->Add($cinema);
             $this->ShowAddCinemaView();
         }
+        
+        public function RemoveCinema($cinemaName){            
+            $this->cinemaDAO->Remove($cinemaName);
+            $this->ShowListCinemaView();
+        }
     }
 ?>

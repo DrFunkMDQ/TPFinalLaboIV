@@ -29,22 +29,37 @@
                 $valuesArray["TicketPrice"] = $cinema->getTicketPrice();
 
                 array_push($arrayToEncode, $valuesArray);
-            }
-
-            var_dump($arrayToEncode);
+            }            
 
             $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
             
             file_put_contents('Data/Cinemas.json', $jsonContent);
         }
 
-        public function Search(){
+        public function Remove($cinemaName){
+            if($this->searchByName($cinemaName) != null){                
+                $cinemaList = $this->GetAll();
+                foreach ($cinemaList as $cinema) {                                                         
+                    if($cinema->getCinemaName() == $cinemaName){                         
+                        $key = array_search($cinema, $cinemaList); 
+                        var_dump($key);                      
+                        unset($this->cinemaList[$key]);
+                    }
+                }                
+                $this->SaveData();
 
+            }
         }
 
-        public function Remove(){
-
-            return 1;
+        public function searchByName($cinemaName){ /// Se puede hacer que reotorne un boolean y no el cine
+            $cinemaList = $this->GetAll();
+            $myCinema = null;
+            foreach ($cinemaList as $cinema) {
+                if($cinema->getCinemaName() == $cinemaName){
+                    $myCinema = $cinema;
+                }
+            }
+            return $myCinema;
         }
 
         public function RetrieveData(){

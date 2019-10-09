@@ -7,7 +7,7 @@
     {
         function Add(Cinema $cinema);
         function GetAll();
-        function Remove();
+        function Remove($cinemaName);
         function SaveData();
         function RetrieveData();
     }
