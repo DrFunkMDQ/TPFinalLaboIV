@@ -1,8 +1,14 @@
 [
     {
-        "CinemaName": "Cine03",
-        "Address": "Av. Luro 1254",
-        "Capacity": "750",
-        "TicketPrice": "220"
+        "CinemaName": "Cinema2",
+        "Address": "Dire22",
+        "Capacity": "3",
+        "TicketPrice": "4"
+    },
+    {
+        "CinemaName": "Cinema01",
+        "Address": "Pep",
+        "Capacity": "22",
+        "TicketPrice": "33"
     }
 ]

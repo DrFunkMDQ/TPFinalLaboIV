@@ -60,7 +60,7 @@
                 }
             }
             return $myCinema;
-        }
+        }        
 
         public function RetrieveData(){
             $this->cinemaList = array();

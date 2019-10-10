@@ -17,15 +17,15 @@
         <div class="col-md-2  font-weight-bold ">Capacity</div>
         <div class="col-md-2  font-weight-bold ">Ticket Price</div>
       </div>
-      <form action="<?php echo FRONT_ROOT?>Cinema/RemoveCinema" method="post">
+      <form action="<?php echo FRONT_ROOT?>Cinema/UpdateCinema" method="post">
       <?php
-        foreach($this->cinemaDAO->GetAll() as $cinema):          ?>
+        foreach($cinemaList as $cinema):          ?>
           <div class="row bg-light">
             <div class="col-md-3 py-1"><?php echo $cinema->getCinemaName();?></div>
             <div class="col-md-3 py-1"><?php echo $cinema->getAddress();?></div>
             <div class="col-md-2 py-1"><?php echo $cinema->getCapacity();?></div>
             <div class="col-md-2 py-1"><?php echo $cinema->getTicketPrice();?></div>
-            <div class="col-md-1 py-1"><button type="submit" >Modify</button></div>
+            <div class="col-md-1 py-1"><button type="submit"  name="CinemaUpdate" value="<?php echo $cinema->getCinemaName(); ?>">Modify</button></div>
             <div class="col-md-1 py-1"><button type="submit" name="CinemaRemove" value="<?php echo $cinema->getCinemaName(); ?>" >Delete</button></div>
           </div>
         <?php endforeach;
