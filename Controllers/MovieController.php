@@ -7,6 +7,8 @@
     class MovieController
     {
         private $movieDAO;
+        private $firstMovie;
+        private $movieList;
 
         public function __construct(){
             $this->movieDAO = new MovieDAO();
@@ -17,7 +19,9 @@
         }        
 
         public function ListNowPlayingMovies(){
-            $this->movieDAO->getAll();
+            $this->movieList = $this->movieDAO->getAll();
+            //var_dump($this->movieList);
+            $this->firstMovie = array_shift($this->movieList);
             $this->ShowNowPlayingView();
         }
 

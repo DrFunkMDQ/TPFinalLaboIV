@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html>
-
-<?php
-  $movieList = $this->movieDAO->GetAll();
-  $firstMovie = array_shift($movieList);
-?>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
 </head>
-
 <body>
   <div class="py-5">
     <div class="container">
@@ -20,14 +13,13 @@
         <div class="col-md-4">
           <div class="carousel slide" data-ride="carousel" id="carousel">
             <div class="carousel-inner">
-            
-              <div class="carousel-item active"> <img class="d-block img-fluid w-342" src="<?php echo W342_IMG.$firstMovie->getImage()?>">
+              <div class="carousel-item active"> <img class="d-block img-fluid w-342" src="<?php echo W342_IMG.$this->firstMovie->getImage()?>">
                 <div class="carousel-caption">
-                  <h5 class="m-0"><?php echo $firstMovie->getMovieName();?></h5>
+                  <h5 class="m-0"><?php echo $this->firstMovie->getMovieName();?></h5>
                   <p></p>
                 </div>
               </div>
-              <?php foreach($movieList as $movieDisplayed){?>
+              <?php foreach($this->movieList as $movieDisplayed){?>
                   <div class="carousel-item"> <img class="d-block img-fluid w-342" src="<?php echo W342_IMG.$movieDisplayed->getImage();?>">
                     <div class="carousel-caption">
                       <h5 class="m-0"><?php echo $movieDisplayed->getMovieName();?></h5>

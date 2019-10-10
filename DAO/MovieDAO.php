@@ -21,9 +21,7 @@
 
         public function SaveData(){
             $arrayToEncode = array();
-
-            foreach($this->MovieList as $Movie)
-            {
+            foreach($this->MovieList as $Movie){
                 $valuesArray["MovieName"] = $Movie->getMovieName();
                 $valuesArray["Duration"] = $Movie->getDuration();
                 $valuesArray["Language"] = $Movie->getLanguage();
@@ -68,8 +66,7 @@
         public function RetrieveData(){
             $this->MovieList = array();
             $arrayToDecode = $this->getDataFromAPI();
-            $results = $arrayToDecode['results'];
-            foreach($results as $jsonMovie){
+            foreach($arrayToDecode as $jsonMovie){
                     $Movie = new Movie();
                     $Movie->setMovieName($jsonMovie["original_title"]);
                     $Movie->setDuration($jsonMovie["overview"]);
@@ -81,9 +78,17 @@
         }
         
         public function getDataFromAPI(){
-            $json = file_get_contents("https://api.themoviedb.org/3/movie/now_playing?api_key=".API_KEY);
+            $json = file_get_contents("https://api.themoviedb.org/3/movie/now_playing?api_key=".API_KEY."&region=AR");
             $result = json_decode($json, true);
-            return $result;   
+            $movieList = $result['results'];
+            if($result['total_pages']>1){
+                for($i=2; $i<=$result['total_pages']; $i++){
+                    $json = file_get_contents("https://api.themoviedb.org/3/movie/now_playing?api_key=".API_KEY."&region=AR&page=".$i);
+                    $resutlNextPage = json_decode($json, true);
+                    $movieList = array_merge($movieList, $resutlNextPage['results']);
+                }
+            }
+            return $movieList;   
         }
     }
 ?>

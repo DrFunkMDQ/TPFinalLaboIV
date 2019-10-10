@@ -5,7 +5,7 @@
             $restult2 = $result['results'];
             //file_put_contents('../Data/Movies.json', $restult2);
      
-            var_dump($restult2);
+            var_dump($result);
 
 
 ?>
