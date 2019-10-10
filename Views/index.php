@@ -13,8 +13,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12"><a class="btn btn-dark" href="<?php echo FRONT_ROOT ?>Cinema/ShowAddCinemaView">Add Cinema</a></div>
-        <div class="col-md-12"><a class="btn btn-dark" href="<?php echo FRONT_ROOT ?>Movie/ListNowPlayingMovies">Movie List</a></div>
         <div class="col-md-12"><a class="btn btn-dark" href="<?php echo FRONT_ROOT ?>Cinema/ShowListCinemaView">Cinema List</a></div>
+        <div class="col-md-12"><a class="btn btn-dark" href="<?php echo FRONT_ROOT ?>Movie/ListNowPlayingMovies">Movie List</a></div>
+        <div class="col-md-12"><a class="btn btn-dark" href="<?php echo FRONT_ROOT ?>Movie/getMoviesFromApi">Get Movies from API</a></div>
       </div>
     </div>
   </div>

@@ -20,20 +20,14 @@
 
         public function ListNowPlayingMovies(){
             $this->movieList = $this->movieDAO->getAll();
-            //var_dump($this->movieList);
             $this->firstMovie = array_shift($this->movieList);
             $this->ShowNowPlayingView();
         }
 
-        /*public function AddMovieList($name, $address, $capacity, $ticketPrice){
-            $cinema = new Cinema();
-            $cinema->setCinemaName($name);
-            $cinema->setAddress($address);
-            $cinema->setCapacity($capacity);
-            $cinema->setTicketPrice($ticketPrice);
+        public function getMoviesFromApi(){
+            $this->movieDAO->saveDataFromAPI();
+            $this->ListNowPlayingMovies();
+        }
 
-            $this->movieDAO->Add($cinema);
-            $this->ShowAddCinema();
-        }*/
     }
 ?>

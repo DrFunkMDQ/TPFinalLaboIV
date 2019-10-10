@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
+
+<?php
+  $movieList = $this->movieDAO->GetAll();
+  $firstMovie = array_shift($movieList);
+?>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
 </head>
+
 <body>
   <div class="py-5">
     <div class="container">
@@ -13,20 +20,21 @@
         <div class="col-md-4">
           <div class="carousel slide" data-ride="carousel" id="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active"> <img class="d-block img-fluid w-342" src="<?php echo W342_IMG.$this->firstMovie->getImage();?>">
+            
+              <div class="carousel-item active"> <img class="d-block img-fluid w-342" src="<?php echo W342_IMG.$firstMovie->getImage()?>">
                 <div class="carousel-caption">
-                  <h5 class="m-0"><?php echo $this->firstMovie->getMovieName();?></h5>
+                  <h5 class="m-0"><?php echo $firstMovie->getMovieName();?></h5>
                   <p></p>
                 </div>
               </div>
-              <?php foreach($this->movieList as $movieDisplayed){?>
+              <?php foreach($movieList as $movieDisplayed):?>
                   <div class="carousel-item"> <img class="d-block img-fluid w-342" src="<?php echo W342_IMG.$movieDisplayed->getImage();?>">
                     <div class="carousel-caption">
                       <h5 class="m-0"><?php echo $movieDisplayed->getMovieName();?></h5>
                       <p></p>
                     </div>
                   </div>
-              <?php }?>
+              <?php endforeach;?>
             </div> <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
           </div>
         </div>
