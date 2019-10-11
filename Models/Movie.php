@@ -4,81 +4,117 @@
 
         //Attributes
 
-        private $MovieName;
-        private $Duration;
-        private $Language;
-        private $Image;
-        private $Gender; //Class Gender
-        //Function???
+        private $movie_name;
+        private $overview;
+        private $language;
+        private $image;
+        private $genre;
+    
 
-        //Getters && Setters
 
+
+        /**
+         * Get the value of movie_name
+         */ 
         public function getMovieName()
         {
-            return $this->MovieName;
+                return $this->movie_name;
         }
 
-        
-        public function setMovieName($MovieName)
+        /**
+         * Set the value of movie_name
+         *
+         * @return  self
+         */ 
+        public function setMovieName($movie_name)
         {
-            $this->MovieName = $MovieName;
+                $this->movie_name = $movie_name;
 
-            return $this;
+                return $this;
         }
 
-        
-        public function getDuration()
+        /**
+         * Get the value of overview
+         */ 
+        public function getOverview()
         {
-            return $this->Duration;
+                return $this->overview;
         }
 
-        
-        public function setDuration($Duration)
+        /**
+         * Set the value of overview
+         *
+         * @return  self
+         */ 
+        public function setOverview($overview)
         {
-            $this->Duration = $Duration;
+                $this->overview = $overview;
 
-            return $this;
+                return $this;
         }
 
-        
+        /**
+         * Get the value of language
+         */ 
         public function getLanguage()
         {
-            return $this->Language;
+                return $this->language;
         }
 
-        
-        public function setLanguage($Language)
+        /**
+         * Set the value of language
+         *
+         * @return  self
+         */ 
+        public function setLanguage($language)
         {
-            $this->Language = $Language;
+                $this->language = $language;
 
-            return $this;
+                return $this;
         }
 
+        /**
+         * Get the value of image
+         */ 
         public function getImage()
         {
-            return $this->Image;
+                return $this->image;
         }
 
-        
-        public function setImage($Image)
+        /**
+         * Set the value of image
+         *
+         * @return  self
+         */ 
+        public function setImage($image)
         {
-            $this->Image = $Image;
+                $this->image = $image;
 
-            return $this;
+                return $this;
         }
-        
-        public function getGender()
+
+        /**
+         * Get the value of genre
+         */ 
+        public function getGenre()
         {
-                return $this->Gender;
+                return $this->genre;
         }
-        
-        public function setGender($Gender)
+
+        /**
+         * Set the value of genre
+         *
+         * @return  self
+         */ 
+        public function setGenre($genre)
         {
-                $this->Gender = $Gender;
+                $this->genre = $genre;
 
                 return $this;
         }
     }
+
+
 
 
 ?>

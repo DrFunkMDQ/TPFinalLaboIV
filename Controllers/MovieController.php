@@ -2,16 +2,19 @@
     namespace Controllers;
 
     use DAO\MovieDAO as MovieDAO;
+    use DAO\GenreDAO as GenreDAO;
     use Models\Movie as Movie;
 
     class MovieController
     {
         private $movieDAO;
+        private $genreDAO;
         private $firstMovie;
         private $movieList;
 
         public function __construct(){
             $this->movieDAO = new MovieDAO();
+            $this->genreDAO = new GenreDAO();
         }
 
         public function ShowNowPlayingView(){
@@ -25,9 +28,15 @@
         }
 
         public function getMoviesFromApi(){
-            $this->movieDAO->saveDataFromAPI();
+            $this->movieDAO->saveMoviesFromAPI();
             $this->ListNowPlayingMovies();
         }
+
+        public function getGenresFromApi(){
+            $this->genreDAO->saveGenresFromAPI();
+        }
+
+        
 
     }
 ?>

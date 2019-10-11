@@ -4,7 +4,7 @@
         "Overview": "During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure.",
         "Language": "en",
         "Image": "\/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
-        "Gender": [
+        "Genre": [
             80,
             18,
             53
@@ -15,7 +15,7 @@
         "Overview": "27 years after overcoming the malevolent supernatural entity Pennywise, the former members of the Losers' Club, who have grown up and moved away from Derry, are brought back together by a devastating phone call.",
         "Language": "en",
         "Image": "\/zfE0R94v1E8cuKAerbskfD3VfUt.jpg",
-        "Gender": [
+        "Genre": [
             27
         ]
     },
@@ -24,7 +24,7 @@
         "Overview": "Henry Brogen, an aging assassin tries to get out of the business but finds himself in the ultimate battle: fighting his own clone who is 25 years younger than him and at the peak of his abilities.",
         "Language": "en",
         "Image": "\/uTALxjQU8e1lhmNjP9nnJ3t2pRU.jpg",
-        "Gender": [
+        "Genre": [
             28,
             878,
             53
@@ -35,7 +35,7 @@
         "Overview": "A young couple travels to Sweden to visit their friend\u2019s rural hometown and attend its mid-summer festival. What begins as an idyllic retreat quickly descends into an increasingly violent and bizarre competition at the hands of a pagan cult.",
         "Language": "en",
         "Image": "\/rXsh4MI6uyVgZBSSzXCfitJnVPy.jpg",
-        "Gender": [
+        "Genre": [
             18,
             27,
             9648,
@@ -47,7 +47,7 @@
         "Overview": "Jack Malik is a struggling singer-songwriter in an English seaside town whose dreams of fame are rapidly fading, despite the fierce devotion and support of his childhood best friend, Ellie. After a freak bus accident during a mysterious global blackout, Jack wakes up to discover that he's the only person on Earth who can remember The Beatles.",
         "Language": "en",
         "Image": "\/1rjaRIAqFPQNnMtqSMLtg0VEABi.jpg",
-        "Gender": [
+        "Genre": [
             35,
             14,
             10402,
@@ -59,7 +59,7 @@
         "Overview": "Dora, a girl who has spent most of her life exploring the jungle with her parents, now must navigate her most dangerous adventure yet: high school. Always the explorer, Dora quickly finds herself leading Boots (her best friend, a monkey), Diego, and a rag tag group of teens on an adventure to save her parents and solve the impossible mystery behind a lost Inca civilization.",
         "Language": "en",
         "Image": "\/xvYCZ740XvngXK0FNeSNVTJJJ5v.jpg",
-        "Gender": [
+        "Genre": [
             12,
             35,
             10751
@@ -70,7 +70,7 @@
         "Overview": "The shadow of the Bellows family has loomed large in the small town of Mill Valley for generations. It's in a mansion that young Sarah Bellows turns her tortured life and horrible secrets into a series of scary stories. These terrifying tales soon have a way of becoming all too real for a group of unsuspecting teens who stumble upon Sarah's spooky home.",
         "Language": "en",
         "Image": "\/d0FWbzrmm99BTfUqf1Lbjl2zu3S.jpg",
-        "Gender": [
+        "Genre": [
             27,
             53
         ]
@@ -80,7 +80,7 @@
         "Overview": "A young woman returns an elderly widow\u2019s lost purse, leading to an unlikely relationship between the two \u2014 until the young woman discovers her elder might not be all that she seems.",
         "Language": "en",
         "Image": "\/6Lgk1OGexD0fU8QqDBQHcvEwd1Z.jpg",
-        "Gender": [
+        "Genre": [
             53,
             9648
         ]
@@ -90,7 +90,7 @@
         "Overview": "A chronicle of the crimes of Ted Bundy, from the perspective of his longtime girlfriend, Elizabeth Kloepfer, who refused to believe the truth about him for years.",
         "Language": "en",
         "Image": "\/zSuJ3r5zr5T26tTxyygHhgkUAIM.jpg",
-        "Gender": [
+        "Genre": [
             80,
             18,
             53
@@ -101,7 +101,7 @@
         "Overview": "",
         "Language": "es",
         "Image": null,
-        "Gender": [
+        "Genre": [
             18,
             53
         ]
@@ -111,7 +111,7 @@
         "Overview": "A shy teenager living on the Isle of Wight dreams of pop stardom. With the help of an unlikely mentor, she enters a singing competition that will test her integrity, talent, and ambition.",
         "Language": "en",
         "Image": "\/aFPqJZ9vOcH7QroNxXV5wefX2qe.jpg",
-        "Gender": [
+        "Genre": [
             18,
             10402
         ]
@@ -121,7 +121,7 @@
         "Overview": "A struggling family buys an old ship at auction with high hopes of starting a charter business, only to discover her horrifying secrets on the isolated open waters.",
         "Language": "en",
         "Image": "\/r7qXGvENbUMpveYsgcYgEmecIKo.jpg",
-        "Gender": [
+        "Genre": [
             18,
             27
         ]
@@ -131,7 +131,7 @@
         "Overview": "A porn director, a fugitive, a priest. The life of Victor X.",
         "Language": "es",
         "Image": "\/7A7vGnJy16vFyRVUPDJx9GGkrpk.jpg",
-        "Gender": [
+        "Genre": [
             35
         ]
     },
@@ -140,7 +140,7 @@
         "Overview": "A writer must solve a crime which is similar to the end of his next and yet unpublished novel, making him the prime suspect.",
         "Language": "es",
         "Image": "\/kXIuv0gr4DivpzjVhTe7eTwFe1T.jpg",
-        "Gender": [
+        "Genre": [
             80,
             9648,
             53
@@ -151,21 +151,21 @@
         "Overview": "",
         "Language": "es",
         "Image": "\/7P7IHoSjV35SGuVSy5wwb9pNVHl.jpg",
-        "Gender": []
+        "Genre": []
     },
     {
         "MovieName": "Karaoke Bowie",
         "Overview": "",
         "Language": "es",
         "Image": "\/ey2Eq7CFysYwdUlDhmd18uhcxPC.jpg",
-        "Gender": []
+        "Genre": []
     },
     {
         "MovieName": "The Moneychanger",
         "Overview": "Set largely in Montevideo, The Moneychanger stars Daniel Hendler as Humberto Brause, who takes advantage of Uruguay\u2019s poor economy by specializing in offshore money laundering. Spanning the fifties to the seventies, the film follows Humberto as he gets increasingly in over his head with multiple shady book-cooking schemes throughout South America, leading to an ultimate life-or-death decision.",
         "Language": "es",
         "Image": "\/dUwpZl6QJUFoqkhEcu10Hzbd5Bn.jpg",
-        "Gender": [
+        "Genre": [
             35,
             18
         ]
@@ -175,7 +175,7 @@
         "Overview": "Nestor is extremely superstitious. This year, his team plays the ascent in Mendoza and prepares to travel with Rafa, his friend. But Fabian appears, a mufa. The ascent is in danger, unless they can prevent Fabian from reaching the stadium.",
         "Language": "es",
         "Image": "\/m2RqyjDP6YSOKtPn43Y034pAQAX.jpg",
-        "Gender": [
+        "Genre": [
             35
         ]
     },
@@ -184,7 +184,7 @@
         "Overview": "Following his Oscar-nominated Virunga, Orlando von Einsiedel turns his camera on his own family as they attempt to cope with a devastating loss.",
         "Language": "en",
         "Image": "\/yLzSyTRKXj0ycyAn4YQDSxc4Zqh.jpg",
-        "Gender": [
+        "Genre": [
             99
         ]
     },
@@ -193,7 +193,7 @@
         "Overview": "",
         "Language": "es",
         "Image": "\/4iuG6XWB0caLyxJpbHrm0resKCU.jpg",
-        "Gender": [
+        "Genre": [
             18
         ]
     },
@@ -202,7 +202,7 @@
         "Overview": "",
         "Language": "es",
         "Image": "\/zYrNIF1Qe2xPcmcjZyzsCVRqMiS.jpg",
-        "Gender": [
+        "Genre": [
             18,
             14,
             53
@@ -213,21 +213,21 @@
         "Overview": "Paraguay 1978, during Stroessner\u2019s dictatorship, Pastor and Dionisio work burying bodies illicitly. In Argentina, the World Cup is being held. One morning, among the bodies, they find Mario, who is still alive. They know they must kill him but the problem is: in spite of what they are doing, they have never killed anyone before. A storm indicates that the winter is coming while the destiny of the three men is determined during the World Cup final. Both Pastor and Dionisio are the last link of a chain in the terrible system that has as a result in all the missing people.",
         "Language": "es",
         "Image": "\/2YJmFecKDIBQHJ7RmMQ8nCDZyRv.jpg",
-        "Gender": []
+        "Genre": []
     },
     {
         "MovieName": "El Juego de las Llaves",
         "Overview": "Eight friends, all in a stable relationship, decide to venture into a game of sexual discovery by exchanging couples while trying to free themselves from their daily routine and add a spicy touch to their love life.",
         "Language": "es",
         "Image": "\/uMuw1IX9yT6JUHcd1CaeXw6cxxg.jpg",
-        "Gender": []
+        "Genre": []
     },
     {
         "MovieName": "Initials S.G.",
         "Overview": "An aging, Argentine, Serge Gainsbourg wannabe struggles to deal with a career he can't seem to get on track, an affair he doesn't want, and a crime he didn't mean to commit.",
         "Language": "es",
         "Image": "\/kWROlpAf9BaJpZ2aqkNrzDAeNkm.jpg",
-        "Gender": [
+        "Genre": [
             35,
             18
         ]
@@ -237,14 +237,14 @@
         "Overview": "Kent devises a revenge plan against Laurel, whose husband he believed ruined his marriage, however, his plan becomes deadly once Laurel decides to fight back.",
         "Language": "en",
         "Image": "\/mYqdyc7kme4jUqCmA0wi8gJSlHM.jpg",
-        "Gender": []
+        "Genre": []
     },
     {
         "MovieName": "Shalom Taiw\u00e1n",
         "Overview": "The financial problems of a Jewish community that leads in a neighborhood in the city of Buenos Aires are a nightmare for Rabbi Aaron. His excessive generosity to help threatens the work he is carrying out. Neither the optimism nor the industriousness of the Rabbi, nor his trip to New York for donations, is enough to pay a debt he contracted and also must try not to ruin his committed family harmony.  Cornered and covered with overwhelm, Aaron tries a last resort: embark on a trip to the Far East to get donations. The arrival in Taiwan is revealing in every way: far from known traditions, Rabbi Aaron must face multiple challenges to achieve his goal.",
         "Language": "es",
         "Image": "\/hYvGRM0v7yXdBiLpsOR87lPBWAE.jpg",
-        "Gender": [
+        "Genre": [
             35,
             18
         ]
@@ -254,7 +254,7 @@
         "Overview": "",
         "Language": "es",
         "Image": "\/qxOe63Q5Iqv6ggEsq7AL7DCELfY.jpg",
-        "Gender": [
+        "Genre": [
             18,
             53
         ]
@@ -264,7 +264,7 @@
         "Overview": "",
         "Language": "es",
         "Image": "\/6sGbhSwfbI6KrD6nWKXwIPBXluA.jpg",
-        "Gender": [
+        "Genre": [
             53
         ]
     },
@@ -273,7 +273,7 @@
         "Overview": "Claudia is a workaholic event planner. When a colleague asks her to plan her wedding, she starts to notice a lot of issues with the ceremony and changes it's location on the last minute, unfolding on a series of unfortunate events.",
         "Language": "es",
         "Image": "\/hmoUclDEnDkbgorX9LzLL6c6EFk.jpg",
-        "Gender": [
+        "Genre": [
             35
         ]
     },
@@ -282,14 +282,14 @@
         "Overview": "",
         "Language": "es",
         "Image": "\/1GJN99A8rxI7W6E70obQOLqGroS.jpg",
-        "Gender": []
+        "Genre": []
     },
     {
         "MovieName": "Ser\u00e9 Millones",
         "Overview": "",
         "Language": "es",
         "Image": "\/eomlGT7fOImVHSPWpN1mZznTNXc.jpg",
-        "Gender": [
+        "Genre": [
             99
         ]
     },
@@ -298,7 +298,7 @@
         "Overview": "",
         "Language": "es",
         "Image": null,
-        "Gender": [
+        "Genre": [
             35
         ]
     },
@@ -307,7 +307,7 @@
         "Overview": "",
         "Language": "es",
         "Image": null,
-        "Gender": [
+        "Genre": [
             99
         ]
     },
@@ -316,14 +316,14 @@
         "Overview": "In 1994, at the age of sixteen, Clotilde Idrissi suffered a road accident. Clotilde is the only survivor, unlike her brother Nicolas and his parents, who died instantly. Twenty-five years later, she returns to the scene of the tragedy with her husband and daughter. But strange incidents occur until a letter sent by his mother is received by Clotilde, when she thought she was dead. Therefore, she decided to find out what really happened during the accident and find out the truth and if her mother is alive 4 .",
         "Language": "fr",
         "Image": "\/qfC4pEgzNliTUrErSfIN8S67pki.jpg",
-        "Gender": []
+        "Genre": []
     },
     {
         "MovieName": "Sisters of the Trees",
         "Overview": "",
         "Language": "hi",
         "Image": "\/3ImOcv9kFT7DUqkoVVnP5MiOuUP.jpg",
-        "Gender": [
+        "Genre": [
             99
         ]
     },
@@ -332,7 +332,7 @@
         "Overview": "Rodolfo (Luis Brandoni) is a retired doctor. Since he was widowed a few years ago, he lives alone in his house. For an unexpected event, his daughter Laura (Nancy Dupl\u00e1a) with whom he barely speaks, needs to move with him for a few days. The coexistence will bring old discussions to the table, wounds that did not heal and the opportunity for them to connect again.",
         "Language": "es",
         "Image": "\/24MYWeCYSgRI7ZjkKk31OqURhqU.jpg",
-        "Gender": [
+        "Genre": [
             35,
             18
         ]
@@ -342,7 +342,7 @@
         "Overview": "",
         "Language": "fr",
         "Image": "\/vaZbuQJwASMR71qT0Ac2lFWR6y.jpg",
-        "Gender": [
+        "Genre": [
             99
         ]
     },
@@ -351,21 +351,21 @@
         "Overview": "A modern day look at family through the eyes of three women as they work to balance work and life pressures.",
         "Language": "en",
         "Image": "\/ucRAjZyZQxGQ70BLIg1drM372md.jpg",
-        "Gender": []
+        "Genre": []
     },
     {
         "MovieName": "And Then We Marched",
         "Overview": "",
         "Language": "en",
         "Image": "\/2eKIA3ZVePrCPBKw3jBVwbHVY36.jpg",
-        "Gender": []
+        "Genre": []
     },
     {
         "MovieName": "Margen de error",
         "Overview": "Iris' quiet and peaceful life begins to change dramatically when she hosts Maia, her friend's daughter. When Iris realizes that Maia is in love with an older woman, she begins to wonder if she herself might be that woman.",
         "Language": "es",
         "Image": "\/wHP2GZcIQN42L8Gpb8m8znxOt6O.jpg",
-        "Gender": [
+        "Genre": [
             35,
             18,
             10749
@@ -376,20 +376,20 @@
         "Overview": "",
         "Language": "es",
         "Image": "\/zrq53T5pFO0so2c7z2gzfwJZJ1K.jpg",
-        "Gender": []
+        "Genre": []
     },
     {
         "MovieName": "Dolores, un d\u00eda se qued\u00f3 sola...",
         "Overview": "",
         "Language": "es",
         "Image": "\/3YfXXu6v37ggeQKcGSKNmrqSNm9.jpg",
-        "Gender": []
+        "Genre": []
     },
     {
         "MovieName": "New Dimensions of Dialogue",
         "Overview": "",
         "Language": "xx",
         "Image": "\/rTnKeMyT4akdvjJOVL5geYeHdar.jpg",
-        "Gender": []
+        "Genre": []
     }
 ]
