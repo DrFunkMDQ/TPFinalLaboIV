@@ -9,6 +9,7 @@
         private $language;
         private $image;
         private $genre;
+        private $trailer;
     
 
 
@@ -109,6 +110,26 @@
         public function setGenre($genre)
         {
                 $this->genre = $genre;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of trailer
+         */ 
+        public function getTrailer()
+        {
+                return $this->trailer;
+        }
+
+        /**
+         * Set the value of trailer
+         *
+         * @return  self
+         */ 
+        public function setTrailer($trailer)
+        {
+                $this->trailer = $trailer;
 
                 return $this;
         }

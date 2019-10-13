@@ -1,41 +1,55 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
-</head>
-<body>
-  <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="carousel slide" data-ride="carousel" id="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active"> <img class="d-block img-fluid w-342" src="<?php echo W342_IMG.$this->firstMovie->getImage();?>">
-                <div class="carousel-caption">
-                  <h5 class="m-0"><?php echo $this->firstMovie->getMovieName();?></h5>
-                  <p></p>
-                </div>
-              </div>
-              <?php foreach($this->movieList as $movieDisplayed){?>
-                  <div class="carousel-item"> <img class="d-block img-fluid w-342" src="<?php echo W342_IMG.$movieDisplayed->getImage();?>">
-                    <div class="carousel-caption">
-                      <h5 class="m-0"><?php echo $movieDisplayed->getMovieName();?></h5>
-                      <p></p>
-                    </div>
-                  </div>
-              <?php }?>
-            </div> <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
-          </div>
-        </div>
-      </div>
+<?php
+  include('adminNav.php');
+  //var_dump($this->genreList);
+?>
+<table id="tablePreview" class="table table-striped table-hover table-borderless">
+  <thead>
+  <div class="btn-group pull-right px-2">
+    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filter by Genre </button>
+    <div class="dropdown-menu"> 
+    <?php foreach ($this->genreList as $genre){?>
+      <a class="dropdown-item" href="#"><?php echo $genre->getName(); ?></a>
+      <div class="dropdown-divider"></div>
+      <?php } ?>
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-
-</html>
+    <tr>
+      <th>Name</th>
+      <th>Overview</th>
+      <th>Genres</th>
+      <th>Language</th>
+      <th>Poster</th>
+    </tr>
+  </thead>
+  <!--Table head-->
+  <!--Table body-->
+  <tbody>
+    <tr>
+      <td><?php echo $this->firstMovie->getMovieName();?></td>
+      <td><?php echo $this->firstMovie->getOverview();?></td>
+      <td>
+      <?php foreach($this->firstMovie->getGenre() as $genre){?>
+        <?php echo $genre;?>
+      <?php }?>
+      </td>
+      <td><?php echo $this->firstMovie->getLanguage();?></td>
+      <td><img class="d-block img-fluid w-154" src="<?php echo W154_IMG.$this->firstMovie->getImage();?>"></td>
+    </tr>
+    <?php foreach($this->movieList as $movieDisplayed){?>
+    <tr>
+      <td><?php echo $movieDisplayed->getMovieName();?></td>
+      <td><?php echo $movieDisplayed->getOverview();?></td>
+      <td>
+      <?php foreach($movieDisplayed->getGenre() as $genre){?>
+        <?php echo $genre;?>
+      <?php }?>
+      </td>
+      <td><?php echo $movieDisplayed->getLanguage();?></td>
+      <td><img class="d-block img-fluid w-154" src="<?php echo W154_IMG.$movieDisplayed->getImage();?>"></td>
+    </tr>
+    <?php }?>
+  </tbody>
+</table>
+<?php
+  include('movieCarousel.php');
+?>

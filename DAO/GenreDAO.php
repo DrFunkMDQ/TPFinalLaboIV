@@ -41,7 +41,7 @@
                 $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
                 foreach($arrayToDecode as $jsonGenre){
                         $Genre = new Genre();
-                        $Genre->setGenreName($jsonGenre["id"]);
+                        $Genre->setId($jsonGenre["id"]);
                         $Genre->setName($jsonGenre["name"]);
                         array_push($this->GenreList, $Genre);             
                 }
@@ -49,7 +49,7 @@
         }
         
         private function getGenres(){
-            $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=3a826f6a0e7fb42cdf899bbba2e08621&language=es-ES");
+            $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=3a826f6a0e7fb42cdf899bbba2e08621&language=en-US");
             $result = json_decode($json, true);
             $GenreList = $result['genres'];
             return $GenreList;   
