@@ -21,15 +21,12 @@
 
         public function SaveData(){
             $arrayToEncode = array();
-
-            foreach($this->MovieList as $Movie)
-            {
-                $valuesArray["MovieName"] = $Movie->getMovieName();
-                $valuesArray["Duration"] = $Movie->getDuration();
-                $valuesArray["Language"] = $Movie->getLanguage();
-                $valuesArray["Image"] = $Movie->getImage();
-                $valuesArray["Gender"] = $Movie->getGender();
-
+            foreach($this->MovieList as $Movie){
+                $valuesArray["MovieName"] = $Movie['title'];
+                $valuesArray["Overview"] = $Movie['overview'];
+                $valuesArray["Language"] = $Movie['original_language'];
+                $valuesArray["Image"] = $Movie['poster_path'];
+                $valuesArray["Genre"] = $Movie['genre_ids'];
                 array_push($arrayToEncode, $valuesArray);
             }
 
@@ -42,48 +39,41 @@
             return 1;
         }
 
-        /*public function RetrieveData(){
-            $this->MovieList = array();
-
-            if(file_exists('Data/Movies.json'))
-            {
-                $jsonContent = file_get_contents('Data/Movies.json');
-
-                $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
-
-                foreach($arrayToDecode as $valuesArray)
-                {
-                    $Movie = new Movie();
-                    $Movie->setMovieName($valuesArray["MovieName"]);
-                    $Movie->setDuration($valuesArray["Duration"]);
-                    $Movie->setLanguage($valuesArray["Language"]);
-                    $Movie->setImage($valuesArray["Image"]);
-                    $Movie->setGender($valuesArray["Gender"]);
-
-                    array_push($this->MovieList, $Movie);
-                }
-            }
-        }*/
-
         public function RetrieveData(){
             $this->MovieList = array();
-            $arrayToDecode = $this->getDataFromAPI();
-            $results = $arrayToDecode['results'];
-            foreach($results as $jsonMovie){
-                    $Movie = new Movie();
-                    $Movie->setMovieName($jsonMovie["original_title"]);
-                    $Movie->setDuration($jsonMovie["overview"]);
-                    $Movie->setLanguage($jsonMovie["original_language"]);
-                    $Movie->setImage($jsonMovie["poster_path"]);
-                    $Movie->setGender($jsonMovie["genre_ids"]);
-                    array_push($this->MovieList, $Movie);             
+            if(file_exists('Data/Movies.json')){
+                $jsonContent = file_get_contents('Data/Movies.json');
+                $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
+                foreach($arrayToDecode as $jsonMovie){
+                        $Movie = new Movie();
+                        $Movie->setMovieName($jsonMovie["MovieName"]);
+                        $Movie->setOverview($jsonMovie["Overview"]);
+                        $Movie->setLanguage($jsonMovie["Language"]);
+                        $Movie->setImage($jsonMovie["Image"]);
+                        $Movie->setGenre($jsonMovie["Genre"]);
+                        array_push($this->MovieList, $Movie);             
+                }
             }
         }
         
-        public function getDataFromAPI(){
-            $json = file_get_contents("https://api.themoviedb.org/3/movie/now_playing?api_key=".API_KEY);
+        private function getMovies(){
+            $json = file_get_contents("https://api.themoviedb.org/3/movie/now_playing?api_key=".API_KEY."&region=AR");
             $result = json_decode($json, true);
-            return $result;   
+            $movieList = $result['results'];
+            if($result['total_pages']>1){
+                for($i=2; $i<=$result['total_pages']; $i++){
+                    $json = file_get_contents("https://api.themoviedb.org/3/movie/now_playing?api_key=".API_KEY."&region=AR&page=".$i);
+                    $resutlNextPage = json_decode($json, true);
+                    $movieList = array_merge($movieList, $resutlNextPage['results']);
+                }
+            }
+            return $movieList;   
         }
+
+        public function saveMoviesFromAPI(){
+            $this->MovieList = $this->getMovies();
+            $this->SaveData();
+        }
+
     }
 ?>

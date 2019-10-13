@@ -8,6 +8,7 @@
     class CinemaController
     {
         private $cinemaDAO;
+            
 
         public function __construct(){
             $this->cinemaDAO = new CinemaDAO();//JSON
