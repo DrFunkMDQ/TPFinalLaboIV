@@ -42,6 +42,17 @@
         ]
     },
     {
+        "MovieName": "Maleficent: Mistress of Evil",
+        "Overview": "Maleficent and her goddaughter Aurora begin to question the complex family ties that bind them as they are pulled in different directions by impending nuptials, unexpected allies, and dark new forces at play.",
+        "Language": "en",
+        "Image": "\/tBuabjEqxzoUBHfbyNbd8ulgy5j.jpg",
+        "Genre": [
+            12,
+            14,
+            10751
+        ]
+    },
+    {
         "MovieName": "Yesterday",
         "Overview": "Jack Malik is a struggling singer-songwriter in an English seaside town whose dreams of fame are rapidly fading, despite the fierce devotion and support of his childhood best friend, Ellie. After a freak bus accident during a mysterious global blackout, Jack wakes up to discover that he's the only person on Earth who can remember The Beatles.",
         "Language": "en",
@@ -54,44 +65,12 @@
         ]
     },
     {
-        "MovieName": "Dora and the Lost City of Gold",
-        "Overview": "Dora, a girl who has spent most of her life exploring the jungle with her parents, now must navigate her most dangerous adventure yet: high school. Always the explorer, Dora quickly finds herself leading Boots (her best friend, a monkey), Diego, and a rag tag group of teens on an adventure to save her parents and solve the impossible mystery behind a lost Inca civilization.",
-        "Language": "en",
-        "Image": "\/xvYCZ740XvngXK0FNeSNVTJJJ5v.jpg",
-        "Genre": [
-            12,
-            35,
-            10751
-        ]
-    },
-    {
         "MovieName": "Scary Stories to Tell in the Dark",
         "Overview": "The shadow of the Bellows family has loomed large in the small town of Mill Valley for generations. It's in a mansion that young Sarah Bellows turns her tortured life and horrible secrets into a series of scary stories. These terrifying tales soon have a way of becoming all too real for a group of unsuspecting teens who stumble upon Sarah's spooky home.",
         "Language": "en",
         "Image": "\/d0FWbzrmm99BTfUqf1Lbjl2zu3S.jpg",
         "Genre": [
             27,
-            53
-        ]
-    },
-    {
-        "MovieName": "Greta",
-        "Overview": "A young woman returns an elderly widow\u2019s lost purse, leading to an unlikely relationship between the two \u2014 until the young woman discovers her elder might not be all that she seems.",
-        "Language": "en",
-        "Image": "\/6Lgk1OGexD0fU8QqDBQHcvEwd1Z.jpg",
-        "Genre": [
-            53,
-            9648
-        ]
-    },
-    {
-        "MovieName": "Extremely Wicked, Shockingly Evil and Vile",
-        "Overview": "A chronicle of the crimes of Ted Bundy, from the perspective of his longtime girlfriend, Elizabeth Kloepfer, who refused to believe the truth about him for years.",
-        "Language": "en",
-        "Image": "\/zSuJ3r5zr5T26tTxyygHhgkUAIM.jpg",
-        "Genre": [
-            80,
-            18,
             53
         ]
     },
@@ -106,16 +85,6 @@
         ]
     },
     {
-        "MovieName": "Teen Spirit",
-        "Overview": "A shy teenager living on the Isle of Wight dreams of pop stardom. With the help of an unlikely mentor, she enters a singing competition that will test her integrity, talent, and ambition.",
-        "Language": "en",
-        "Image": "\/aFPqJZ9vOcH7QroNxXV5wefX2qe.jpg",
-        "Genre": [
-            18,
-            10402
-        ]
-    },
-    {
         "MovieName": "Mary",
         "Overview": "A struggling family buys an old ship at auction with high hopes of starting a charter business, only to discover her horrifying secrets on the isolated open waters.",
         "Language": "en",
@@ -126,23 +95,13 @@
         ]
     },
     {
-        "MovieName": "Porno para principiantes",
-        "Overview": "A porn director, a fugitive, a priest. The life of Victor X.",
-        "Language": "es",
-        "Image": "\/7A7vGnJy16vFyRVUPDJx9GGkrpk.jpg",
+        "MovieName": "Teen Spirit",
+        "Overview": "A shy teenager living on the Isle of Wight dreams of pop stardom. With the help of an unlikely mentor, she enters a singing competition that will test her integrity, talent, and ambition.",
+        "Language": "en",
+        "Image": "\/aFPqJZ9vOcH7QroNxXV5wefX2qe.jpg",
         "Genre": [
-            35
-        ]
-    },
-    {
-        "MovieName": "Punto muerto",
-        "Overview": "A writer must solve a crime which is similar to the end of his next and yet unpublished novel, making him the prime suspect.",
-        "Language": "es",
-        "Image": "\/kXIuv0gr4DivpzjVhTe7eTwFe1T.jpg",
-        "Genre": [
-            80,
-            9648,
-            53
+            18,
+            10402
         ]
     },
     {
@@ -160,12 +119,22 @@
         "Genre": []
     },
     {
-        "MovieName": "The Moneychanger",
-        "Overview": "Set largely in Montevideo, The Moneychanger stars Daniel Hendler as Humberto Brause, who takes advantage of Uruguay\u2019s poor economy by specializing in offshore money laundering. Spanning the fifties to the seventies, the film follows Humberto as he gets increasingly in over his head with multiple shady book-cooking schemes throughout South America, leading to an ultimate life-or-death decision.",
+        "MovieName": "Punto muerto",
+        "Overview": "A writer must solve a crime which is similar to the end of his next and yet unpublished novel, making him the prime suspect.",
         "Language": "es",
-        "Image": "\/dUwpZl6QJUFoqkhEcu10Hzbd5Bn.jpg",
+        "Image": "\/kXIuv0gr4DivpzjVhTe7eTwFe1T.jpg",
         "Genre": [
-            35,
+            80,
+            9648,
+            53
+        ]
+    },
+    {
+        "MovieName": "Rosita",
+        "Overview": "",
+        "Language": "es",
+        "Image": "\/rSW6LL10XgeE7AVtqJJofUzb17A.jpg",
+        "Genre": [
             18
         ]
     },
@@ -177,6 +146,32 @@
         "Genre": [
             35
         ]
+    },
+    {
+        "MovieName": "Porno para principiantes",
+        "Overview": "A porn director, a fugitive, a priest. The life of Victor X.",
+        "Language": "es",
+        "Image": "\/7A7vGnJy16vFyRVUPDJx9GGkrpk.jpg",
+        "Genre": [
+            35
+        ]
+    },
+    {
+        "MovieName": "The Moneychanger",
+        "Overview": "Set largely in Montevideo, The Moneychanger stars Daniel Hendler as Humberto Brause, who takes advantage of Uruguay\u2019s poor economy by specializing in offshore money laundering. Spanning the fifties to the seventies, the film follows Humberto as he gets increasingly in over his head with multiple shady book-cooking schemes throughout South America, leading to an ultimate life-or-death decision.",
+        "Language": "es",
+        "Image": "\/dUwpZl6QJUFoqkhEcu10Hzbd5Bn.jpg",
+        "Genre": [
+            35,
+            18
+        ]
+    },
+    {
+        "MovieName": "My Wife's Secret Life",
+        "Overview": "Kent devises a revenge plan against Laurel, whose husband he believed ruined his marriage, however, his plan becomes deadly once Laurel decides to fight back.",
+        "Language": "en",
+        "Image": "\/mYqdyc7kme4jUqCmA0wi8gJSlHM.jpg",
+        "Genre": []
     },
     {
         "MovieName": "Evelyn",
@@ -197,22 +192,20 @@
         ]
     },
     {
-        "MovieName": "Bruja",
+        "MovieName": "Dolores, un d\u00eda se qued\u00f3 sola...",
         "Overview": "",
         "Language": "es",
-        "Image": "\/zYrNIF1Qe2xPcmcjZyzsCVRqMiS.jpg",
-        "Genre": [
-            18,
-            14,
-            53
-        ]
+        "Image": "\/3YfXXu6v37ggeQKcGSKNmrqSNm9.jpg",
+        "Genre": []
     },
     {
-        "MovieName": "Killing the Dead",
-        "Overview": "Paraguay 1978, during Stroessner\u2019s dictatorship, Pastor and Dionisio work burying bodies illicitly. In Argentina, the World Cup is being held. One morning, among the bodies, they find Mario, who is still alive. They know they must kill him but the problem is: in spite of what they are doing, they have never killed anyone before. A storm indicates that the winter is coming while the destiny of the three men is determined during the World Cup final. Both Pastor and Dionisio are the last link of a chain in the terrible system that has as a result in all the missing people.",
+        "MovieName": "Claudia",
+        "Overview": "Claudia is a workaholic event planner. When a colleague asks her to plan her wedding, she starts to notice a lot of issues with the ceremony and changes it's location on the last minute, unfolding on a series of unfortunate events.",
         "Language": "es",
-        "Image": "\/2YJmFecKDIBQHJ7RmMQ8nCDZyRv.jpg",
-        "Genre": []
+        "Image": "\/hmoUclDEnDkbgorX9LzLL6c6EFk.jpg",
+        "Genre": [
+            35
+        ]
     },
     {
         "MovieName": "El Juego de las Llaves",
@@ -232,29 +225,23 @@
         ]
     },
     {
-        "MovieName": "My Wife's Secret Life",
-        "Overview": "Kent devises a revenge plan against Laurel, whose husband he believed ruined his marriage, however, his plan becomes deadly once Laurel decides to fight back.",
-        "Language": "en",
-        "Image": "\/mYqdyc7kme4jUqCmA0wi8gJSlHM.jpg",
-        "Genre": []
-    },
-    {
-        "MovieName": "Shalom Taiw\u00e1n",
-        "Overview": "The financial problems of a Jewish community that leads in a neighborhood in the city of Buenos Aires are a nightmare for Rabbi Aaron. His excessive generosity to help threatens the work he is carrying out. Neither the optimism nor the industriousness of the Rabbi, nor his trip to New York for donations, is enough to pay a debt he contracted and also must try not to ruin his committed family harmony.  Cornered and covered with overwhelm, Aaron tries a last resort: embark on a trip to the Far East to get donations. The arrival in Taiwan is revealing in every way: far from known traditions, Rabbi Aaron must face multiple challenges to achieve his goal.",
-        "Language": "es",
-        "Image": "\/hYvGRM0v7yXdBiLpsOR87lPBWAE.jpg",
-        "Genre": [
-            35,
-            18
-        ]
-    },
-    {
         "MovieName": "Magal\u00ed",
         "Overview": "",
         "Language": "es",
         "Image": "\/qxOe63Q5Iqv6ggEsq7AL7DCELfY.jpg",
         "Genre": [
             18,
+            53
+        ]
+    },
+    {
+        "MovieName": "Bruja",
+        "Overview": "",
+        "Language": "es",
+        "Image": "\/zYrNIF1Qe2xPcmcjZyzsCVRqMiS.jpg",
+        "Genre": [
+            18,
+            14,
             53
         ]
     },
@@ -268,28 +255,20 @@
         ]
     },
     {
-        "MovieName": "Claudia",
-        "Overview": "Claudia is a workaholic event planner. When a colleague asks her to plan her wedding, she starts to notice a lot of issues with the ceremony and changes it's location on the last minute, unfolding on a series of unfortunate events.",
+        "MovieName": "Killing the Dead",
+        "Overview": "Paraguay 1978, during Stroessner\u2019s dictatorship, Pastor and Dionisio work burying bodies illicitly. In Argentina, the World Cup is being held. One morning, among the bodies, they find Mario, who is still alive. They know they must kill him but the problem is: in spite of what they are doing, they have never killed anyone before. A storm indicates that the winter is coming while the destiny of the three men is determined during the World Cup final. Both Pastor and Dionisio are the last link of a chain in the terrible system that has as a result in all the missing people.",
         "Language": "es",
-        "Image": "\/hmoUclDEnDkbgorX9LzLL6c6EFk.jpg",
-        "Genre": [
-            35
-        ]
-    },
-    {
-        "MovieName": "La cima del mundo",
-        "Overview": "",
-        "Language": "es",
-        "Image": "\/1GJN99A8rxI7W6E70obQOLqGroS.jpg",
+        "Image": "\/2YJmFecKDIBQHJ7RmMQ8nCDZyRv.jpg",
         "Genre": []
     },
     {
-        "MovieName": "Ser\u00e9 Millones",
-        "Overview": "",
+        "MovieName": "El retiro",
+        "Overview": "Rodolfo (Luis Brandoni) is a retired doctor. Since he was widowed a few years ago, he lives alone in his house. For an unexpected event, his daughter Laura (Nancy Dupl\u00e1a) with whom he barely speaks, needs to move with him for a few days. The coexistence will bring old discussions to the table, wounds that did not heal and the opportunity for them to connect again.",
         "Language": "es",
-        "Image": "\/eomlGT7fOImVHSPWpN1mZznTNXc.jpg",
+        "Image": "\/24MYWeCYSgRI7ZjkKk31OqURhqU.jpg",
         "Genre": [
-            99
+            35,
+            18
         ]
     },
     {
@@ -318,23 +297,11 @@
         "Genre": []
     },
     {
-        "MovieName": "Sisters of the Trees",
+        "MovieName": "La cima del mundo",
         "Overview": "",
-        "Language": "hi",
-        "Image": "\/3ImOcv9kFT7DUqkoVVnP5MiOuUP.jpg",
-        "Genre": [
-            99
-        ]
-    },
-    {
-        "MovieName": "El retiro",
-        "Overview": "Rodolfo (Luis Brandoni) is a retired doctor. Since he was widowed a few years ago, he lives alone in his house. For an unexpected event, his daughter Laura (Nancy Dupl\u00e1a) with whom he barely speaks, needs to move with him for a few days. The coexistence will bring old discussions to the table, wounds that did not heal and the opportunity for them to connect again.",
         "Language": "es",
-        "Image": "\/24MYWeCYSgRI7ZjkKk31OqURhqU.jpg",
-        "Genre": [
-            35,
-            18
-        ]
+        "Image": "\/1GJN99A8rxI7W6E70obQOLqGroS.jpg",
+        "Genre": []
     },
     {
         "MovieName": "Esp\u00e8re de m\u00eame pour toi",
@@ -346,11 +313,22 @@
         ]
     },
     {
-        "MovieName": "Deep Water",
-        "Overview": "A modern day look at family through the eyes of three women as they work to balance work and life pressures.",
-        "Language": "en",
-        "Image": "\/ucRAjZyZQxGQ70BLIg1drM372md.jpg",
-        "Genre": []
+        "MovieName": "Sisters of the Trees",
+        "Overview": "",
+        "Language": "hi",
+        "Image": "\/3ImOcv9kFT7DUqkoVVnP5MiOuUP.jpg",
+        "Genre": [
+            99
+        ]
+    },
+    {
+        "MovieName": "Ser\u00e9 Millones",
+        "Overview": "",
+        "Language": "es",
+        "Image": "\/eomlGT7fOImVHSPWpN1mZznTNXc.jpg",
+        "Genre": [
+            99
+        ]
     },
     {
         "MovieName": "And Then We Marched",
@@ -360,17 +338,6 @@
         "Genre": []
     },
     {
-        "MovieName": "Margen de error",
-        "Overview": "Iris' quiet and peaceful life begins to change dramatically when she hosts Maia, her friend's daughter. When Iris realizes that Maia is in love with an older woman, she begins to wonder if she herself might be that woman.",
-        "Language": "es",
-        "Image": "\/wHP2GZcIQN42L8Gpb8m8znxOt6O.jpg",
-        "Genre": [
-            35,
-            18,
-            10749
-        ]
-    },
-    {
         "MovieName": "Let\u2019s Take A Walk",
         "Overview": "",
         "Language": "es",
@@ -378,10 +345,10 @@
         "Genre": []
     },
     {
-        "MovieName": "Dolores, un d\u00eda se qued\u00f3 sola...",
+        "MovieName": "\u4e2d\u5b5a 61. La verdad interior",
         "Overview": "",
         "Language": "es",
-        "Image": "\/3YfXXu6v37ggeQKcGSKNmrqSNm9.jpg",
+        "Image": "\/2bSFRQzBhaWABIBBgXoxoGoHmZS.jpg",
         "Genre": []
     },
     {
