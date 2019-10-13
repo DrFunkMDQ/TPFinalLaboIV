@@ -26,19 +26,19 @@
             <div class="form-group row"> <label for="" class="col-2 col-form-label">Name<br></label>
               <div class="col-10">
                 <input type="text" class="form-control" id="name" name="name" placeholder="Name" required="required"> </div>
-            </div>
+              </div>
             <div class="form-group row"> <label for="" class="col-2 col-form-label">Address<br></label>
               <div class="col-10">
                 <input type="text" class="form-control" id="address" name="address" placeholder="Address" required="required"> </div>
-            </div>
+              </div>
             <div class="form-group row"> <label for="" class="col-2 col-form-label">Capacity<br></label>
               <div class="col-10">
                 <input type="number" class="form-control" id="" name="capacity" placeholder="Capacity" min="1"> </div>
-            </div>
+              </div>
             <div class="form-group row"> <label for="" class="col-2 col-form-label">Ticket Price<br></label>
               <div class="col-10">
                 <input type="number" class="form-control" id="" name="ticketPrice" placeholder="Ticket Price" min="1"> </div>
-            </div>
+              </div>
             <button type="submit" class="btn btn-light">New Cinema</button>
           </form>
         </div>

@@ -16,7 +16,6 @@
 
         public function GetAll(){
             $this->RetrieveData();
-
             return $this->cinemaList;
         }
 
@@ -36,19 +35,16 @@
             file_put_contents('Data/Cinemas.json', $jsonContent);
         }
 
-        public function Remove($cinemaName){
-            if($this->searchByName($cinemaName) != null){                
-                $cinemaList = $this->GetAll();
-                foreach ($cinemaList as $cinema) {                                                         
-                    if($cinema->getCinemaName() == $cinemaName){                         
-                        $key = array_search($cinema, $cinemaList); 
-                        var_dump($key);                      
-                        unset($this->cinemaList[$key]);
-                    }
-                }                
-                $this->SaveData();
-
-            }
+        public function Remove($myCinema){ ////modificar y pasarle el objeto a borrar
+                            
+            $cinemaList = $this->GetAll();
+            foreach ($cinemaList as $cinema) {                                                         
+                if($cinema->GetCinemaName() == $myCinema->GetCinemaName()){                         
+                    $key = array_search($cinema, $cinemaList);                                           
+                    unset($this->cinemaList[$key]);
+                }
+            }                
+            $this->SaveData();            
         }
 
         public function searchByName($cinemaName){ /// Se puede hacer que reotorne un boolean y no el cine

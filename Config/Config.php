@@ -10,6 +10,13 @@ define("API_KEY", "3a826f6a0e7fb42cdf899bbba2e08621");
 define("W500_IMG", "http://image.tmdb.org/t/p/w500");
 define("W154_IMG", "http://image.tmdb.org/t/p/w154");
 define("W342_IMG", "http://image.tmdb.org/t/p/w342");
+
+//PDO
+/*define("ROOT", dirname(__DIR__) . "/");
+define("DB_HOST", "localhost");
+define("DB_NAME", "University");
+define("DB_USER", "root");
+define("DB_PASS", "");*/
 ?>
 
 

@@ -7,7 +7,7 @@
     {
         function Add(Cinema $cinema);
         function GetAll();
-        function Remove($cinemaName);
+        function Remove(Cinema $cinemaName);//cambiar por un objeto cinema
         function SaveData();
         function RetrieveData();
     }
