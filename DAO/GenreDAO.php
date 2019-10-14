@@ -48,15 +48,15 @@
             }
         }
         
-        private function getGenres(){
+        private function GetGenres(){
             $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=3a826f6a0e7fb42cdf899bbba2e08621&language=en-US");
             $result = json_decode($json, true);
             $GenreList = $result['genres'];
             return $GenreList;   
         }
 
-        public function saveGenresFromAPI(){
-            $this->GenreList = $this->getGenres();
+        public function SaveGenresFromAPI(){
+            $this->GenreList = $this->GetGenres();
             $this->SaveData();
         }
 

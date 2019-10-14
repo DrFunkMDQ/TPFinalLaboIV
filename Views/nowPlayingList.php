@@ -1,18 +1,20 @@
 <?php
   include('adminNav.php');
-  //var_dump($this->genreList);
+  //$this->GetMoviesByGenre("Action");
 ?>
 <table id="tablePreview" class="table table-striped table-hover table-borderless">
   <thead>
+  <form  method="post">
   <div class="btn-group pull-right px-2">
     <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filter by Genre </button>
     <div class="dropdown-menu"> 
     <?php foreach ($this->genreList as $genre){?>
-      <a class="dropdown-item" href="#"><?php echo $genre->getName(); ?></a>
+      <button class="dropdown-item" type="submit" name="<?php echo $genre->getName(); ?>" onclick = "this.form.action = '<?php echo FRONT_ROOT ?>Movie/ListMoviesByGenre'" value="<?php echo $genre->getName(); ?>"><?php echo $genre->getName(); ?></button>
       <div class="dropdown-divider"></div>
       <?php } ?>
     </div>
   </div>
+  </form>
     <tr>
       <th>Name</th>
       <th>Overview</th>
