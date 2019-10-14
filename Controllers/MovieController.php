@@ -29,8 +29,10 @@
         }
 
         private function PrepareMovieList(){
-            $this->firstMovie = array_shift($this->movieList);
-            $this->genreList = $this->genreDAO->GetAll();
+            //if( sizeof($this->movieList) > 0 ){
+                $this->firstMovie = array_shift($this->movieList);
+                $this->genreList = $this->genreDAO->GetAll();
+            //} 
         }
 
         public function GetMoviesFromApi(){
@@ -77,13 +79,10 @@
             $this->AssignGenreToMovies();
             $genreList = array();
             foreach($this->movieList as $movie){
-                //var_dump($movie);
                 $valid = false;
                 foreach($movie->getGenre() as $movieGenre){
-                    //var_dump($movieGenre);
                     if($movieGenre == $genre)
                         $valid = true;
-                    //var_dump($valid);
                 }
                 if($valid)
                     array_push($genreList, $movie);

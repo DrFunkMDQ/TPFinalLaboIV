@@ -2,6 +2,7 @@
   include('adminNav.php');
   //$this->GetMoviesByGenre("Action");
 ?>
+<div class="container-fluid px-5">
 <table id="tablePreview" class="table table-striped table-hover table-borderless">
   <thead>
   <form  method="post">
@@ -15,7 +16,7 @@
     </div>
   </div>
   </form>
-    <tr>
+    <tr class= "my-2 rounded bg-dark text-uppercase text-light">
       <th>Name</th>
       <th>Overview</th>
       <th>Genres</th>
@@ -52,6 +53,7 @@
     <?php }?>
   </tbody>
 </table>
+</div>
 <?php
   include('movieCarousel.php');
 ?>
