@@ -1,14 +1,14 @@
 [
     {
-        "CinemaName": "Cinema 2",
-        "Address": "Direccion 3",
-        "Capacity": "1",
-        "TicketPrice": "1"
-    },
-    {
         "CinemaName": "cinema 1",
         "Address": "calle 2",
         "Capacity": "111",
         "TicketPrice": "111111"
+    },
+    {
+        "CinemaName": "2",
+        "Address": "2",
+        "Capacity": "2",
+        "TicketPrice": "2"
     }
 ]
