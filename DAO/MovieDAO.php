@@ -56,7 +56,7 @@
             }
         }
         
-        private function getMovies(){
+        private function GetMovies(){
             $json = file_get_contents("https://api.themoviedb.org/3/movie/now_playing?api_key=".API_KEY."&region=AR");
             $result = json_decode($json, true);
             $movieList = $result['results'];
@@ -70,10 +70,11 @@
             return $movieList;   
         }
 
-        public function saveMoviesFromAPI(){
-            $this->MovieList = $this->getMovies();
+        public function SaveMoviesFromAPI(){
+            $this->MovieList = $this->GetMovies();
             $this->SaveData();
         }
+
 
     }
 ?>

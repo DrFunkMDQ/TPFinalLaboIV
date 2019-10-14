@@ -1,19 +1,22 @@
 <?php
   include('adminNav.php');
-  //var_dump($this->genreList);
+  //$this->GetMoviesByGenre("Action");
 ?>
+<div class="container-fluid px-5">
 <table id="tablePreview" class="table table-striped table-hover table-borderless">
   <thead>
+  <form  method="post">
   <div class="btn-group pull-right px-2">
     <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filter by Genre </button>
     <div class="dropdown-menu"> 
     <?php foreach ($this->genreList as $genre){?>
-      <a class="dropdown-item" href="#"><?php echo $genre->getName(); ?></a>
+      <button class="dropdown-item" type="submit" name="<?php echo $genre->getName(); ?>" onclick = "this.form.action = '<?php echo FRONT_ROOT ?>Movie/ListMoviesByGenre'" value="<?php echo $genre->getName(); ?>"><?php echo $genre->getName(); ?></button>
       <div class="dropdown-divider"></div>
       <?php } ?>
     </div>
   </div>
-    <tr>
+  </form>
+    <tr class= "my-2 rounded bg-dark text-uppercase text-light">
       <th>Name</th>
       <th>Overview</th>
       <th>Genres</th>
@@ -50,6 +53,7 @@
     <?php }?>
   </tbody>
 </table>
+</div>
 <?php
   include('movieCarousel.php');
 ?>
