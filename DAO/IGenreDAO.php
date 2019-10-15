@@ -8,7 +8,5 @@
         function Add(Genre $Genre);
         function GetAll();
         function Remove();
-        function SaveData();
-        function RetrieveData();
     }
 ?>

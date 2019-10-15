@@ -4,6 +4,7 @@
 
         //Attributes
 
+        private $id_movie;
         private $movie_name;
         private $overview;
         private $language;
@@ -130,6 +131,26 @@
         public function setTrailer($trailer)
         {
                 $this->trailer = $trailer;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of id_movie
+         */ 
+        public function getIdmovie()
+        {
+                return $this->id_movie;
+        }
+
+        /**
+         * Set the value of id_movie
+         *
+         * @return  self
+         */ 
+        public function setIdmovie($id_movie)
+        {
+                $this->id_movie = $id_movie;
 
                 return $this;
         }

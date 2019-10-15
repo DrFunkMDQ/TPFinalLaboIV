@@ -27,11 +27,10 @@
                 $valuesArray["Language"] = $Movie['original_language'];
                 $valuesArray["Image"] = $Movie['poster_path'];
                 $valuesArray["Genre"] = $Movie['genre_ids'];
+                
                 array_push($arrayToEncode, $valuesArray);
             }
-
             $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
-            
             file_put_contents('Data/Movies.json', $jsonContent);
         }
 

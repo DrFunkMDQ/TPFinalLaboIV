@@ -30,6 +30,16 @@
         ]
     },
     {
+        "MovieName": "Scary Stories to Tell in the Dark",
+        "Overview": "The shadow of the Bellows family has loomed large in the small town of Mill Valley for generations. It's in a mansion that young Sarah Bellows turns her tortured life and horrible secrets into a series of scary stories. These terrifying tales soon have a way of becoming all too real for a group of unsuspecting teens who stumble upon Sarah's spooky home.",
+        "Language": "en",
+        "Image": "\/d0FWbzrmm99BTfUqf1Lbjl2zu3S.jpg",
+        "Genre": [
+            27,
+            53
+        ]
+    },
+    {
         "MovieName": "Midsommar",
         "Overview": "A young couple travels to Sweden to visit their friend\u2019s rural hometown and attend its mid-summer festival. What begins as an idyllic retreat quickly descends into an increasingly violent and bizarre competition at the hands of a pagan cult.",
         "Language": "en",
@@ -39,17 +49,6 @@
             27,
             9648,
             53
-        ]
-    },
-    {
-        "MovieName": "Maleficent: Mistress of Evil",
-        "Overview": "Maleficent and her goddaughter Aurora begin to question the complex family ties that bind them as they are pulled in different directions by impending nuptials, unexpected allies, and dark new forces at play.",
-        "Language": "en",
-        "Image": "\/tBuabjEqxzoUBHfbyNbd8ulgy5j.jpg",
-        "Genre": [
-            12,
-            14,
-            10751
         ]
     },
     {
@@ -65,13 +64,14 @@
         ]
     },
     {
-        "MovieName": "Scary Stories to Tell in the Dark",
-        "Overview": "The shadow of the Bellows family has loomed large in the small town of Mill Valley for generations. It's in a mansion that young Sarah Bellows turns her tortured life and horrible secrets into a series of scary stories. These terrifying tales soon have a way of becoming all too real for a group of unsuspecting teens who stumble upon Sarah's spooky home.",
+        "MovieName": "Dora and the Lost City of Gold",
+        "Overview": "Dora, a girl who has spent most of her life exploring the jungle with her parents, now must navigate her most dangerous adventure yet: high school. Always the explorer, Dora quickly finds herself leading Boots (her best friend, a monkey), Diego, and a rag tag group of teens on an adventure to save her parents and solve the impossible mystery behind a lost Inca civilization.",
         "Language": "en",
-        "Image": "\/d0FWbzrmm99BTfUqf1Lbjl2zu3S.jpg",
+        "Image": "\/xvYCZ740XvngXK0FNeSNVTJJJ5v.jpg",
         "Genre": [
-            27,
-            53
+            12,
+            35,
+            10751
         ]
     },
     {
@@ -85,10 +85,31 @@
         ]
     },
     {
+        "MovieName": "Greta",
+        "Overview": "A young woman returns an elderly widow\u2019s lost purse, leading to an unlikely relationship between the two \u2014 until the young woman discovers her elder might not be all that she seems.",
+        "Language": "en",
+        "Image": "\/6Lgk1OGexD0fU8QqDBQHcvEwd1Z.jpg",
+        "Genre": [
+            53,
+            9648
+        ]
+    },
+    {
+        "MovieName": "Extremely Wicked, Shockingly Evil and Vile",
+        "Overview": "A chronicle of the crimes of Ted Bundy, from the perspective of his longtime girlfriend, Elizabeth Kloepfer, who refused to believe the truth about him for years.",
+        "Language": "en",
+        "Image": "\/zSuJ3r5zr5T26tTxyygHhgkUAIM.jpg",
+        "Genre": [
+            80,
+            18,
+            53
+        ]
+    },
+    {
         "MovieName": "Mary",
         "Overview": "A struggling family buys an old ship at auction with high hopes of starting a charter business, only to discover her horrifying secrets on the isolated open waters.",
         "Language": "en",
-        "Image": "\/7Oot7aPXhksjRlKNdZF6mflB0Ur.jpg",
+        "Image": "\/cdcyHzqqBrzPGJFVH29ONnzsV6I.jpg",
         "Genre": [
             18,
             27
@@ -105,20 +126,6 @@
         ]
     },
     {
-        "MovieName": "\u00bfPara qu\u00e9 sirve un zeide?",
-        "Overview": "",
-        "Language": "es",
-        "Image": "\/7P7IHoSjV35SGuVSy5wwb9pNVHl.jpg",
-        "Genre": []
-    },
-    {
-        "MovieName": "Karaoke Bowie",
-        "Overview": "",
-        "Language": "es",
-        "Image": "\/ey2Eq7CFysYwdUlDhmd18uhcxPC.jpg",
-        "Genre": []
-    },
-    {
         "MovieName": "Punto muerto",
         "Overview": "A writer must solve a crime which is similar to the end of his next and yet unpublished novel, making him the prime suspect.",
         "Language": "es",
@@ -127,15 +134,6 @@
             80,
             9648,
             53
-        ]
-    },
-    {
-        "MovieName": "Rosita",
-        "Overview": "",
-        "Language": "es",
-        "Image": "\/rSW6LL10XgeE7AVtqJJofUzb17A.jpg",
-        "Genre": [
-            18
         ]
     },
     {
@@ -225,6 +223,13 @@
         ]
     },
     {
+        "MovieName": "Deep Water",
+        "Overview": "A modern day look at family through the eyes of three women as they work to balance work and life pressures.",
+        "Language": "en",
+        "Image": "\/ucRAjZyZQxGQ70BLIg1drM372md.jpg",
+        "Genre": []
+    },
+    {
         "MovieName": "Magal\u00ed",
         "Overview": "",
         "Language": "es",
@@ -252,6 +257,16 @@
         "Image": "\/6sGbhSwfbI6KrD6nWKXwIPBXluA.jpg",
         "Genre": [
             53
+        ]
+    },
+    {
+        "MovieName": "Shalom Taiw\u00e1n",
+        "Overview": "The financial problems of a Jewish community that leads in a neighborhood in the city of Buenos Aires are a nightmare for Rabbi Aaron. His excessive generosity to help threatens the work he is carrying out. Neither the optimism nor the industriousness of the Rabbi, nor his trip to New York for donations, is enough to pay a debt he contracted and also must try not to ruin his committed family harmony.  Cornered and covered with overwhelm, Aaron tries a last resort: embark on a trip to the Far East to get donations. The arrival in Taiwan is revealing in every way: far from known traditions, Rabbi Aaron must face multiple challenges to achieve his goal.",
+        "Language": "es",
+        "Image": "\/hYvGRM0v7yXdBiLpsOR87lPBWAE.jpg",
+        "Genre": [
+            35,
+            18
         ]
     },
     {
@@ -331,6 +346,17 @@
         ]
     },
     {
+        "MovieName": "Margen de error",
+        "Overview": "Iris' quiet and peaceful life begins to change dramatically when she hosts Maia, her friend's daughter. When Iris realizes that Maia is in love with an older woman, she begins to wonder if she herself might be that woman.",
+        "Language": "es",
+        "Image": "\/wHP2GZcIQN42L8Gpb8m8znxOt6O.jpg",
+        "Genre": [
+            35,
+            18,
+            10749
+        ]
+    },
+    {
         "MovieName": "And Then We Marched",
         "Overview": "",
         "Language": "en",
@@ -338,24 +364,10 @@
         "Genre": []
     },
     {
-        "MovieName": "Let\u2019s Take A Walk",
-        "Overview": "",
-        "Language": "es",
-        "Image": "\/zrq53T5pFO0so2c7z2gzfwJZJ1K.jpg",
-        "Genre": []
-    },
-    {
         "MovieName": "\u4e2d\u5b5a 61. La verdad interior",
         "Overview": "",
         "Language": "es",
         "Image": "\/2bSFRQzBhaWABIBBgXoxoGoHmZS.jpg",
-        "Genre": []
-    },
-    {
-        "MovieName": "New Dimensions of Dialogue",
-        "Overview": "",
-        "Language": "xx",
-        "Image": "\/rTnKeMyT4akdvjJOVL5geYeHdar.jpg",
         "Genre": []
     }
 ]
