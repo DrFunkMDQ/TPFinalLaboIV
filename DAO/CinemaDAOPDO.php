@@ -3,11 +3,11 @@
 
     use DAO\Connection as Connection;
     use \Exception as Exception;
-    //use DAO\ICinemaDAOPDO as ICinemaDAOPDO;
+    use DAO\ICinemaDAO as ICinemaDAO;
     use Models\Cinema as Cinema;
     
 
-    class CinemaDAOPDO
+    class CinemaDAOPDO implements ICinemaDAO
     {
         private $cinemaList = array();
         private $connection;

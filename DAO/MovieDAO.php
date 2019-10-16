@@ -2,11 +2,19 @@
     namespace DAO;
 
     use DAO\IMovieDAO as IMovieDAO;
+    use DAO\GenreDAO as GenreDAO;
     use Models\Movie as Movie;
+    use Models\Genre as Genre;
 
     class MovieDAO implements IMovieDAO
     {
         private $MovieList = array();
+        private $genreDAO;
+
+        public function __construct(){
+            $this->genreDAO = new GenreDAO(); 
+
+        }
 
         public function Add(Movie $Movie){
             $this->RetrieveData();
@@ -27,11 +35,10 @@
                 $valuesArray["Language"] = $Movie['original_language'];
                 $valuesArray["Image"] = $Movie['poster_path'];
                 $valuesArray["Genre"] = $Movie['genre_ids'];
+                
                 array_push($arrayToEncode, $valuesArray);
             }
-
             $jsonContent = json_encode($arrayToEncode, JSON_PRETTY_PRINT);
-            
             file_put_contents('Data/Movies.json', $jsonContent);
         }
 
@@ -45,15 +52,16 @@
                 $jsonContent = file_get_contents('Data/Movies.json');
                 $arrayToDecode = ($jsonContent) ? json_decode($jsonContent, true) : array();
                 foreach($arrayToDecode as $jsonMovie){
-                        $Movie = new Movie();
-                        $Movie->setMovieName($jsonMovie["MovieName"]);
-                        $Movie->setOverview($jsonMovie["Overview"]);
-                        $Movie->setLanguage($jsonMovie["Language"]);
-                        $Movie->setImage($jsonMovie["Image"]);
-                        $Movie->setGenre($jsonMovie["Genre"]);
-                        array_push($this->MovieList, $Movie);             
+                    $Movie = new Movie();
+                    $Movie->setMovieName($jsonMovie["MovieName"]);
+                    $Movie->setOverview($jsonMovie["Overview"]);
+                    $Movie->setLanguage($jsonMovie["Language"]);
+                    $Movie->setImage($jsonMovie["Image"]);
+                    $Movie->setGenre($jsonMovie["Genre"]);
+                    array_push($this->MovieList, $Movie);
                 }
             }
+            $this->MovieList = $this->genreDAO->GenreToMovies($this->MovieList);
         }
         
         private function GetMovies(){

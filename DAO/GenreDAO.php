@@ -60,5 +60,56 @@
             $this->SaveData();
         }
 
+        
+        public function GenreToMovies(Array $movieList){
+            foreach($movieList as $movie){
+                $genreIdList = $movie->GetGenre();
+                $genreNameList = array();
+                foreach($genreIdList as $genre){
+                    $genre = $this->ReturnGenre($genre);
+                    array_push($genreNameList, $genre);
+                }
+                $movie->SetGenre($genreNameList);   
+            }
+            return $movieList;
+        }
+
+        private function ReturnGenre($id){
+            $genre = null;
+            $genreList = $this->GenreListToArray($this->GetAll());
+            if(array_key_exists($id, $genreList)){
+                $genre = $genreList[$id];
+            }
+            return $genre;
+        }
+
+        private function GenreListToArray($genreList){
+            $genreArray = array();
+            foreach($genreList as $genre){
+                $genreArray[$genre->getId()] = $genre->getName();
+            }
+            return $genreArray;
+        }
+
+        public function MoviesByGenre(string $genre, Array $movieList){
+            $genreList = array();
+            foreach($movieList as $movie){
+                $valid = false;
+                foreach($movie->getGenre() as $movieGenre){
+                    if($movieGenre == $genre)
+                        $valid = true;
+                }
+                if($valid)
+                    array_push($genreList, $movie);
+            }                        
+            $movieList = $genreList;
+            return $movieList;
+        }
+
+
+
+
+
+
     }
 ?>

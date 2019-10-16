@@ -6,9 +6,15 @@
         "TicketPrice": "111111"
     },
     {
-        "CinemaName": "2",
-        "Address": "2",
+        "CinemaName": "test",
+        "Address": "fasfasf",
         "Capacity": "2",
         "TicketPrice": "2"
+    },
+    {
+        "CinemaName": "e22eqwe",
+        "Address": "eweew",
+        "Capacity": "111",
+        "TicketPrice": "11"
     }
 ]

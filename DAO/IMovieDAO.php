@@ -8,7 +8,5 @@
         function Add(Movie $Movie);
         function GetAll();
         function Remove();
-        function SaveData();
-        function RetrieveData();
     }
 ?>

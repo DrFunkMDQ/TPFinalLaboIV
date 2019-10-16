@@ -1,8 +1,21 @@
 <?php
-            use Controllers\MovieController as MovieController;
+            require "../Config/Autoload.php";
+            require "../Config/Config.php";
             
-            $movieController = new MovieController();
-            $movieController->GetMoviesByGenre("Action");
+            use Config\Autoload as Autoload;
+            use Config\Router 	as Router;
+            use Config\Request 	as Request;
+                    
+            Autoload::start();
+            use Controllers\MovieController as MovieController;
+            use DAO\MovieDAOPDO as MovieDAOPDO; 
+            use DAO\MovieDAO as MovieDAO; 
+            use Models\Movie as Movie;
+
+
+            
+            //$movieController = new MovieController();
+            //$movieController->GetMoviesByGenre("Action");
 
             //$json = file_get_contents("https://api.themoviedb.org/3/movie/now_playing?api_key=3a826f6a0e7fb42cdf899bbba2e08621");
             //$result = json_decode($json, true);
@@ -13,6 +26,17 @@
             //$json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=3a826f6a0e7fb42cdf899bbba2e08621&language=es-ES");
             //$result = json_decode($json, true);
             //var_dump($result);
+
+            //$list = array("1", "2", "3");
+
+            //$movie = new Movie();
+            //$movie->setMovieName("peli de prueba")->setOverview("test")->setLanguage("en")->setGenre($list)->setIdMovie(1);
+
+
+            $mdao = new MovieDAO();
+            $a = $mdao->GetAll();
+            var_dump($a);
+
 
 
 ?>

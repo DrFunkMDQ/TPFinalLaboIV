@@ -11,15 +11,6 @@
         ]
     },
     {
-        "MovieName": "It Chapter Two",
-        "Overview": "27 years after overcoming the malevolent supernatural entity Pennywise, the former members of the Losers' Club, who have grown up and moved away from Derry, are brought back together by a devastating phone call.",
-        "Language": "en",
-        "Image": "\/zfE0R94v1E8cuKAerbskfD3VfUt.jpg",
-        "Genre": [
-            27
-        ]
-    },
-    {
         "MovieName": "Gemini Man",
         "Overview": "Henry Brogen, an aging assassin tries to get out of the business but finds himself in the ultimate battle: fighting his own clone who is 25 years younger than him and at the peak of his abilities.",
         "Language": "en",
@@ -30,26 +21,12 @@
         ]
     },
     {
-        "MovieName": "Midsommar",
-        "Overview": "A young couple travels to Sweden to visit their friend\u2019s rural hometown and attend its mid-summer festival. What begins as an idyllic retreat quickly descends into an increasingly violent and bizarre competition at the hands of a pagan cult.",
+        "MovieName": "It Chapter Two",
+        "Overview": "27 years after overcoming the malevolent supernatural entity Pennywise, the former members of the Losers' Club, who have grown up and moved away from Derry, are brought back together by a devastating phone call.",
         "Language": "en",
-        "Image": "\/rXsh4MI6uyVgZBSSzXCfitJnVPy.jpg",
+        "Image": "\/zfE0R94v1E8cuKAerbskfD3VfUt.jpg",
         "Genre": [
-            18,
-            27,
-            9648,
-            53
-        ]
-    },
-    {
-        "MovieName": "Maleficent: Mistress of Evil",
-        "Overview": "Maleficent and her goddaughter Aurora begin to question the complex family ties that bind them as they are pulled in different directions by impending nuptials, unexpected allies, and dark new forces at play.",
-        "Language": "en",
-        "Image": "\/tBuabjEqxzoUBHfbyNbd8ulgy5j.jpg",
-        "Genre": [
-            12,
-            14,
-            10751
+            27
         ]
     },
     {
@@ -75,12 +52,14 @@
         ]
     },
     {
-        "MovieName": "La sombra del gallo",
-        "Overview": "",
-        "Language": "es",
-        "Image": null,
+        "MovieName": "Midsommar",
+        "Overview": "A young couple travels to Sweden to visit their friend\u2019s rural hometown and attend its mid-summer festival. What begins as an idyllic retreat quickly descends into an increasingly violent and bizarre competition at the hands of a pagan cult.",
+        "Language": "en",
+        "Image": "\/rXsh4MI6uyVgZBSSzXCfitJnVPy.jpg",
         "Genre": [
             18,
+            27,
+            9648,
             53
         ]
     },
@@ -88,10 +67,42 @@
         "MovieName": "Mary",
         "Overview": "A struggling family buys an old ship at auction with high hopes of starting a charter business, only to discover her horrifying secrets on the isolated open waters.",
         "Language": "en",
-        "Image": "\/7Oot7aPXhksjRlKNdZF6mflB0Ur.jpg",
+        "Image": "\/cdcyHzqqBrzPGJFVH29ONnzsV6I.jpg",
         "Genre": [
             18,
             27
+        ]
+    },
+    {
+        "MovieName": "Dora and the Lost City of Gold",
+        "Overview": "Dora, a girl who has spent most of her life exploring the jungle with her parents, now must navigate her most dangerous adventure yet: high school. Always the explorer, Dora quickly finds herself leading Boots (her best friend, a monkey), Diego, and a rag tag group of teens on an adventure to save her parents and solve the impossible mystery behind a lost Inca civilization.",
+        "Language": "en",
+        "Image": "\/xvYCZ740XvngXK0FNeSNVTJJJ5v.jpg",
+        "Genre": [
+            12,
+            35,
+            10751
+        ]
+    },
+    {
+        "MovieName": "Extremely Wicked, Shockingly Evil and Vile",
+        "Overview": "A chronicle of the crimes of Ted Bundy, from the perspective of his longtime girlfriend, Elizabeth Kloepfer, who refused to believe the truth about him for years.",
+        "Language": "en",
+        "Image": "\/zSuJ3r5zr5T26tTxyygHhgkUAIM.jpg",
+        "Genre": [
+            80,
+            18,
+            53
+        ]
+    },
+    {
+        "MovieName": "Greta",
+        "Overview": "A young woman returns an elderly widow\u2019s lost purse, leading to an unlikely relationship between the two \u2014 until the young woman discovers her elder might not be all that she seems.",
+        "Language": "en",
+        "Image": "\/6Lgk1OGexD0fU8QqDBQHcvEwd1Z.jpg",
+        "Genre": [
+            53,
+            9648
         ]
     },
     {
@@ -105,17 +116,68 @@
         ]
     },
     {
-        "MovieName": "\u00bfPara qu\u00e9 sirve un zeide?",
+        "MovieName": "La sombra del gallo",
         "Overview": "",
         "Language": "es",
-        "Image": "\/7P7IHoSjV35SGuVSy5wwb9pNVHl.jpg",
+        "Image": null,
+        "Genre": [
+            18,
+            53
+        ]
+    },
+    {
+        "MovieName": "Dolores, un d\u00eda se qued\u00f3 sola...",
+        "Overview": "",
+        "Language": "es",
+        "Image": "\/3YfXXu6v37ggeQKcGSKNmrqSNm9.jpg",
         "Genre": []
     },
     {
-        "MovieName": "Karaoke Bowie",
+        "MovieName": "Porno para principiantes",
+        "Overview": "A porn director, a fugitive, a priest. The life of Victor X.",
+        "Language": "es",
+        "Image": "\/7A7vGnJy16vFyRVUPDJx9GGkrpk.jpg",
+        "Genre": [
+            35
+        ]
+    },
+    {
+        "MovieName": "My Wife's Secret Life",
+        "Overview": "Kent devises a revenge plan against Laurel, whose husband he believed ruined his marriage, however, his plan becomes deadly once Laurel decides to fight back.",
+        "Language": "en",
+        "Image": "\/mYqdyc7kme4jUqCmA0wi8gJSlHM.jpg",
+        "Genre": []
+    },
+    {
+        "MovieName": "\u4e2d\u5b5a 61. La verdad interior",
         "Overview": "",
         "Language": "es",
-        "Image": "\/ey2Eq7CFysYwdUlDhmd18uhcxPC.jpg",
+        "Image": "\/2bSFRQzBhaWABIBBgXoxoGoHmZS.jpg",
+        "Genre": []
+    },
+    {
+        "MovieName": "Todo por el ascenso",
+        "Overview": "Nestor is extremely superstitious. This year, his team plays the ascent in Mendoza and prepares to travel with Rafa, his friend. But Fabian appears, a mufa. The ascent is in danger, unless they can prevent Fabian from reaching the stadium.",
+        "Language": "es",
+        "Image": "\/m2RqyjDP6YSOKtPn43Y034pAQAX.jpg",
+        "Genre": [
+            35
+        ]
+    },
+    {
+        "MovieName": "Evelyn",
+        "Overview": "Following his Oscar-nominated Virunga, Orlando von Einsiedel turns his camera on his own family as they attempt to cope with a devastating loss.",
+        "Language": "en",
+        "Image": "\/yLzSyTRKXj0ycyAn4YQDSxc4Zqh.jpg",
+        "Genre": [
+            99
+        ]
+    },
+    {
+        "MovieName": "Killing the Dead",
+        "Overview": "Paraguay 1978, during Stroessner\u2019s dictatorship, Pastor and Dionisio work burying bodies illicitly. In Argentina, the World Cup is being held. One morning, among the bodies, they find Mario, who is still alive. They know they must kill him but the problem is: in spite of what they are doing, they have never killed anyone before. A storm indicates that the winter is coming while the destiny of the three men is determined during the World Cup final. Both Pastor and Dionisio are the last link of a chain in the terrible system that has as a result in all the missing people.",
+        "Language": "es",
+        "Image": "\/2YJmFecKDIBQHJ7RmMQ8nCDZyRv.jpg",
         "Genre": []
     },
     {
@@ -130,59 +192,6 @@
         ]
     },
     {
-        "MovieName": "Rosita",
-        "Overview": "",
-        "Language": "es",
-        "Image": "\/rSW6LL10XgeE7AVtqJJofUzb17A.jpg",
-        "Genre": [
-            18
-        ]
-    },
-    {
-        "MovieName": "Todo por el ascenso",
-        "Overview": "Nestor is extremely superstitious. This year, his team plays the ascent in Mendoza and prepares to travel with Rafa, his friend. But Fabian appears, a mufa. The ascent is in danger, unless they can prevent Fabian from reaching the stadium.",
-        "Language": "es",
-        "Image": "\/m2RqyjDP6YSOKtPn43Y034pAQAX.jpg",
-        "Genre": [
-            35
-        ]
-    },
-    {
-        "MovieName": "Porno para principiantes",
-        "Overview": "A porn director, a fugitive, a priest. The life of Victor X.",
-        "Language": "es",
-        "Image": "\/7A7vGnJy16vFyRVUPDJx9GGkrpk.jpg",
-        "Genre": [
-            35
-        ]
-    },
-    {
-        "MovieName": "The Moneychanger",
-        "Overview": "Set largely in Montevideo, The Moneychanger stars Daniel Hendler as Humberto Brause, who takes advantage of Uruguay\u2019s poor economy by specializing in offshore money laundering. Spanning the fifties to the seventies, the film follows Humberto as he gets increasingly in over his head with multiple shady book-cooking schemes throughout South America, leading to an ultimate life-or-death decision.",
-        "Language": "es",
-        "Image": "\/dUwpZl6QJUFoqkhEcu10Hzbd5Bn.jpg",
-        "Genre": [
-            35,
-            18
-        ]
-    },
-    {
-        "MovieName": "My Wife's Secret Life",
-        "Overview": "Kent devises a revenge plan against Laurel, whose husband he believed ruined his marriage, however, his plan becomes deadly once Laurel decides to fight back.",
-        "Language": "en",
-        "Image": "\/mYqdyc7kme4jUqCmA0wi8gJSlHM.jpg",
-        "Genre": []
-    },
-    {
-        "MovieName": "Evelyn",
-        "Overview": "Following his Oscar-nominated Virunga, Orlando von Einsiedel turns his camera on his own family as they attempt to cope with a devastating loss.",
-        "Language": "en",
-        "Image": "\/yLzSyTRKXj0ycyAn4YQDSxc4Zqh.jpg",
-        "Genre": [
-            99
-        ]
-    },
-    {
         "MovieName": "La deuda",
         "Overview": "",
         "Language": "es",
@@ -190,13 +199,6 @@
         "Genre": [
             18
         ]
-    },
-    {
-        "MovieName": "Dolores, un d\u00eda se qued\u00f3 sola...",
-        "Overview": "",
-        "Language": "es",
-        "Image": "\/3YfXXu6v37ggeQKcGSKNmrqSNm9.jpg",
-        "Genre": []
     },
     {
         "MovieName": "Claudia",
@@ -208,17 +210,21 @@
         ]
     },
     {
-        "MovieName": "El Juego de las Llaves",
-        "Overview": "Eight friends, all in a stable relationship, decide to venture into a game of sexual discovery by exchanging couples while trying to free themselves from their daily routine and add a spicy touch to their love life.",
+        "MovieName": "Bruja",
+        "Overview": "",
         "Language": "es",
-        "Image": "\/uMuw1IX9yT6JUHcd1CaeXw6cxxg.jpg",
-        "Genre": []
+        "Image": "\/zYrNIF1Qe2xPcmcjZyzsCVRqMiS.jpg",
+        "Genre": [
+            18,
+            14,
+            53
+        ]
     },
     {
-        "MovieName": "Initials S.G.",
-        "Overview": "An aging, Argentine, Serge Gainsbourg wannabe struggles to deal with a career he can't seem to get on track, an affair he doesn't want, and a crime he didn't mean to commit.",
+        "MovieName": "The Moneychanger",
+        "Overview": "Set largely in Montevideo, The Moneychanger stars Daniel Hendler as Humberto Brause, who takes advantage of Uruguay\u2019s poor economy by specializing in offshore money laundering. Spanning the fifties to the seventies, the film follows Humberto as he gets increasingly in over his head with multiple shady book-cooking schemes throughout South America, leading to an ultimate life-or-death decision.",
         "Language": "es",
-        "Image": "\/kWROlpAf9BaJpZ2aqkNrzDAeNkm.jpg",
+        "Image": "\/dUwpZl6QJUFoqkhEcu10Hzbd5Bn.jpg",
         "Genre": [
             35,
             18
@@ -235,14 +241,43 @@
         ]
     },
     {
-        "MovieName": "Bruja",
+        "MovieName": "Deep Water",
+        "Overview": "A modern day look at family through the eyes of three women as they work to balance work and life pressures.",
+        "Language": "en",
+        "Image": "\/ucRAjZyZQxGQ70BLIg1drM372md.jpg",
+        "Genre": []
+    },
+    {
+        "MovieName": "El Juego de las Llaves",
+        "Overview": "Eight friends, all in a stable relationship, decide to venture into a game of sexual discovery by exchanging couples while trying to free themselves from their daily routine and add a spicy touch to their love life.",
+        "Language": "es",
+        "Image": "\/uMuw1IX9yT6JUHcd1CaeXw6cxxg.jpg",
+        "Genre": []
+    },
+    {
+        "MovieName": "La cima del mundo",
         "Overview": "",
         "Language": "es",
-        "Image": "\/zYrNIF1Qe2xPcmcjZyzsCVRqMiS.jpg",
+        "Image": "\/1GJN99A8rxI7W6E70obQOLqGroS.jpg",
+        "Genre": []
+    },
+    {
+        "MovieName": "Initials S.G.",
+        "Overview": "An aging, Argentine, Serge Gainsbourg wannabe struggles to deal with a career he can't seem to get on track, an affair he doesn't want, and a crime he didn't mean to commit.",
+        "Language": "es",
+        "Image": "\/kWROlpAf9BaJpZ2aqkNrzDAeNkm.jpg",
         "Genre": [
-            18,
-            14,
-            53
+            35,
+            18
+        ]
+    },
+    {
+        "MovieName": "Esp\u00e8re de m\u00eame pour toi",
+        "Overview": "",
+        "Language": "fr",
+        "Image": "\/vaZbuQJwASMR71qT0Ac2lFWR6y.jpg",
+        "Genre": [
+            99
         ]
     },
     {
@@ -255,21 +290,20 @@
         ]
     },
     {
-        "MovieName": "Killing the Dead",
-        "Overview": "Paraguay 1978, during Stroessner\u2019s dictatorship, Pastor and Dionisio work burying bodies illicitly. In Argentina, the World Cup is being held. One morning, among the bodies, they find Mario, who is still alive. They know they must kill him but the problem is: in spite of what they are doing, they have never killed anyone before. A storm indicates that the winter is coming while the destiny of the three men is determined during the World Cup final. Both Pastor and Dionisio are the last link of a chain in the terrible system that has as a result in all the missing people.",
-        "Language": "es",
-        "Image": "\/2YJmFecKDIBQHJ7RmMQ8nCDZyRv.jpg",
-        "Genre": []
+        "MovieName": "Sisters of the Trees",
+        "Overview": "",
+        "Language": "hi",
+        "Image": "\/3ImOcv9kFT7DUqkoVVnP5MiOuUP.jpg",
+        "Genre": [
+            99
+        ]
     },
     {
-        "MovieName": "El retiro",
-        "Overview": "Rodolfo (Luis Brandoni) is a retired doctor. Since he was widowed a few years ago, he lives alone in his house. For an unexpected event, his daughter Laura (Nancy Dupl\u00e1a) with whom he barely speaks, needs to move with him for a few days. The coexistence will bring old discussions to the table, wounds that did not heal and the opportunity for them to connect again.",
-        "Language": "es",
-        "Image": "\/24MYWeCYSgRI7ZjkKk31OqURhqU.jpg",
-        "Genre": [
-            35,
-            18
-        ]
+        "MovieName": "Le temps est assassin",
+        "Overview": "In 1994, at the age of sixteen, Clotilde Idrissi suffered a road accident. Clotilde is the only survivor, unlike her brother Nicolas and his parents, who died instantly. Twenty-five years later, she returns to the scene of the tragedy with her husband and daughter. But strange incidents occur until a letter sent by his mother is received by Clotilde, when she thought she was dead. Therefore, she decided to find out what really happened during the accident and find out the truth and if her mother is alive 4 .",
+        "Language": "fr",
+        "Image": "\/qfC4pEgzNliTUrErSfIN8S67pki.jpg",
+        "Genre": []
     },
     {
         "MovieName": "Eso que pasa mientras esperamos que otra cosa pase",
@@ -285,38 +319,6 @@
         "Overview": "",
         "Language": "es",
         "Image": null,
-        "Genre": [
-            99
-        ]
-    },
-    {
-        "MovieName": "Le temps est assassin",
-        "Overview": "In 1994, at the age of sixteen, Clotilde Idrissi suffered a road accident. Clotilde is the only survivor, unlike her brother Nicolas and his parents, who died instantly. Twenty-five years later, she returns to the scene of the tragedy with her husband and daughter. But strange incidents occur until a letter sent by his mother is received by Clotilde, when she thought she was dead. Therefore, she decided to find out what really happened during the accident and find out the truth and if her mother is alive 4 .",
-        "Language": "fr",
-        "Image": "\/qfC4pEgzNliTUrErSfIN8S67pki.jpg",
-        "Genre": []
-    },
-    {
-        "MovieName": "La cima del mundo",
-        "Overview": "",
-        "Language": "es",
-        "Image": "\/1GJN99A8rxI7W6E70obQOLqGroS.jpg",
-        "Genre": []
-    },
-    {
-        "MovieName": "Esp\u00e8re de m\u00eame pour toi",
-        "Overview": "",
-        "Language": "fr",
-        "Image": "\/vaZbuQJwASMR71qT0Ac2lFWR6y.jpg",
-        "Genre": [
-            99
-        ]
-    },
-    {
-        "MovieName": "Sisters of the Trees",
-        "Overview": "",
-        "Language": "hi",
-        "Image": "\/3ImOcv9kFT7DUqkoVVnP5MiOuUP.jpg",
         "Genre": [
             99
         ]
@@ -338,24 +340,43 @@
         "Genre": []
     },
     {
-        "MovieName": "Let\u2019s Take A Walk",
-        "Overview": "",
+        "MovieName": "El retiro",
+        "Overview": "Rodolfo (Luis Brandoni) is a retired doctor. Since he was widowed a few years ago, he lives alone in his house. For an unexpected event, his daughter Laura (Nancy Dupl\u00e1a) with whom he barely speaks, needs to move with him for a few days. The coexistence will bring old discussions to the table, wounds that did not heal and the opportunity for them to connect again.",
         "Language": "es",
-        "Image": "\/zrq53T5pFO0so2c7z2gzfwJZJ1K.jpg",
-        "Genre": []
+        "Image": "\/24MYWeCYSgRI7ZjkKk31OqURhqU.jpg",
+        "Genre": [
+            35,
+            18
+        ]
     },
     {
-        "MovieName": "\u4e2d\u5b5a 61. La verdad interior",
-        "Overview": "",
+        "MovieName": "Shalom Taiw\u00e1n",
+        "Overview": "The financial problems of a Jewish community that leads in a neighborhood in the city of Buenos Aires are a nightmare for Rabbi Aaron. His excessive generosity to help threatens the work he is carrying out. Neither the optimism nor the industriousness of the Rabbi, nor his trip to New York for donations, is enough to pay a debt he contracted and also must try not to ruin his committed family harmony.  Cornered and covered with overwhelm, Aaron tries a last resort: embark on a trip to the Far East to get donations. The arrival in Taiwan is revealing in every way: far from known traditions, Rabbi Aaron must face multiple challenges to achieve his goal.",
         "Language": "es",
-        "Image": "\/2bSFRQzBhaWABIBBgXoxoGoHmZS.jpg",
-        "Genre": []
+        "Image": "\/hYvGRM0v7yXdBiLpsOR87lPBWAE.jpg",
+        "Genre": [
+            35,
+            18
+        ]
     },
     {
-        "MovieName": "New Dimensions of Dialogue",
-        "Overview": "",
+        "MovieName": "Margen de error",
+        "Overview": "Iris' quiet and peaceful life begins to change dramatically when she hosts Maia, her friend's daughter. When Iris realizes that Maia is in love with an older woman, she begins to wonder if she herself might be that woman.",
+        "Language": "es",
+        "Image": "\/wHP2GZcIQN42L8Gpb8m8znxOt6O.jpg",
+        "Genre": [
+            35,
+            18,
+            10749
+        ]
+    },
+    {
+        "MovieName": "Evidentiary Body",
+        "Overview": "We, as human beings on a small globe, united by evolutionary structure and biological DNA have a chance to come together through the experience of empathy and identification with the sensitive body. An unspoken plea for viewers to engage with compassion, to experience vulnerability, to know through evidence this body is their body.",
         "Language": "xx",
-        "Image": "\/rTnKeMyT4akdvjJOVL5geYeHdar.jpg",
-        "Genre": []
+        "Image": "\/qBrT2QqURwwoEiEGHEsA9DWf9dR.jpg",
+        "Genre": [
+            14
+        ]
     }
 ]

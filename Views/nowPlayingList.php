@@ -1,6 +1,5 @@
 <?php
   include('adminNav.php');
-  //$this->GetMoviesByGenre("Action");
 ?>
 <div class="container-fluid px-5">
 <table id="tablePreview" class="table table-striped table-hover table-borderless">

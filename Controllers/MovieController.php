@@ -2,7 +2,9 @@
     namespace Controllers;
 
     use DAO\MovieDAO as MovieDAO;
+    use DAO\MovieDAOPDO as MovieDAOPDO;
     use DAO\GenreDAO as GenreDAO;
+    use DAO\GenreDAOPDO as GenreDAOPDO;
     use Models\Movie as Movie;
 
     class MovieController
@@ -14,8 +16,10 @@
         private $movieList;
 
         public function __construct(){
-            $this->movieDAO = new MovieDAO();
-            $this->genreDAO = new GenreDAO();
+            //$this->movieDAO = new MovieDAO(); //DESCOMENTAR PARA JSON
+            $this->movieDAO = new MovieDAOPDO();//DESCOMENTAR ESTA PARA SQL
+            //$this->genreDAO = new GenreDAO(); //DESCOMENTAR PARA JSON
+            $this->genreDAO = new GenreDAOPDO();//DESCOMENTAR ESTA PARA SQL
         }
 
         public function ShowNowPlayingView(){
@@ -23,16 +27,14 @@
         }        
 
         public function ListNowPlayingMovies(){
-            $this->AssignGenreToMovies();
+            $this->movieList = $this->movieDAO->GetAll();
             $this->PrepareMovieList();
             $this->ShowNowPlayingView();
         }
 
         private function PrepareMovieList(){
-            //if( sizeof($this->movieList) > 0 ){
                 $this->firstMovie = array_shift($this->movieList);
                 $this->genreList = $this->genreDAO->GetAll();
-            //} 
         }
 
         public function GetMoviesFromApi(){
@@ -45,49 +47,9 @@
             $this->ListNowPlayingMovies();
         }
 
-        private function AssignGenreToMovies(){
-            $this->movieList = $this->movieDAO->getAll();
-            foreach($this->movieList as $movie){
-                $genreIdList = $movie->GetGenre();
-                $genreNameList = array();
-                foreach($genreIdList as $genre){
-                    $genre = $this->ReturnGenre($genre);
-                    array_push($genreNameList, $genre);
-                }
-                $movie->SetGenre($genreNameList);   
-            }
-        }
-
-        private function ReturnGenre($id){
-            $genre = null;
-            $genreList = $this->GenreListToArray($this->genreDAO->GetAll());
-            if(array_key_exists($id, $genreList)){
-                $genre = $genreList[$id];
-            }
-            return $genre;
-        }
-
-        private function GenreListToArray($genreList){
-            $genreArray = array();
-            foreach($genreList as $genre){
-                $genreArray[$genre->getId()] = $genre->getName();
-            }
-            return $genreArray;
-        }
-
         public function ListMoviesByGenre(string $genre){
-            $this->AssignGenreToMovies();
-            $genreList = array();
-            foreach($this->movieList as $movie){
-                $valid = false;
-                foreach($movie->getGenre() as $movieGenre){
-                    if($movieGenre == $genre)
-                        $valid = true;
-                }
-                if($valid)
-                    array_push($genreList, $movie);
-            }                        
-            $this->movieList = $genreList;
+            $this->movieList = $this->movieDAO->GetAll();
+            $this->movieList = $this->genreDAO->MoviesByGenre($genre, $this->movieList);
             $this->PrepareMovieList();
             $this->ShowNowPlayingView();
         }
