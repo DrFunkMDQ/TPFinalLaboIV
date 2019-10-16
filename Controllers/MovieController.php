@@ -27,8 +27,7 @@
         }        
 
         public function ListNowPlayingMovies(){
-            //$this->AssignGenreToMovies(); //DESCOMENTAR PARA JSON
-            $this->movieList = $this->movieDAO->GetAll(); //DECOMENTAR ESTA PARA SQL
+            $this->movieList = $this->movieDAO->GetAll();
             $this->PrepareMovieList();
             $this->ShowNowPlayingView();
         }
@@ -48,13 +47,8 @@
             $this->ListNowPlayingMovies();
         }
 
-        private function AssignGenreToMovies(){
-            $this->movieList = $this->genreDAO->GenreToMovies($this->movieDAO->getAll());            
-        }
-
         public function ListMoviesByGenre(string $genre){
-            //$this->AssignGenreToMovies(); //DESCOMENTAR PARA JSON
-            $this->movieList = $this->movieDAO->GetAll(); //DESCOMENTAR ESTA PARA SQL
+            $this->movieList = $this->movieDAO->GetAll();
             $this->movieList = $this->genreDAO->MoviesByGenre($genre, $this->movieList);
             $this->PrepareMovieList();
             $this->ShowNowPlayingView();

@@ -105,7 +105,6 @@
             try{
                 $this->genreList = array();
                 $query = "SELECT m.* FROM movies_by_genres AS mbg INNER JOIN genres AS g ON g.id_genre = mbg.id_genre INNER JOIN movies AS m ON mbg.id_movie = m.id_movie WHERE g.genre_name ='$genre'";
-                //$genreQuery = "SELECT g.genre_name FROM movies_by_genres AS mbg INNER JOIN genres AS g ON g.id_genre = mbg.id_genre INNER JOIN movies AS m ON mbg.id_movie = m.id_movie WHERE m.id_movie =".$Movie->getIdMovie();
                 $this->connection = Connection::GetInstance();
                 $resultSet = $this->connection->Execute($query);               
                 foreach ($resultSet as $row){                

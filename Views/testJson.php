@@ -9,7 +9,10 @@
             Autoload::start();
             use Controllers\MovieController as MovieController;
             use DAO\MovieDAOPDO as MovieDAOPDO; 
+            use DAO\MovieDAO as MovieDAO; 
             use Models\Movie as Movie;
+
+
             
             //$movieController = new MovieController();
             //$movieController->GetMoviesByGenre("Action");
@@ -30,8 +33,9 @@
             //$movie->setMovieName("peli de prueba")->setOverview("test")->setLanguage("en")->setGenre($list)->setIdMovie(1);
 
 
-            $mdao = new MovieDAOPDO();
-            $mdao->SaveMoviesFromAPI();
+            $mdao = new MovieDAO();
+            $a = $mdao->GetAll();
+            var_dump($a);
 
 
 
