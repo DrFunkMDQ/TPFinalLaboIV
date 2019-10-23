@@ -13,11 +13,11 @@ constraint pk_id_cinema primary key (id_cinema)
 
 create table movies(
 	id_movie int unsigned,
-    movie_name nvarchar(30) not null,
-    movie_overview nvarchar(100),
+    movie_name nvarchar(500) not null,
+    movie_overview nvarchar(1500),
     movie_language nvarchar(16),
-    movie_image nvarchar(30),
-	movie_traier nvarchar(20),
+    movie_image nvarchar(500),
+	movie_traier nvarchar(50),
 constraint pk_id_movie primary key (id_movie)
 );
 
@@ -45,6 +45,6 @@ constraint pk_id_show_room primary key (id_show_room),
 constraint fk_id_cinema foreign key (id_cinema) references movies (id_cinema),
 );
     
-
+alter table movies add movie_active boolean default '0'; 
 
     

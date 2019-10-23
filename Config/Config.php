@@ -14,7 +14,7 @@ define("W342_IMG", "http://image.tmdb.org/t/p/w342");
 //PDO
 define("DB_HOST", "localhost");
 define("DB_NAME", "MoviePass");
-define("DB_USER", "root");
+define("DB_USER", "root2");
 define("DB_PASS", "");
 ?>
 
