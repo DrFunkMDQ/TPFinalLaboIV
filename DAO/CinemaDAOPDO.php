@@ -14,9 +14,7 @@
         private $tableName = "cinemas";
 
         public function Add(Cinema $cinema){
-            //$this->RetrieveData();
             array_push($this->cinemaList, $cinema);
-            //$this->SaveData();             
              try
             {
                 $query = "INSERT INTO ".$this->tableName." (cinema_name, cinema_address, cinema_capacity, cinema_ticket_price) VALUES (:cinema_name, :cinema_address, :cinema_capacity, :cinema_ticket_price);";
