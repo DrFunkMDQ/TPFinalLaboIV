@@ -32,8 +32,7 @@
         public function Add($name, $capacity, $cinema){
             $showRoom = new ShowRoom();
             $showRoom->setName($name);            
-            $showRoom->setCapacity($capacity);
-            var_dump("PEPE");            
+            $showRoom->setCapacity($capacity);                      
             $this->ShowRoomDAOPDO->Add($showRoom, $cinema);
             //$this->ShowAddShowRoomView();
         }

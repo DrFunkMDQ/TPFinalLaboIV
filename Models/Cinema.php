@@ -10,7 +10,7 @@
         private $Address;
         private $Capacity;
         private $TicketPrice;
-        //Function??
+        
 
         //Getters && Setters
 

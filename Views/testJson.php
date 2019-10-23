@@ -43,18 +43,17 @@
 
             $room = new Room();
             $cinema = new Cinema();
-            $cinema->setCinemaName("Cine 1");
-            $cinema->setAddress("Direccion 1");
-            $cinema->setCapacity("2000");                                
-            $cinema->setTicketPrice("3333");               
-            $cinema->setId("1");
+            $cinema->setCinemaName("Cine 2");
+            $cinema->setAddress("Direccion 2");
+            $cinema->setCapacity("22222");                                
+            $cinema->setTicketPrice("4444");               
+            $cinema->setId("2");
             $controller = new ShowRoomController();            
             $ShowRoomDAOPDO = new ShowRoomDAOPDO();
 
-            var_dump("hola");
-            $controller->Add("Prueba", 100, $cinema);
-            var_dump("chau");
-
+            
+            $controller->Add("test", 10230, $cinema);
+            
 
 
 

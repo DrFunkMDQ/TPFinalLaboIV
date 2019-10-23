@@ -1,10 +1,10 @@
 <?php namespace DAO;
 
-//use DAO\IShowRoomDAOPDO as IShowRoomDAO;
+use DAO\IShowRoomDAOPDO as IShowRoomDAO;
 use Models\ShowRoom as ShowRoom;
 use Models\Cinema as Cinema;
 
-class ShowRoomDAOPDO {//implements IShowRoomDAOPDO
+class ShowRoomDAOPDO implements IShowRoomDAOPDO{
 
     private $showRoomsList = array();
     private$cinemasList = array();
@@ -17,7 +17,7 @@ class ShowRoomDAOPDO {//implements IShowRoomDAOPDO
                       
              try
             {
-                var_dump("Antes"); 
+                
                 $query = "INSERT INTO ".$this->tableName." (show_room_name, show_room_capacity, id_cinema) VALUES (:show_room_name, :show_room_capacity, :id_cinema);";
                 
                 $parameters["show_room_name"] = $showRoom->getName();
@@ -25,7 +25,7 @@ class ShowRoomDAOPDO {//implements IShowRoomDAOPDO
                 $parameters["id_cinema"] = $cinema->getId();                                 
 
                 $this->connection = Connection::GetInstance();
-                var_dump($query); 
+                
                 $this->connection->ExecuteNonQuery($query, $parameters);
                 
             }
