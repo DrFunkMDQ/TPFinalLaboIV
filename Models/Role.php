@@ -1,6 +1,6 @@
 <?php namespace Models; 
 
-    class Rol{
+    class Role{
 
         //Attributes
 

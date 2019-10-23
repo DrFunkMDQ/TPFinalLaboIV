@@ -6,7 +6,7 @@
 
         private $email;
         private $password;
-        private $rol; //Class Rol 
+        private $role; //Class Rol 
         private $userProfile; //Class UserProfile       
 
         //Getters && Setters  
@@ -39,13 +39,13 @@
         }
 
          
-        public function getRol()
+        public function getRole()
         {
                 return $this->rol;
         }
 
         
-        public function setRol($rol)
+        public function setRole($rol)
         {
                 $this->rol = $rol;
 

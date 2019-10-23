@@ -42,9 +42,23 @@ constraint fk_id_genre foreign key (id_genre) references genres (id_genre)
     id_cinema int unsigned,    
     show_room_capacity int unsigned not null,    
 constraint pk_id_show_room primary key (id_show_room),
-constraint fk_id_cinema foreign key (id_cinema) references movies (id_cinema),
+constraint fk_id_cinema foreign key (id_cinema) references movies (id_cinema)
+);
+
+create table roles(
+    id_role int unsigned auto_increment,
+    role_name varchar(30) not null,
+constraint pk_id_role primary key (id_role)
 );
     
-
+create table users(
+	id_user int unsigned auto_increment,
+    id_role int unsigned default 1,
+    user_name varchar(30) not null,
+    user_email varchar(120) not null,
+    user_password varchar(255) not null,
+constraint pk_id_user primary key (id_user),
+constraint fk_id_role foreign key (id_role) references roles (id_role)
+);
 
     
