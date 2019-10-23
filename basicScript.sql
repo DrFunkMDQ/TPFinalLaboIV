@@ -35,6 +35,15 @@ constraint pk_id_movie_by_genre primary key (id_movie_by_genre),
 constraint fk_id_movie foreign key (id_movie) references movies (id_movie),
 constraint fk_id_genre foreign key (id_genre) references genres (id_genre)
  );
+
+ create table ShowRooms(
+	id_show_room int unsigned auto_increment,
+    show_room_name nvarchar(20) not null,
+    id_cinema int unsigned,    
+    show_room_capacity int unsigned not null,    
+constraint pk_id_show_room primary key (id_show_room),
+constraint fk_id_cinema foreign key (id_cinema) references movies (id_cinema),
+);
     
 
 

@@ -11,6 +11,10 @@
             use DAO\MovieDAOPDO as MovieDAOPDO; 
             use DAO\MovieDAO as MovieDAO; 
             use Models\Movie as Movie;
+            use Models\Cinema as Cinema;
+            use Models\ShowRoom as Room;
+            use DAO\ShowRoomDAOPDO as ShowRoomDAOPDO;
+            use Controllers\ShowRoomController as ShowRoomController;
 
 
             
@@ -33,9 +37,23 @@
             //$movie->setMovieName("peli de prueba")->setOverview("test")->setLanguage("en")->setGenre($list)->setIdMovie(1);
 
 
-            $mdao = new MovieDAO();
-            $a = $mdao->GetAll();
-            var_dump($a);
+            //$mdao = new MovieDAO();
+            //$a = $mdao->GetAll();
+            //var_dump($a);
+
+            $room = new Room();
+            $cinema = new Cinema();
+            $cinema->setCinemaName("Cine 2");
+            $cinema->setAddress("Direccion 2");
+            $cinema->setCapacity("22222");                                
+            $cinema->setTicketPrice("4444");               
+            $cinema->setId("2");
+            $controller = new ShowRoomController();            
+            $ShowRoomDAOPDO = new ShowRoomDAOPDO();
+
+            
+            $controller->Add("test", 10230, $cinema);
+            
 
 
 
