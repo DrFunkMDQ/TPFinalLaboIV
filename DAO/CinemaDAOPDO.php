@@ -54,10 +54,10 @@
                     $cinema = new Cinema();
                     $cinema->setCinemaName($row["cinema_name"]);
                     $cinema->setAddress($row["cinema_address"]);
-                    $cinema->setCapacity($row["cinema_capacity"]);
-                    $cinema->setTicketPrice($row["cinema_name"]);               
+                    $cinema->setCapacity($row["cinema_capacity"]);                                
                     $cinema->setTicketPrice($row["cinema_ticket_price"]);               
-    
+                    $cinema->setId($row["id_cinema"]);
+                    
                     array_push($this->cinemaList, $cinema);
                 }  
 

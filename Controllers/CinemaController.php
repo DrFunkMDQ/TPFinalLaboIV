@@ -15,7 +15,7 @@
             $this->cinemaDAO = new CinemaDAOPDO();//PDO
         }
 
-        public function ShowAddCinemaView(){
+        public function ShowAddCinemaView(){            
             require_once(VIEWS_PATH."addCinema.php");
         }      
         
