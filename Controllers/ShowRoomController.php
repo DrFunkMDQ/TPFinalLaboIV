@@ -34,7 +34,6 @@
             $showRoom->setName($name);            
             $showRoom->setCapacity($capacity);                      
             $this->ShowRoomDAOPDO->Add($showRoom, $cinema);
-            //$this->ShowAddShowRoomView();
         }
         
         public function Remove($name){            

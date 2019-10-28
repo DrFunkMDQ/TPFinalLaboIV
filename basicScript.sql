@@ -36,7 +36,7 @@ constraint fk_id_movie foreign key (id_movie) references movies (id_movie),
 constraint fk_id_genre foreign key (id_genre) references genres (id_genre)
  );
 
- create table ShowRooms(
+create table ShowRooms(
 	id_show_room int unsigned auto_increment,
     show_room_name nvarchar(20) not null,
     id_cinema int unsigned,    
@@ -53,12 +53,15 @@ constraint pk_id_role primary key (id_role)
     
 create table users(
 	id_user int unsigned auto_increment,
-    id_role int unsigned default 1,
+    id_role int unsigned default 2,
     user_name varchar(30) not null,
+	user_last_name varchar(30) not null,
+    user_birthday date not null,
     user_email varchar(120) not null,
     user_password varchar(255) not null,
 constraint pk_id_user primary key (id_user),
 constraint fk_id_role foreign key (id_role) references roles (id_role)
 );
 
+drop table users;
     
