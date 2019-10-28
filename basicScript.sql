@@ -46,7 +46,7 @@ constraint fk_id_cinema foreign key (id_cinema) references movies (id_cinema)
 );
 
 create table roles(
-    id_role int unsigned auto_increment,
+    id_role int auto_increment,
     role_name varchar(30) not null,
 constraint pk_id_role primary key (id_role)
 );

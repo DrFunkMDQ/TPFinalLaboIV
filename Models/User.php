@@ -9,7 +9,7 @@
         private $userLastName;
         private $email;
         private $password;
-        private $birthday
+        private $birthday;
         private $role; 
 
 
