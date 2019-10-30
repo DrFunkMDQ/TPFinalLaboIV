@@ -14,14 +14,16 @@
 
         public function __construct(){            
             $this->ShowRoomDAOPDO = new ShowRoomDAOPDO();//PDO
+            $this->CinemaDAOPDO = new CinemaDAOPDO();
         }
 
-        public function ShowAddShowRoomView(){            
+        public function AddShowRoomView($idCinema){
+            $showRoomCinemaId = $idCinema;
             require_once(VIEWS_PATH."addShowRoom.php");
         }      
         
         public function ShowCinemasListView(){ //LA VISTA DE CINES ES LA MISMA DONDE SE LISTAN LAS SALAS
-            //$showrRoomList = $this->showRoomDAOPDO->GetAll();            
+            $showrRoomList = $this->showRoomDAOPDO->GetAll();            
             require_once(VIEWS_PATH."cinemaList.php");
         }
         
@@ -30,13 +32,16 @@
             require_once(VIEWS_PATH."updateShowRoom.php");
         }
 
-        public function Add($name, $capacity, $cinemaName){
-            $cinema = $this->cinemaDAOPDO->searchByName($cinemaName);
+        public function AddShowRoom($name, $capacity, $ticketPrice, $cinemaId){
+            var_dump($cinemaId);
+            $cinema = $this->CinemaDAOPDO->searchById($cinemaId);
             $showRoom = new ShowRoom();
             $showRoom->setName($name);            
             $showRoom->setCapacity($capacity);                      
+            $showRoom->setTicketPrice($ticketPrice);                      
             $this->ShowRoomDAOPDO->Add($showRoom, $cinema);
-            //$this->ShowAddShowRoomView();
+            
+            header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');
         }
         
         public function Remove($name){            
@@ -64,9 +69,9 @@
                 else{                
                     echo'<script type="text/javascript">
                     alert("Processing Error!");                
-                    </script>';   
-                    $this->ShowCinemasView();             
-                }                        
+                    </script>';               
+                }   
+            header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');                   
         }
 
         public function AddShowRoomUpdate($name,$capacity){//Igual a AddCinema pero redirecciona a otra View

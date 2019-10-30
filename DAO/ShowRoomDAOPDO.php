@@ -139,8 +139,6 @@ class ShowRoomDAOPDO implements IShowRoomDAOPDO{
             $showRoomList = $this->GetAll();
                 try
                     {
-                        //$id = $showRoom->getId();
-                        //$query = "UPDATE showrooms set (show_room_name , show_room_capacity , ticket_price)  VALUES (:show_room_name, :show_room_capacity, :ticket_price) WHERE id_show_room = '$id';"; 
                         $query = "UPDATE showrooms SET show_room_name = :show_room_name, show_room_capacity = :show_room_capacity, ticket_price = :ticket_price WHERE id_show_room = :id_show_room"; 
                         
                         $parameters["show_room_name"] = $showRoom->getName();
