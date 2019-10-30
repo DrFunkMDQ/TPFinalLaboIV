@@ -6,7 +6,8 @@
         
         private $capacity;
         private $name;
-
+        private $id;
+        private $ticketPrice;
         //Getters && Setters
 
         public function getName()
@@ -20,7 +21,7 @@
 
                 return $this;
         }
-        public function getcapacity()
+        public function getCapacity()
         {
                 return $this->capacity;
         }
@@ -31,6 +32,23 @@
 
                 return $this;
         }
+
+        public function getId(){
+                return $this->id;
+        }
+
+        public function setId($id){
+                $this->id = $id;
+        }
+
+        public function getTicketPrice(){
+                return $this->ticketPrice;
+        }
+
+        public function setTicketPrice($ticketPrice){
+                $this->ticketPrice = $ticketPrice;
+        }
+
     }
 
 ?>

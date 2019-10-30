@@ -38,13 +38,15 @@ constraint fk_id_genre foreign key (id_genre) references genres (id_genre)
 
  create table ShowRooms(
 	id_show_room int unsigned auto_increment,
-    show_room_name nvarchar(20) not null,
+    show_room_name nvarchar(500) not null,
     id_cinema int unsigned,    
     show_room_capacity int unsigned not null,    
 constraint pk_id_show_room primary key (id_show_room),
-constraint fk_id_cinema foreign key (id_cinema) references movies (id_cinema),
+constraint fk_id_cinema foreign key (id_cinema) references cinemas (id_cinema)
 );
-    
+
 alter table movies add movie_active boolean default '0'; 
+alter table ShowRooms add ticket_price float unsigned not null;
+ALTER TABLE showrooms ADD active_showroom boolean default 1;
 
     
