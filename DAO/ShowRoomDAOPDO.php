@@ -49,15 +49,14 @@ class ShowRoomDAOPDO implements IShowRoomDAOPDO{
                 $resultSet = $this->connection->Execute($query);
                 
                 foreach ($resultSet as $row)
-                {                
+                {             
                     $showRoom = new ShowRoom();
                     $showRoom->setName($row["show_room_name"]);
                     $showRoom->setCapacity($row["show_room_capacity"]);                                  
-    
+                    $showRoom->setId($row["id_show_room"]);                     
                     array_push($this->showRoomsList, $showRoom);
-                }  
-
-                return $this->s;
+                }                  
+                return $this->showRoomsList;
             }
             catch(Exception $ex)
             {
@@ -93,7 +92,18 @@ class ShowRoomDAOPDO implements IShowRoomDAOPDO{
                 }
             }
             return $myShowRoom;
-        }    
+        }
+        
+        public function searchById($showRoomId){ 
+            $showRoomList = $this->GetAll();            
+            $myShowRoom = null;
+            foreach ($showRoomList as $showRoom) {
+                if($showRoom->getId() == $showRoomId){
+                    $myShowRoom = $showRoom;
+                }
+            }
+            return $myShowRoom;
+        }  
         
         public function update(ShowRoom $showRoom){
             $showRoomList = $this->GetAll();

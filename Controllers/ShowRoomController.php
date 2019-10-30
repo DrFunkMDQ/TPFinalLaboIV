@@ -8,8 +8,7 @@
 
     class ShowRoomController
     {
-        private $ShowRoomDAOPDO;
-            
+        private $ShowRoomDAOPDO;            
 
         public function __construct(){            
             $this->ShowRoomDAOPDO = new ShowRoomDAOPDO();//PDO
@@ -52,7 +51,7 @@
 
         public function Update($name){
             $myShowRoom = $this->ShowRoomDAOPDO->searchByName($name);//Info que se accederá desde la UpdateShowRoomView
-                if($myCinema != null){
+                if($myShowRoom != null){
                     $this->ShowRoomDAOPDO->Remove($myShowRoom);
                     $this->ShowUpdateShowRoomView($myShowRoom); //// esta view deberia retornar todos los datos para agregar un nuevo cine                
                 }

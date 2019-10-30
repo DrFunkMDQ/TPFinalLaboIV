@@ -107,8 +107,21 @@
                 $this->Add($movie);
             }
         }
+        
+        public function searchMovieById($id){
+            $movieList = $this->GetAll();
+            $movie = null;
+            if($this->movieList != null){
+                foreach($this->movieList as $movieArray){                
+                    if($movieArray->getIdmovie() == $id){
+                        $movie = $movieArray;
+                    }                
+                }
+            }  //agregar validacion en caso de que la lista este vacia (se podria ejecutar funciones de traer pelis)          
+            return $movie;
+        }
 
-
+        
 
 
 

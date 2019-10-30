@@ -6,6 +6,7 @@
         
         private $capacity;
         private $name;
+        private $id;
 
         //Getters && Setters
 
@@ -28,6 +29,20 @@
         public function setCapacity($capacity)
         {
                 $this->capacity = $capacity;
+
+                return $this;
+        }
+
+        
+        public function getId()
+        {
+                return $this->id;
+        }
+
+        
+        public function setId($id)
+        {
+                $this->id = $id;
 
                 return $this;
         }
