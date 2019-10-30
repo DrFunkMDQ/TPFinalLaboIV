@@ -18,7 +18,6 @@
              try
             {
                 $query = "INSERT INTO ".$this->tableName." (cinema_name, cinema_address, cinema_capacity, cinema_ticket_price) VALUES (:cinema_name, :cinema_address, :cinema_capacity, :cinema_ticket_price);";
-                
                 $parameters["cinema_name"] = $cinema->getCinemaName();
                 $parameters["cinema_address"] = $cinema->getAddress();
                 $parameters["cinema_capacity"] = $cinema->getCapacity();
@@ -99,28 +98,18 @@
         }    
         
         public function update($cinema){
-            $cinemaList = $this->GetAll();
-                try
-                    {
-                         
-                        $query = "UPDATE cinemas SET cinema_name =" . "(cinema_name, cinema_address, cinema_capacity, cinema_ticket_price) VALUES (:cinema_name, :cinema_address, :cinema_capacity, :cinema_ticket_price);"; 
-                        //$query = "INSERT INTO ".$this->tableName." (cinema_name, cinema_address, cinema_capacity, cinema_ticket_price) VALUES (:cinema_name, :cinema_address, :cinema_capacity, :cinema_ticket_price);";
-                
-                        $parameters["cinema_name"] = $cinema->getCinemaName();
-                        $parameters["cinema_address"] = $cinema->getAddress();
-                        $parameters["cinema_capacity"] = $cinema->getCapacity();
-                        $parameters["cinema_ticket_price"] = $cinema->getTicketPrice();                         
-
-                        $this->connection = Connection::GetInstance();
-
-                        $aux = $this->connection->ExecuteNonQuery($query);
-                        return $aux;
-                        
-                    }
-                catch(Exception $ex)
-                    {
-                        throw $ex;
-                    }
+            try{     
+                $query = "UPDATE cinemas SET cinema_name = :cinema_name, cinema_address = :cinema_address, cinema_capacity = :cinema_capacity, cinema_ticket_price = :cinema_ticket_price WHERE id_cinema = ".$cinema->getId();
+                $parameters["cinema_name"] = $cinema->getCinemaName();
+                $parameters["cinema_address"] = $cinema->getAddress();
+                $parameters["cinema_capacity"] = $cinema->getCapacity();
+                $parameters["cinema_ticket_price"] = $cinema->getTicketPrice();                         
+                $this->connection = Connection::GetInstance();
+                $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex){
+                    throw $ex;
+            }
         }
        
     }
