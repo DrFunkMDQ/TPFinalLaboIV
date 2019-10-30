@@ -107,7 +107,7 @@
                          
                         $query = "UPDATE cinemas SET cinema_name =" . "(cinema_name, cinema_address, cinema_capacity, cinema_ticket_price) VALUES (:cinema_name, :cinema_address, :cinema_capacity, :cinema_ticket_price);"; 
                         //$query = "INSERT INTO ".$this->tableName." (cinema_name, cinema_address, cinema_capacity, cinema_ticket_price) VALUES (:cinema_name, :cinema_address, :cinema_capacity, :cinema_ticket_price);";
-                
+                        
                         $parameters["cinema_name"] = $cinema->getCinemaName();
                         $parameters["cinema_address"] = $cinema->getAddress();
                         $parameters["cinema_capacity"] = $cinema->getCapacity();

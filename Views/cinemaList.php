@@ -18,7 +18,7 @@
             <div class="col-md-2 py-1"><?php echo $cinema->getCapacity();?></div>
             <div class="col-md-2 py-1"><?php echo $cinema->getTicketPrice();?></div>
             <div class="col-md-1 py-1"><button class ="btn btn-dark" type="submit"  name="CinemaUpdate" onclick = "this.form.action = '<?php echo FRONT_ROOT?>Cinema/UpdateCinema'" value="<?php echo $cinema->getCinemaName(); ?>">Modify</button></div>
-            <div class="col-md-1 py-1"><button class ="btn btn-dark" type="submit" name="CinemaRemove" onclick = "this.form.action = '<?php echo FRONT_ROOT?>Cinema/RemoveCinema'" value="<?php echo $cinema->getCinemaName(); ?>" >Delete</button></div>
+            <div class="col-md-1 py-1"><button class ="btn btn-danger" type="submit" name="CinemaRemove" onclick = "this.form.action = '<?php echo FRONT_ROOT?>Cinema/RemoveCinema'" value="<?php echo $cinema->getCinemaName(); ?>" >Delete</button></div>
           </div>
         <?php endforeach;
         ?>
