@@ -62,21 +62,21 @@
             $show->setShowRoom(1);
             
             $idMovie = 475557;
-            $idShowRoom = 1;
+            $idShowRoom = 3;
             $movie = $MovieDAO->searchMovieById($idMovie);
             $newMovie = $MovieDAO->searchMovieById(475557);
             $showRoom = $ShowRoomDAOPDO->searchById($idShowRoom);
             $newShowRoom = $ShowRoomDAOPDO->searchById(3);
-            //$controller->Add(19960130, 1200, 1, 475557);
+            //$controller->Add(20190220, 153000, 2, 636541);
             //$controller->Add(20121112, 221200, 2, 636541);
             //$controller->Add(19980220, 123000, 2, 475557);
             //$controller->Add(20121112, 221200, 3, 475557);
             //$controller->Add(19980220, 123000, 1, 636541);
             //$controller->Remove(4, $showRoom);
-            $date = 20000101;
-            $time = 111111;
+            $date = 19991212;
+            $time = 222222;
             $idShowRoom = 1;
-            $idMovie2 = 475557;
+            $idMovie2 = 636541;
             $idShow = 2;
             $controller->AddShowUpdate($idShow, $date, $time, $idShowRoom, $idMovie2);            
             //$controller->Update(2, $showRoom, $newShowRoom, $newMovie);           

@@ -8,8 +8,7 @@
 
     class ShowRoomController
     {
-        private $ShowRoomDAOPDO;
-            
+        private $ShowRoomDAOPDO;            
 
         public function __construct(){            
             $this->ShowRoomDAOPDO = new ShowRoomDAOPDO();//PDO
