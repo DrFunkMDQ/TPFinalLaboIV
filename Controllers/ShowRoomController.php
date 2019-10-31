@@ -10,7 +10,7 @@
     {
         private $ShowRoomDAOPDO;
         private $CinemaDAOPDO;
-            
+
 
         public function __construct(){            
             $this->ShowRoomDAOPDO = new ShowRoomDAOPDO();//PDO
@@ -57,6 +57,7 @@
             $this->ShowCinemasListView();
         }
 
+
         public function UpdateShowRoom($name, $capacity, $ticketPrice, $id){
             $myShowRoom = new ShowRoom();
             $myShowRoom->setId($id);
@@ -65,6 +66,7 @@
             $myShowRoom->setTicketPrice($ticketPrice);
                 if($myShowRoom != null){
                     $this->ShowRoomDAOPDO->Update($myShowRoom);             
+
                 }
                 else{                
                     echo'<script type="text/javascript">

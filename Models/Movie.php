@@ -13,7 +13,7 @@
         private $trailer;
     
 
-
+        
 
         /**
          * Get the value of movie_name

@@ -50,7 +50,7 @@ class ShowRoomDAOPDO implements IShowRoomDAOPDO{
                 $resultSet = $this->connection->Execute($query);
                 
                 foreach ($resultSet as $row)
-                {                
+                {             
                     $showRoom = new ShowRoom();
                     $showRoom->setId($row["id_show_room"]);
                     $showRoom->setName($row["show_room_name"]);
@@ -58,7 +58,6 @@ class ShowRoomDAOPDO implements IShowRoomDAOPDO{
                     $showRoom->setTicketPrice($row["ticket_price"]);
                     array_push($this->showRoomsList, $showRoom);
                 }  
-
                 return $this->showRoomsList;
             }
             catch(Exception $ex)
@@ -116,24 +115,24 @@ class ShowRoomDAOPDO implements IShowRoomDAOPDO{
 
         public function searchByName($showRoomName){ /// Se puede hacer que reotorne un boolean y no el cine
             $showRoomList = $this->GetAll();
-            $myShowRoom = null;
             foreach ($showRoomList as $showRoom) {
                 if($showRoom->getCinemaName() == $showRoomName){
                     $myShowRoom = $showRoom;
                 }
             }
             return $myShowRoom;
-        }    
-
+          }
+  
         public function searchById($id){
             $showRoomsList = $this->GetAll();
-            foreach($showRoomsList as $showRoom){
+           foreach($showRoomsList as $showRoom){
                 if($showRoom->getId() == $id){
                     $myShowRoom = $showRoom;
                 }
             }
             return $myShowRoom;
         }
+
         
         public function Update(ShowRoom $showRoom){
             $showRoomList = $this->GetAll();

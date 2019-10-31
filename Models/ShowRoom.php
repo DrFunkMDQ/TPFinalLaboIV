@@ -8,6 +8,7 @@
         private $name;
         private $id;
         private $ticketPrice;
+      
         //Getters && Setters
 
         public function getName()
@@ -32,6 +33,7 @@
 
                 return $this;
         }
+
 
         public function getId(){
                 return $this->id;

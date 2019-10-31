@@ -29,8 +29,7 @@
             require_once(VIEWS_PATH."cinemaList.php");
         }
         
-        public function ShowUpdateCinemaView($cinema){
-            $myCinema = $cinema;            
+        public function ShowUpdateCinemaView($cinema){                       
             require_once(VIEWS_PATH."updateCinema.php");
         }
 
