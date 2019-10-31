@@ -47,21 +47,23 @@
                     <div class="tab-content" id="showRoomsContent">
                       <div class="tab-pane fade active show" id="<?php echo str_replace(' ','', $activeTab->getName());?>"role="tabpanel" aria-labelledby="<?php echo str_replace(' ','', $activeTab->getName());?>-tab">
                         <div class="row">
-                          <div class="col-md-6 py-1"> <?php echo $activeTab->getName()?> </div>
+                          <div class="col-md-5 py-1"> <?php echo $activeTab->getName()?> </div>
                           <div class="col-md-2 py-1"> <?php echo $activeTab->getCapacity()?> </div>
                           <div class="col-md-2 py-1"> <?php echo $activeTab->getTicketPrice()?> </div>
+                          <div class="col-md-1 py-1"> <button class="btn btn-dark" type="submit" name="Shows" onclick="this.form.action = '<?php echo FRONT_ROOT?>Show/ShowListShowView'" value="<?php echo $activeTab->getId()?>">Shows</button></div>
                           <div class="col-md-1 py-1"> <button class="btn btn-dark" type="submit" name="ShowRoomUpdate" onclick="this.form.action = '<?php echo FRONT_ROOT?>ShowRoom/UpdateShowRoomView'" value="<?php echo $activeTab->getId()?>">Modify</button></div>
-                          <div class="col-md-1 py-1"> <button class="btn btn-dark" type="submit" name="ShowRoomRemove" onclick="this.form.action = '<?php echo FRONT_ROOT?>ShowRoom/RemoveShowRoomView'" value="<?php echo $activeTab->getId()?>">Delete</button></div>
+                          <div class="col-md-1 py-1"> <button class="btn btn-dark" type="submit" name="ShowRoomRemove" onclick="this.form.action = '<?php echo FRONT_ROOT?>ShowRoom/Remove'" value="<?php echo $activeTab->getId()?>">Delete</button></div>
                         </div>
                       </div>
                       <?php foreach ($cinema->getShowRoomsList() as $showRoom):?>
                         <div class="tab-pane fade" id="<?php echo str_replace(' ','', $showRoom->getName());?>" role="tabpanel" aria-labelledby="<?php echo str_replace(' ','', $showRoom->getName());?>-tab">
                           <div class="row"> 
-                            <div class="col-md-6 py-1"> <?php echo $showRoom->getName()?> </div>
+                            <div class="col-md-5 py-1"> <?php echo $showRoom->getName()?> </div>
                             <div class="col-md-2 py-1"> <?php echo $showRoom->getCapacity()?> </div>
                             <div class="col-md-2 py-1"> <?php echo $showRoom->getTicketPrice()?> </div>
+                            <div class="col-md-1 py-1"> <button class="btn btn-dark" type="submit" name="Shows" onclick="this.form.action = '<?php echo FRONT_ROOT?>Show/ShowListShowView'" value="<?php echo $activeTab->getId()?>">Shows</button></div>
                             <div class="col-md-1 py-1"> <button class="btn btn-dark" type="submit" name="ShowRoomUpdate" onclick="this.form.action = '<?php echo FRONT_ROOT?>ShowRoom/UpdateShowRoomView'" value= "<?php echo $showRoom->getId()?>">Modify</button></div>
-                            <div class="col-md-1 py-1"> <button class="btn btn-dark" type="submit" name="ShowRoomRemove" onclick="this.form.action = '<?php echo FRONT_ROOT?>ShowRoom/RemoveShowRoomView'" value=" <?php echo $showRoom->getId()?>">Delete</button></div>
+                            <div class="col-md-1 py-1"> <button class="btn btn-dark" type="submit" name="ShowRoomRemove" onclick="this.form.action = '<?php echo FRONT_ROOT?>ShowRoom/Remove'" value=" <?php echo $showRoom->getId()?>">Delete</button></div>
                           </div>
                         </div>
                       <?php endforeach ?>

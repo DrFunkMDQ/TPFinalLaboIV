@@ -19,11 +19,11 @@
 
         public function AddShowRoomView($idCinema){
             $showRoomCinemaId = $idCinema;
-            require_once(VIEWS_PATH."addShowRoom.php");
+            require_once(VIEWS_PATH."addShow.php");
         }      
         
         public function ShowCinemasListView(){ //LA VISTA DE CINES ES LA MISMA DONDE SE LISTAN LAS SALAS
-            $showrRoomList = $this->showRoomDAOPDO->GetAll();            
+            $showrRoomList = $this->ShowRoomDAOPDO->GetAll();            
             require_once(VIEWS_PATH."cinemaList.php");
         }
         
@@ -43,17 +43,17 @@
             header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');
         }
         
-        public function Remove($name){            
-            $showRoom = $this->showRoomDAOPDO->searchByName($name);
+        public function Remove($name){ 
+            $showRoom = $this->ShowRoomDAOPDO->searchById($name);
             if($showRoom != null){
-                $this->showRoomDAOPDO->Remove($showRoom);               
+                $this->ShowRoomDAOPDO->Remove($showRoom);               
             }            
             else{                
                 echo'<script type="text/javascript">
                 alert("Processing Error!");                
                 </script>';                
             }
-            $this->ShowCinemasListView();
+            header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');
         }
 
 
@@ -79,7 +79,7 @@
             $showRoom = new ShowRoom();
             $showRoom->setCinemaName($name);            
             $showRoom->setCapacity($capacity);            
-            $this->showRoomDAOPDO->Add($showRoom);
+            $this->ShowRoomDAOPDO->Add($showRoom);
             $this->ShowCinemasView();            
         }
     }

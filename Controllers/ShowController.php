@@ -23,13 +23,10 @@ class ShowController
         $this->MovieDAOPDO = new MovieDAOPDO();
     }
 
-    public function ShowAddShowView(){           
-        require_once(VIEWS_PATH."addShowRoom.php");
-    }      
-    
-    public function ShowListShowView(){
-        $shorRoomList = $this->showRoomDAOPDO->GetAll();            
-        require_once(VIEWS_PATH."showRoomList.php");
+    public function ShowListShowView($idShowroom){
+        $this->myShow = $this->ShowRoomDAOPDO->searchById($idShowroom);
+        $this->ShowDAOPDO = $this->ShowDAOPDO->GetAllxShowRoom($this->myShow);            
+        require_once(VIEWS_PATH."showList.php");
     }
     
     public function ShowUpdateShowView($myShow){
@@ -44,7 +41,7 @@ class ShowController
         $show->setDate($date);            
         $show->setTime($time);                               
         $this->ShowDAOPDO->Add($show, $movie, $showRoom);
-        //$this->ShowAddShowView();
+        $this->ShowAddShowView();
     }
     
     public function Remove($id, $showRoom){            
@@ -85,6 +82,13 @@ class ShowController
         $this->ShowDAOPDO->Update($show, $movie, $showRoom);        
         //$this->ShowListShowView();            
     }
+
+    public function ShowAddShowView(){
+        $movieList = $this->MovieDAOPDO->getAll();
+        require_once(VIEWS_PATH."addShow.php");
+    }
+
+
 }
 
 

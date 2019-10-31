@@ -1,6 +1,4 @@
-<?php include('adminNav.php');
-
-var_dump($this->cinema);?>
+<?php include('adminNav.php');?>
 
 <div class="py-2 bg-dark">
     <div class="container">

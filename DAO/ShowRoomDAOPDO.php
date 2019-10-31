@@ -116,7 +116,7 @@ class ShowRoomDAOPDO implements IShowRoomDAOPDO{
         public function searchByName($showRoomName){ /// Se puede hacer que reotorne un boolean y no el cine
             $showRoomList = $this->GetAll();
             foreach ($showRoomList as $showRoom) {
-                if($showRoom->getCinemaName() == $showRoomName){
+                if($showRoom->getName() == $showRoomName){
                     $myShowRoom = $showRoom;
                 }
             }
