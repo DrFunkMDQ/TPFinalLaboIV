@@ -41,7 +41,7 @@ class ShowController
         $show->setDate($date);            
         $show->setTime($time);                               
         $this->ShowDAOPDO->Add($show, $movie, $showRoom);
-        $this->ShowAddShowView();
+        header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');
     }
     
     public function Remove($id, $showRoom){            
