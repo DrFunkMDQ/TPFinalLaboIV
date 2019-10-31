@@ -39,8 +39,7 @@
             $showRoom->setName($name);            
             $showRoom->setCapacity($capacity);                      
             $showRoom->setTicketPrice($ticketPrice);                      
-            $this->ShowRoomDAOPDO->Add($showRoom, $cinema);
-            
+            $this->ShowRoomDAOPDO->Add($showRoom, $cinema);            
             header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');
         }
         

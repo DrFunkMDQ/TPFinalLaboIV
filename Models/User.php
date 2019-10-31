@@ -2,54 +2,149 @@
 
     class User{
 
-        //Attributes
+       //Attributes
 
+        private $id;
+        private $userName;
+        private $userLastName;
         private $email;
         private $password;
-        private $rol; //Class Rol 
-        private $userProfile; //Class UserProfile       
+        private $birthday;
+        private $role; 
 
-        //Getters && Setters  
 
-        public function getPassword()
-        {
-                return $this->password;
+
+        /**
+         * Get the value of userName
+         */ 
+        public function getUserName(){
+                return $this->userName;
         }
 
-         
-        public function setPassword($password)
-        {
-                $this->password = $password;
+        /**
+         * Set the value of userName
+         *
+         * @return  self
+         */ 
+        public function setUserName($userName){
+                $this->userName = $userName;
 
                 return $this;
         }
 
-        
-        public function getEmail()
-        {
+        /**
+         * Get the value of userLastName
+         */ 
+        public function getUserLastName(){
+                return $this->userLastName;
+        }
+
+        /**
+         * Set the value of userLastName
+         *
+         * @return  self
+         */ 
+        public function setUserLastName($userLastName){
+                $this->userLastName = $userLastName;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of email
+         */ 
+        public function getEmail(){
                 return $this->email;
         }
 
-         
-        public function setEmail($email)
-        {
+        /**
+         * Set the value of email
+         *
+         * @return  self
+         */ 
+        public function setEmail($email){
                 $this->email = $email;
 
                 return $this;
         }
 
-         
-        public function getRol()
-        {
-                return $this->rol;
+        /**
+         * Get the value of password
+         */ 
+        public function getPassword(){
+                return $this->password;
         }
 
+        /**
+         * Set the value of password
+         *
+         * @return  self
+         */ 
+        public function setPassword($password){
+                $this->password = $password;
+
+                return $this;
+        }
         
-        public function setRol($rol)
+
+        /**
+         * Get the value of role
+         */ 
+        public function getRole(){
+                return $this->role;
+        }
+
+        /**
+         * Set the value of role
+         *
+         * @return  self
+         */ 
+        public function setRole($role){
+                $this->role = $role;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of birthday
+         */ 
+        public function getBirthday()
         {
-                $this->rol = $rol;
+                return $this->birthday;
+        }
+
+        /**
+         * Set the value of birthday
+         *
+         * @return  self
+         */ 
+        public function setBirthday($birthday)
+        {
+                $this->birthday = $birthday;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of id
+         */ 
+        public function getId()
+        {
+                return $this->id;
+        }
+
+        /**
+         * Set the value of id
+         *
+         * @return  self
+         */ 
+        public function setId($id)
+        {
+                $this->id = $id;
 
                 return $this;
         }
     }
+
+ 
 ?>

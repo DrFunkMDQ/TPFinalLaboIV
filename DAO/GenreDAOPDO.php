@@ -51,7 +51,7 @@
         }        
 
         private function GetGenresFromApi(){
-            $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=3a826f6a0e7fb42cdf899bbba2e08621&language=en-US");
+            $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=".API_KEY."&language=en-US");
             $result = json_decode($json, true);
             $genreList = $result['genres'];
             return $genreList;   

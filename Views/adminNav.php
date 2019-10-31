@@ -27,11 +27,11 @@
         <div class="btn-group">
             <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Dropdown </button>
               <div class="dropdown-menu"> 
-                <a class="dropdown-item" href="#">Separated link</a>
+                <a class="dropdown-item" href="<?php echo FRONT_ROOT ?>User/ShowNewUserFormView">Sign In</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+                <a class="dropdown-item" href="<?php echo FRONT_ROOT ?>User/ShowLoginFormView">Log in</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+                <a class="dropdown-item" href="#">Log out</a>
               </div>
         </div>
         </ul>

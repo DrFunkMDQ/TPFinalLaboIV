@@ -9,7 +9,9 @@
     class CinemaController
     {
         private $cinemaDAO;
+        private $cinema;
         private $showRoomDAO;//private $firstShowRoom; //PARA CARGAR EN LA PRIMER TAB DE LAS SALAS DE CADA CINE
+
 
         public function __construct(){
             //$this->cinemaDAO = new CinemaDAO();//JSON
@@ -29,7 +31,8 @@
             require_once(VIEWS_PATH."cinemaList.php");
         }
         
-        public function ShowUpdateCinemaView($cinema){                       
+        public function ShowUpdateCinemaView($cinema){
+            $this->cinema = $cinema;            
             require_once(VIEWS_PATH."updateCinema.php");
         }
 
@@ -57,27 +60,26 @@
         }
 
         public function UpdateCinema($cinemaName){
-            $myCinema = $this->cinemaDAO->searchByName($cinemaName);//Info que se accederá desde la UpdateCinemaView
-                if($myCinema != null){
-                    $this->cinemaDAO->Remove($myCinema);
-                    $this->ShowUpdateCinemaView($myCinema); //// esta view deberia retornar todos los datos para agregar un nuevo cine                
-                }
-                else{                
-                    echo'<script type="text/javascript">
-                    alert("Processing Error!");                
-                    </script>';   
-                    $this->ShowListCinemaView();             
-                }
-                        
+            $this->cinema = $this->cinemaDAO->searchByName($cinemaName);//Info que se accederá desde la UpdateCinemaView
+            if($this->cinema != null){
+                $this->ShowUpdateCinemaView($this->cinema); //// esta view deberia retornar todos los datos para agregar un nuevo cine                
+            }
+            else{                
+                echo'<script type="text/javascript">
+                alert("Processing Error!");                
+                </script>';   
+                $this->ShowListCinemaView();             
+            }                        
         }
 
-        public function AddCinemaUpdate($name, $address, $capacity, $ticketPrice){//Igual a AddCinema pero redirecciona a otra View
-            $cinema = new Cinema();
-            $cinema->setCinemaName($name);
-            $cinema->setAddress($address);
-            $cinema->setCapacity($capacity);
-            $cinema->setTicketPrice($ticketPrice);
-            $this->cinemaDAO->Add($cinema);
+        public function AddCinemaUpdate($id, $name, $address, $capacity, $ticketPrice){//Igual a AddCinema pero redirecciona a otra View
+            $updateCinema = new Cinema();
+            $updateCinema->setId($id);
+            $updateCinema->setCinemaName($name);
+            $updateCinema->setAddress($address);
+            $updateCinema->setCapacity($capacity);
+            $updateCinema->setTicketPrice($ticketPrice);
+            $this->cinemaDAO->update($updateCinema);
             $this->ShowListCinemaView();
         }
 

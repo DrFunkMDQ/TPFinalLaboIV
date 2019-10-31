@@ -39,7 +39,21 @@
             //$movie = new Movie();
             //$movie->setMovieName("peli de prueba")->setOverview("test")->setLanguage("en")->setGenre($list)->setIdMovie(1);
 
+            $password = "123456";
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            var_dump($hash);
 
+            $passTry1 = '123456';
+            $passTry2 = '123456789';
+
+            if(password_verify($passTry2, $hash))
+                echo 'bien ahi, wachin';
+            else 
+                echo 'sos medio boludo';
+
+
+
+<<<<<<< HEAD
             //$mdao = new MovieDAO();
             //$a = $mdao->GetAll();
             //var_dump($a);
@@ -84,6 +98,8 @@
             
             
             
+=======
+>>>>>>> updates
 
 
 

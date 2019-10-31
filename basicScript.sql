@@ -37,14 +37,33 @@ constraint fk_id_movie foreign key (id_movie) references movies (id_movie),
 constraint fk_id_genre foreign key (id_genre) references genres (id_genre)
  );
 
- create table ShowRooms(
+create table ShowRooms(
 	id_show_room int unsigned auto_increment,
     show_room_name nvarchar(100) not null,
     id_cinema int unsigned,    
     show_room_capacity int unsigned not null,    
 constraint pk_id_show_room primary key (id_show_room),
-constraint fk_id_cinema foreign key (id_cinema) references cinemas (id_cinema)
+constraint fk_id_cinema foreign key (id_cinema) references movies (id_cinema)
 );
+
+create table roles(
+    id_role int auto_increment,
+    role_name varchar(30) not null,
+constraint pk_id_role primary key (id_role)
+);
+    
+create table users(
+	id_user int unsigned auto_increment,
+    id_role int unsigned default 2,
+    user_name varchar(30) not null,
+	user_last_name varchar(30) not null,
+    user_birthday date not null,
+    user_email varchar(120) not null,
+    user_password varchar(255) not null,
+constraint pk_id_user primary key (id_user),
+constraint fk_id_role foreign key (id_role) references roles (id_role)
+);
+
 
  create table Shows(
 	id_show int unsigned auto_increment,
@@ -62,4 +81,6 @@ alter table movies add movie_active boolean default '0';
 alter table ShowRooms add ticket_price float unsigned not null;
 ALTER TABLE showrooms ADD active_showroom boolean default 1;
 
+
+drop table users;
     
