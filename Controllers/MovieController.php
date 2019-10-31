@@ -54,6 +54,12 @@
             $this->ShowNowPlayingView();
         }
 
+        public function SetActive($movie_name){
+            $movie = $this->movieDAO->SearchByName($movie_name);
+            $this->movieDAO->SetActive($movie);
+            $this->ListNowPlayingMovies();
+        }
+
     }
 
         

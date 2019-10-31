@@ -121,12 +121,33 @@
             return $movie;
         }
 
-        
+        public function SetActive(Movie $movie){
+            $movieList = $this->GetAll();
+            try {
+                         
+                $query = "UPDATE movies SET movie_active = 1 WHERE id_movie = ".$movie->getIdmovie().";";                      
 
+                $this->connection = Connection::GetInstance();
 
+                $aux = $this->connection->ExecuteNonQuery($query);
+                return $aux;
+                
+            }
+            catch (Exception $ex) {
+                throw $ex;
+            }
+        }
 
-
-
+        public function SearchByName($movie_name){
+            $movieList = $this->GetAll();
+            $myMovie = null;
+            foreach ($movieList as $movie) {
+                if($movie->getMovieName() == $movie_name){
+                    $myMovie = $movie;
+                }
+            }
+            return $myMovie;
+        }
 
     }
 
