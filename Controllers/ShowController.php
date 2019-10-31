@@ -29,9 +29,11 @@ class ShowController
         require_once(VIEWS_PATH."showList.php");
     }
     
-    public function ShowUpdateShowView($myShow){
-        $this->myShow = $myShow;
-        require_once(VIEWS_PATH."updateShowRoom.php");
+    public function ShowUpdateShowView($id, $idShowRoom){
+        $ShowRoom = $this->ShowRoomDAOPDO->searchById($idShowRoom);
+        $movieList = $this->MovieDAOPDO->GetAll();
+        $show = $this->ShowDAOPDO->searchById($id, $ShowRoom);
+        require_once(VIEWS_PATH."updateShow.php");
     }
 
     public function Add($date, $time, $idShowRoom, $idMovie){
@@ -44,8 +46,20 @@ class ShowController
         header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');
     }
     
-    public function Remove($id, $showRoom){            
-        $Show = $this->ShowDAOPDO->searchById($id, $showRoom);        
+    public function Explode($values){
+        $array = explode("/", $values);
+        if(key($_POST) == "ShowRoomRemove"){
+            $this->Remove($array[0], $array[1]);            
+        }
+        else{
+            $this->ShowUpdateShowView($array[0], $array[1]);            
+        }
+        
+    }
+
+    public function Remove($id, $idShowRoom){          
+        $ShowRoom = $this->ShowRoomDAOPDO->searchById($idShowRoom);                 
+        $Show = $this->ShowDAOPDO->searchById($id, $ShowRoom);              
         if($Show != null){
             $this->ShowDAOPDO->Remove($Show);               
         }            
@@ -54,10 +68,10 @@ class ShowController
             alert("Processing Error!");                
             </script>';                
         }
-        //$this->ShowListShowView();
+        header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');
     }
 
-    public function Update($id, $showRoom){
+    /*public function Update($id, $showRoom){
         $myShow = $this->ShowDAOPDO->searchById($id, $showRoom);
             if($myShow != null){                
                 //$this->ShowUpdateShowView($myShow);
@@ -70,9 +84,9 @@ class ShowController
                 $this->ShowListShowView();             
             }
                     
-    }
+    }*/
 
-    public function AddShowUpdate($id, $date, $time, $idShowRoom, $idMovie){
+    public function AddShowUpdate($id, $date, $time, $idShowRoom, $idMovie){        
         $movie = $this->MovieDAOPDO->searchMovieById($idMovie);
         $showRoom = $this->ShowRoomDAOPDO->searchById($idShowRoom);
         $show = new Show();
@@ -80,7 +94,7 @@ class ShowController
         $show->setTime($time);
         $show->setId($id);                               
         $this->ShowDAOPDO->Update($show, $movie, $showRoom);        
-        //$this->ShowListShowView();            
+        header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');     
     }
 
     public function ShowAddShowView(){

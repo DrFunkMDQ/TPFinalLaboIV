@@ -19,7 +19,7 @@
 
         public function AddShowRoomView($idCinema){
             $showRoomCinemaId = $idCinema;
-            require_once(VIEWS_PATH."addShow.php");
+            require_once(VIEWS_PATH."AddShowRoom.php");
         }      
         
         public function ShowCinemasListView(){ //LA VISTA DE CINES ES LA MISMA DONDE SE LISTAN LAS SALAS
