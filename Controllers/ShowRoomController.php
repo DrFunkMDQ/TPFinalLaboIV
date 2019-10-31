@@ -9,31 +9,38 @@
     class ShowRoomController
     {
         private $ShowRoomDAOPDO;
-            
+        private $CinemaDAOPDO;
+
 
         public function __construct(){            
             $this->ShowRoomDAOPDO = new ShowRoomDAOPDO();//PDO
+            $this->CinemaDAOPDO = new CinemaDAOPDO();
         }
 
-        public function ShowAddShowRoomView(){            
+        public function AddShowRoomView($idCinema){
+            $showRoomCinemaId = $idCinema;
             require_once(VIEWS_PATH."addShowRoom.php");
         }      
         
-        public function ShowListShowRoomView(){
-            $shorRoomList = $this->showRoomDAOPDO->GetAll();            
-            require_once(VIEWS_PATH."showRoomList.php");
+        public function ShowCinemasListView(){ //LA VISTA DE CINES ES LA MISMA DONDE SE LISTAN LAS SALAS
+            $showrRoomList = $this->showRoomDAOPDO->GetAll();            
+            require_once(VIEWS_PATH."cinemaList.php");
         }
         
-        public function ShowUpdateShowRoomView($cinema){
-            $myShowRoom = $showRoom;            
+        public function UpdateShowRoomView($showRoomId){
+            $myShowRoom = $this->ShowRoomDAOPDO->searchById($showRoomId);
             require_once(VIEWS_PATH."updateShowRoom.php");
         }
 
-        public function Add($name, $capacity, $cinema){
+        public function AddShowRoom($name, $capacity, $ticketPrice, $cinemaId){
+            var_dump($cinemaId);
+            $cinema = $this->CinemaDAOPDO->searchById($cinemaId);
             $showRoom = new ShowRoom();
             $showRoom->setName($name);            
             $showRoom->setCapacity($capacity);                      
-            $this->ShowRoomDAOPDO->Add($showRoom, $cinema);
+            $showRoom->setTicketPrice($ticketPrice);                      
+            $this->ShowRoomDAOPDO->Add($showRoom, $cinema);            
+            header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');
         }
         
         public function Remove($name){            
@@ -46,22 +53,26 @@
                 alert("Processing Error!");                
                 </script>';                
             }
-            $this->ShowListShowRoomView();
+            $this->ShowCinemasListView();
         }
 
-        public function Update($name){
-            $myShowRoom = $this->ShowRoomDAOPDO->searchByName($name);//Info que se accederá desde la UpdateShowRoomView
-                if($myCinema != null){
-                    $this->ShowRoomDAOPDO->Remove($myShowRoom);
-                    $this->ShowUpdateShowRoomView($myShowRoom); //// esta view deberia retornar todos los datos para agregar un nuevo cine                
+
+        public function UpdateShowRoom($name, $capacity, $ticketPrice, $id){
+            $myShowRoom = new ShowRoom();
+            $myShowRoom->setId($id);
+            $myShowRoom->setName($name);
+            $myShowRoom->setCapacity($capacity);
+            $myShowRoom->setTicketPrice($ticketPrice);
+                if($myShowRoom != null){
+                    $this->ShowRoomDAOPDO->Update($myShowRoom);             
+
                 }
                 else{                
                     echo'<script type="text/javascript">
                     alert("Processing Error!");                
-                    </script>';   
-                    $this->ShowListShowRoomView();             
-                }
-                        
+                    </script>';               
+                }   
+            header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');                   
         }
 
         public function AddShowRoomUpdate($name,$capacity){//Igual a AddCinema pero redirecciona a otra View
@@ -69,7 +80,7 @@
             $showRoom->setCinemaName($name);            
             $showRoom->setCapacity($capacity);            
             $this->showRoomDAOPDO->Add($showRoom);
-            $this->ShowListShowRoomView();            
+            $this->ShowCinemasView();            
         }
     }
 ?>

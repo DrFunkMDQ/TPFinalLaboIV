@@ -86,6 +86,19 @@
             
         }
 
+        public function searchById($cinemaId){ /// Se puede hacer que reotorne un boolean y no el cine
+            
+            var_dump($cinemaId);
+            $cinemaList = $this->GetAll();
+            $myCinema = null;
+            foreach ($cinemaList as $cinema) {
+                if($cinema->getId() == $cinemaId){
+                    $myCinema = $cinema;
+                }
+            }
+            return $myCinema;
+        }    
+
         public function searchByName($cinemaName){ /// Se puede hacer que reotorne un boolean y no el cine
             $cinemaList = $this->GetAll();
             $myCinema = null;
@@ -95,7 +108,7 @@
                 }
             }
             return $myCinema;
-        }    
+        } 
         
         public function update($cinema){
             try{     

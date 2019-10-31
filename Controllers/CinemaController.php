@@ -4,15 +4,18 @@
     use DAO\CinemaDAO as CinemaDAO;
     use Models\Cinema as Cinema;
     use DAO\CinemaDAOPDO as CinemaDAOPDO;
+    use DAO\ShowRoomDAOPDO as ShowRoomDAOPDO;
 
     class CinemaController
     {
         private $cinemaDAO;
         private $cinema;
-            
+        private $showRoomDAO;//private $firstShowRoom; //PARA CARGAR EN LA PRIMER TAB DE LAS SALAS DE CADA CINE
+
 
         public function __construct(){
             //$this->cinemaDAO = new CinemaDAO();//JSON
+            $this->showRoomDAO = new ShowRoomDAOPDO();
             $this->cinemaDAO = new CinemaDAOPDO();//PDO
         }
 
@@ -21,7 +24,10 @@
         }      
         
         public function ShowListCinemaView(){
-            $cinemaList = $this->cinemaDAO->GetAll();            
+            $cinemaList = $this->cinemaDAO->GetAll();  
+            $showRoomsList = $this->showRoomDAO->GetAll();            
+            $this->LoadShowRooms($cinemaList); //CARGA LAS SALAS A LOS CINES DE LA LISTA
+            $firstShowRooms = $this->PrepareFirstShowRooms($cinemaList); //DEVUELVE ARRAY CON LAS PRIMERAS SALAS DE CADA CINE DE LA LISTA           
             require_once(VIEWS_PATH."cinemaList.php");
         }
         
@@ -75,6 +81,24 @@
             $updateCinema->setTicketPrice($ticketPrice);
             $this->cinemaDAO->update($updateCinema);
             $this->ShowListCinemaView();
+        }
+
+        private function LoadShowRooms($cinemaList){ 
+            foreach($cinemaList as $cinema){
+                $cinema->setShowRoomsList($this->showRoomDAO->GetAllFromCimena($cinema));
+            }
+        }
+
+        private function PrepareFirstShowRooms($cinemaList){
+            $firstShowRooms = array();
+            foreach($cinemaList as $cinema){
+                $showrooms = $cinema->getShowRoomsList();
+                if(isset($showrooms)){
+                    array_push($firstShowRooms, array_shift($showrooms));
+                }
+                $cinema->setShowRoomsList($showrooms);
+            }
+            return $firstShowRooms;
         }
     }
 ?>

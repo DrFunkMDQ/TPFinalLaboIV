@@ -10,7 +10,7 @@
         private $Address;
         private $Capacity;
         private $TicketPrice;
-        
+        private $ShowRoomsList;
 
         //Getters && Setters
 
@@ -80,6 +80,19 @@
         {
                 $this->id = $id;
 
+                return $this;
+        }
+
+
+        public function getShowRoomsList()
+        {
+                return $this->ShowRoomsList;
+        }
+
+
+        public function setShowRoomsList($showRooms)
+        {
+                $this->ShowRoomsList = $showRooms;
                 return $this;
         }
     }

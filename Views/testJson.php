@@ -13,8 +13,11 @@
             use Models\Movie as Movie;
             use Models\Cinema as Cinema;
             use Models\ShowRoom as Room;
+            use Models\Show as Show;
             use DAO\ShowRoomDAOPDO as ShowRoomDAOPDO;
+            use DAO\ShowDAOPDO as ShowDAOPDO;
             use Controllers\ShowRoomController as ShowRoomController;
+            use Controllers\ShowController as ShowController;
 
 
             
@@ -56,17 +59,44 @@
             //var_dump($a);
 
             $room = new Room();
-            $cinema = new Cinema();
-            $cinema->setCinemaName("Cine 2");
-            $cinema->setAddress("Direccion 2");
-            $cinema->setCapacity("22222");                                
-            $cinema->setTicketPrice("4444");               
-            $cinema->setId("2");
-            $controller = new ShowRoomController();            
-            $ShowRoomDAOPDO = new ShowRoomDAOPDO();
-
+            $show = new Show();
+            $movie = new Movie();
             
-            $controller->Add("test", 10230, $cinema);
+            $controller = new ShowController();            
+            $ShowDAOPDO = new ShowDAOPDO();
+            $MovieDAO = new MovieDAOPDO();
+            $ShowRoomDAOPDO = new ShowRoomDAOPDO();
+            //var_dump($MovieDAO->GetAll());
+
+            //var_dump($MovieDAO->SearchMovieByID(475557));
+
+            $show->setDate(30011996); 
+            $show->setTime(1200);
+            $show->setMovie(475557); 
+            $show->setShowRoom(1);
+            
+            $idMovie = 475557;
+            $idShowRoom = 3;
+            $movie = $MovieDAO->searchMovieById($idMovie);
+            $newMovie = $MovieDAO->searchMovieById(475557);
+            $showRoom = $ShowRoomDAOPDO->searchById($idShowRoom);
+            $newShowRoom = $ShowRoomDAOPDO->searchById(3);
+            //$controller->Add(20190220, 153000, 2, 636541);
+            //$controller->Add(20121112, 221200, 2, 636541);
+            //$controller->Add(19980220, 123000, 2, 475557);
+            //$controller->Add(20121112, 221200, 3, 475557);
+            //$controller->Add(19980220, 123000, 1, 636541);
+            //$controller->Remove(4, $showRoom);
+            $date = 19991212;
+            $time = 222222;
+            $idShowRoom = 1;
+            $idMovie2 = 636541;
+            $idShow = 2;
+            $controller->AddShowUpdate($idShow, $date, $time, $idShowRoom, $idMovie2);            
+            //$controller->Update(2, $showRoom, $newShowRoom, $newMovie);           
+            //var_dump($ShowDAOPDO->GetAllxMovie($movie));
+            
+            
             
 =======
 >>>>>>> updates
