@@ -17,12 +17,12 @@
             require_once(VIEWS_PATH."newUserForm.php");
         }
 
-        public function AddUser($firstName, $lastName, $email, $password, $birthday){
+        public function AddUser($email, $password, $firstName, $lastName, $birthday){
             $user = new User();
             $user->setUserName($firstName);
             $user->setUserLastName($lastName);
             $user->setEmail($email);
-            $user->setPassword($password);
+            $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
             $user->setBirthday($birthday);
             $this->userDAO->Add($user);
             $this->ShowNewUserFormView();
