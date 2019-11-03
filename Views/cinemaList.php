@@ -61,7 +61,7 @@
                             <div class="col-md-5 py-1"> <?php echo $showRoom->getName()?> </div>
                             <div class="col-md-2 py-1"> <?php echo $showRoom->getCapacity()?> </div>
                             <div class="col-md-2 py-1"> <?php echo $showRoom->getTicketPrice()?> </div>
-                            <div class="col-md-1 py-1"> <button class="btn btn-dark" type="submit" name="Shows" onclick="this.form.action = '<?php echo FRONT_ROOT?>Show/ShowListShowView'" value="<?php echo $activeTab->getId()?>">Shows</button></div>
+                            <div class="col-md-1 py-1"> <button class="btn btn-dark" type="submit" name="Shows" onclick="this.form.action = '<?php echo FRONT_ROOT?>Show/ShowListShowView'" value="<?php echo $showRoom->getId()?>">Shows</button></div>
                             <div class="col-md-1 py-1"> <button class="btn btn-dark" type="submit" name="ShowRoomUpdate" onclick="this.form.action = '<?php echo FRONT_ROOT?>ShowRoom/UpdateShowRoomView'" value= "<?php echo $showRoom->getId()?>">Modify</button></div>
                             <div class="col-md-1 py-1"> <button class="btn btn-dark" type="submit" name="ShowRoomRemove" onclick="this.form.action = '<?php echo FRONT_ROOT?>ShowRoom/Remove'" value=" <?php echo $showRoom->getId()?>">Delete</button></div>
                           </div>

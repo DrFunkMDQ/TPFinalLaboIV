@@ -58,12 +58,13 @@ create table users(
     user_name varchar(30) not null,
 	user_last_name varchar(30) not null,
     user_birthday date not null,
-    user_email varchar(120) not null,
+    user_email varchar(120) unique not null,
     user_password varchar(255) not null,
 constraint pk_id_user primary key (id_user),
 constraint fk_id_role foreign key (id_role) references roles (id_role)
 );
-
+use moviepass;
+drop table users;
 
  create table Shows(
 	id_show int unsigned auto_increment,
