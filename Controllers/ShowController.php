@@ -102,6 +102,11 @@ class ShowController
         require_once(VIEWS_PATH."addShow.php");
     }
 
+    public function ShowListingView(){
+        $movieList = $this->ShowDAOPDO->getListingMovies();
+        require_once(VIEWS_PATH."userShowListings.php");
+    }
+
 
 }
 

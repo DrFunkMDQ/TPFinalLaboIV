@@ -147,22 +147,32 @@ class ShowDAOPDO implements IShowDAOPDO{
     
     public function update($show, Movie $movie, ShowRoom $showRoom){
         $showList = $this->GetAllxShowRoom($showRoom);
-            try
-                {
-                    $id = $show->getId();                       
-                    $query = "UPDATE Shows SET show_date = :show_date, show_time = :show_time, id_movie = :id_movie, id_show_room = :id_show_room WHERE id_show = '$id'"; 
-                    $parameters["show_date"] = $show->getDate();
-                    $parameters["show_time"] = $show->getTime();
-                    $parameters["id_movie"] = $movie->getIdmovie();
-                    $parameters["id_show_room"] = $showRoom->getId();
-                    $this->connection = Connection::GetInstance();
-                    $aux = $this->connection->ExecuteNonQuery($query, $parameters);                        
-                    return $aux;                        
-                }
-            catch(Exception $ex)
-                {
-                    throw $ex;
-                }
+        try{
+            $id = $show->getId();                       
+            $query = "UPDATE Shows SET show_date = :show_date, show_time = :show_time, id_movie = :id_movie, id_show_room = :id_show_room WHERE id_show = '$id'"; 
+            $parameters["show_date"] = $show->getDate();
+            $parameters["show_time"] = $show->getTime();
+            $parameters["id_movie"] = $movie->getIdmovie();
+            $parameters["id_show_room"] = $showRoom->getId();
+            $this->connection = Connection::GetInstance();
+            $aux = $this->connection->ExecuteNonQuery($query, $parameters);                        
+            return $aux;                        
+        }
+        catch(Exception $ex){
+            throw $ex;
+        }
+    }
+
+    public function getListingMovies(){
+        try{                 
+            $query = "SELECT id_movie FROM shows group by id_movie;"; 
+            $this->connection = Connection::GetInstance();
+            $aux = $this->connection->Execute($query);                        
+            return $aux;                        
+        }
+        catch(Exception $ex){
+            throw $ex;
+        }
     }
 }
 ?>
