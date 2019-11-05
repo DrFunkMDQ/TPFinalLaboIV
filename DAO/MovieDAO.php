@@ -82,7 +82,5 @@
             $this->MovieList = $this->GetMovies();
             $this->SaveData();
         }
-        
-
     }
 ?>
