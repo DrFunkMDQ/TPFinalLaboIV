@@ -138,7 +138,7 @@
             }
         }
 
-        public function SearchByName($movie_name){
+        public function SearchMovieByName($movie_name){
             $movieList = $this->GetAll();
             $myMovie = null;
             foreach ($movieList as $movie) {

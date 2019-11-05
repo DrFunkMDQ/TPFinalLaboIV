@@ -23,6 +23,7 @@
           <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Movie/ListNowPlayingMovies">Movie List</a> </li>
           <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Movie/getMoviesFromApi">Get Movies from API</a> </li>
           <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Movie/getGenresFromApi">Get Genres from API</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Show/ShowListingView">Movie Listing</a> </li>
         <ul>
         <div class="btn-group">
             <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Dropdown </button>

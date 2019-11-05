@@ -102,6 +102,22 @@ class ShowController
         require_once(VIEWS_PATH."addShow.php");
     }
 
+    public function ShowListingView(){
+        $listing = $this->ShowDAOPDO->getListingMovies();
+        $movieList = array();
+        foreach ($listing as $movieID) {
+            $movie = $this->MovieDAOPDO->searchMovieById($movieID);
+            array_push($movieList, $movie);
+        }
+        require_once(VIEWS_PATH."userShowListings.php");
+    }
+
+    public function ShowMovieShowList($idMovie){
+        $movie = $this->MovieDAOPDO->searchMovieById($idMovie);
+        $showList = $this->ShowDAOPDO->GetAllxMovie($movie);
+        require_once(VIEWS_PATH."userShowMovieShows.php");        
+    }
+
 
 }
 

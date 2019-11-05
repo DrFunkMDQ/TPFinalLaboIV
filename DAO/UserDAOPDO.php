@@ -7,7 +7,7 @@
     use Models\User as User;
     
 
-    class UserDAOPDO //implements IUserDAO
+    class UserDAOPDO implements IUserDAO
     {
         private $userList = array();
         private $connection;
