@@ -88,6 +88,14 @@
             return $movieList;   
         }
 
+        public function GetMoviesInDisplay(){
+            try {
+                $query = "";
+            } catch (Exception $ex) {
+                throw $ex;
+            }
+        }
+
         public function arrayToMovie(array $movieArray){
             $movie = new Movie();
             $movie->setIdMovie($movieArray['id']);

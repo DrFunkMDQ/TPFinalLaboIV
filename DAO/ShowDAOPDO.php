@@ -10,11 +10,34 @@ use Models\Movie as Movie;
 class ShowDAOPDO implements IShowDAOPDO{
 
     private $showList = array();
-    private$cinemasList = array();
+    private $cinemasList = array();
     private $connection;
     private $tableName = "Shows";
     private $tableMovie = 'movies';
     private $tableShowRooms = "ShowRooms";
+
+    public function GetAll(){
+        try {
+            $this->showList = array();
+            $query = "SELECT * FROM ". $this->tableName;
+            $this->connection = Connection::GetInstance();
+            $resultSet = $this->connection->Execute($query);
+            foreach ($resultSet as $row){
+                $show = new Show();
+                $show->setDate($row["show_date"]);
+                $show->setDate($row["show_time"]);
+                $show->setDate($row["id_movie"]);
+                $show->setDate($row["id_show_room"]);
+                $show->setDate($row["id_show"]);
+                array_push($this->showList, $show);
+            }
+
+            return $this->showList;
+        } 
+        catch (Exception $ex) {
+            throw $ex;
+        }
+    }
 
     public function Add(Show $show, Movie $movie, ShowRoom $showRoom){
         
