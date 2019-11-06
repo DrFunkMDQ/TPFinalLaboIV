@@ -8,6 +8,7 @@
         private $name;
         private $id;
         private $ticketPrice;
+        private $cinema;
       
         //Getters && Setters
 
@@ -51,6 +52,26 @@
                 $this->ticketPrice = $ticketPrice;
         }
 
+
+        /**
+         * Get the value of cinema
+         */ 
+        public function getCinema()
+        {
+                return $this->cinema;
+        }
+
+        /**
+         * Set the value of cinema
+         *
+         * @return  self
+         */ 
+        public function setCinema($cinema)
+        {
+                $this->cinema = $cinema;
+
+                return $this;
+        }
     }
 
 ?>

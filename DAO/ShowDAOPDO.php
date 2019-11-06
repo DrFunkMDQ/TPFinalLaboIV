@@ -65,7 +65,7 @@ class ShowDAOPDO implements IShowDAOPDO{
         {
             $this->showList = array();  
             $id = $movie->getIdmovie();   
-            $query = "SELECT * FROM ".$this->tableName . " as s WHERE s.id_movie = '$id' AND s.active = 1;";
+            $query = "SELECT s.show_date, s.show_time, c.cinema_name, c.id_cinema, sr.show_room_name, sr.id_show_room FROM shows AS s JOIN showrooms AS sr ON sr.id_show_room = s.id_show_room JOIN cinemas AS c ON c.id_cinema = sr.id_cinema WHERE s.id_movie = ".$movie->getIdmovie()." AND show_date > NOW();";
             $this->connection = Connection::GetInstance();
             $resultSet = $this->connection->Execute($query);                
             foreach ($resultSet as $row)
@@ -73,21 +73,14 @@ class ShowDAOPDO implements IShowDAOPDO{
                 $show = new Show();
                 $show->setDate($row["show_date"]); 
                 $show->setTime($row["show_time"]);
-                $show->setMovie($row["id_movie"]); 
-                $show->setShowRoom($row["id_show_room"]);
-                $show->setId($row["id_show"]);
-                $show->setMovie($movie);                     
-                $showRoomQuery = "SELECT * FROM ShowRooms AS sr INNER JOIN Shows AS s ON s.id_show_room = sr.id_show_room;";
-                $this->connection = Connection::GetInstance();       
-                $resultSet = $this->connection->Execute($showRoomQuery);
-                foreach($resultSet as $myShowRoom){                
-                    if($myShowRoom["id_show_room"] == $row["id_show_room"]){
-                        $ShowRoom = new ShowRoom();
-                        $ShowRoom->setName($myShowRoom["show_room_name"]);
-                        $ShowRoom->setCapacity($myShowRoom["show_room_capacity"]);                                  
-                        $ShowRoom->setId($myShowRoom["id_show_room"]); 
-                    }                
-                }                    
+                $show->setMovie($movie);                               
+                $ShowRoom = new ShowRoom();
+                $ShowRoom->setName($row["show_room_name"]);
+                $ShowRoom->setId($row["id_show_room"]);
+                $Cinema = new Cinema();
+                $Cinema->setCinemaName($row["cinema_name"]);
+                $Cinema->setCinemaName($row["id_cinema"]);  
+                $ShowRoom->setCinema($Cinema); 
                 $show->setShowRoom($ShowRoom);                    
                 array_push($this->showList, $show);
             }  
@@ -170,22 +163,53 @@ class ShowDAOPDO implements IShowDAOPDO{
     
     public function update($show, Movie $movie, ShowRoom $showRoom){
         $showList = $this->GetAllxShowRoom($showRoom);
-            try
-                {
-                    $id = $show->getId();                       
-                    $query = "UPDATE Shows SET show_date = :show_date, show_time = :show_time, id_movie = :id_movie, id_show_room = :id_show_room WHERE id_show = '$id'"; 
-                    $parameters["show_date"] = $show->getDate();
-                    $parameters["show_time"] = $show->getTime();
-                    $parameters["id_movie"] = $movie->getIdmovie();
-                    $parameters["id_show_room"] = $showRoom->getId();
-                    $this->connection = Connection::GetInstance();
-                    $aux = $this->connection->ExecuteNonQuery($query, $parameters);                        
-                    return $aux;                        
-                }
-            catch(Exception $ex)
-                {
-                    throw $ex;
-                }
+        try{
+            $id = $show->getId();                       
+            $query = "UPDATE Shows SET show_date = :show_date, show_time = :show_time, id_movie = :id_movie, id_show_room = :id_show_room WHERE id_show = '$id'"; 
+            $parameters["show_date"] = $show->getDate();
+            $parameters["show_time"] = $show->getTime();
+            $parameters["id_movie"] = $movie->getIdmovie();
+            $parameters["id_show_room"] = $showRoom->getId();
+            $this->connection = Connection::GetInstance();
+            $aux = $this->connection->ExecuteNonQuery($query, $parameters);                        
+            return $aux;                        
+        }
+        catch(Exception $ex){
+            throw $ex;
+        }
     }
+
+    public function getListingMovies(){
+        try{                 
+            $query = "SELECT id_movie FROM shows group by id_movie;"; 
+            $this->connection = Connection::GetInstance();
+            $aux = $this->connection->Execute($query); 
+            $movieIdList = array();
+            foreach ($aux as $movie) {
+                array_push($movieIdList, $movie['id_movie']);
+            }                       
+            return $movieIdList;
+        }
+        catch(Exception $ex){
+            throw $ex;
+        }
+    }
+
+    public function getMovieShows($movie){
+        try{                 
+            $query = "SELECT id_movie FROM shows group by id_movie;"; 
+            $this->connection = Connection::GetInstance();
+            $aux = $this->connection->Execute($query); 
+            $movieIdList = array();
+            foreach ($aux as $movie) {
+                array_push($movieIdList, $movie['id_movie']);
+            }                       
+            return $movieIdList;
+        }
+        catch(Exception $ex){
+            throw $ex;
+        }
+    }
+
 }
 ?>
