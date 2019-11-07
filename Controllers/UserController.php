@@ -17,6 +17,31 @@
             require_once(VIEWS_PATH."newUserForm.php");
         }
 
+        public function ShowLoginFormView(){            
+            require_once(VIEWS_PATH."Login.php");
+        }
+
+        public function UserLogin($email, $password)
+        {
+            $user = $this->userDAO->searchByEmail($email); 
+            
+            if(($user != null) && (password_verify($password, $user->getPassword()) == $password))
+            {
+                
+                $_SESSION["loggedUser"] = $user;
+
+                $listPath = FRONT_ROOT."Home/Index2";
+
+                header("Location: $listPath");
+            }
+            else
+                echo'<script type="text/javascript">
+                alert("Incorrect username or password!");                
+                </script>';  
+                $this->ShowLoginFormView();
+        }
+        
+
         public function AddUser($email, $password, $firstName, $lastName, $birthday){
             $user = new User();
             $user->setUserName($firstName);

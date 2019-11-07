@@ -7,6 +7,6 @@
     {
         function Add(User $User);
         function GetAll();
-        function Remove();
+        function Remove($user);
     }
 ?>

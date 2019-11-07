@@ -67,23 +67,19 @@
                         
         }        
 
-        public function Remove($cinema){
-                            
-                //$cinemaList = $this->GetAll();
-                try
-                    {
-                        $name = $cinema->getCinemaName();
-                        $query = "DELETE FROM cinemas WHERE cinema_name = '$name'";               
-                        $this->connection = Connection::GetInstance();
-                        $a = $this->connection->ExecuteNonQuery($query);  
-                        return $a;                                          
-                    }
-                catch(Exception $ex)
-                    {
-                        throw $ex;
-                    }
-
-            
+        public function Remove($cinema){ 
+            try
+                {
+                    $name = $cinema->getCinemaName();
+                    $query = "DELETE FROM cinemas WHERE cinema_name = '$name'";               
+                    $this->connection = Connection::GetInstance();
+                    $a = $this->connection->ExecuteNonQuery($query);  
+                    return $a;                                          
+                }
+            catch(Exception $ex)
+                {
+                    throw $ex;
+                }
         }
 
         public function searchById($cinemaId){ /// Se puede hacer que reotorne un boolean y no el cine
