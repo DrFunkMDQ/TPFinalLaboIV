@@ -15,12 +15,20 @@ class ShowController
     private $ShowRoomDAOPDO;
     private $MovieDAOPDO;
     private $myShow;
+    private $moviesList;
         
 
     public function __construct(){            
         $this->ShowDAOPDO = new ShowDAOPDO();//PDO
         $this->ShowRoomDAOPDO = new ShowRoomDAOPDO();
         $this->MovieDAOPDO = new MovieDAOPDO();
+    }
+
+    public function UserShowsListView(){
+        //$this->moviesList = $this->MovieDAOPDO->GetMoviesInDisplay();
+        $this->moviesList = $this->MovieDAOPDO->GetAll();
+        $myMovie = array_shift($this->moviesList);
+        require_once(VIEWS_PATH."userShowList.php");
     }
 
     public function ShowListShowView($idShowroom){

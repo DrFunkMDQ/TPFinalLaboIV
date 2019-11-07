@@ -1,11 +1,23 @@
 <?php
-
-//var_dump($movieList);
-
-
+    include_once('adminNav.php');
+    //var_dump($movieList);
+        /*foreach($movieList as $myMovie){
+            include('movieCard.php');
+        }*/
+            
 ?>
+<div class="container-fluid px-5">
+    <div>
 
-<form action="<?php echo FRONT_ROOT?>Show/ShowMovieShowList" method="post">
-    <input type="text" name="movie" value="475557">
-    <button type="submit" class="btn btn-light">send movie</button>
-</form>
+    </div>
+    <div class="moviesList">
+        <div>
+            <h2 class="cardsTitle">Now Playing Movies</h2>
+        </div>
+        <form action="post" class="cardsForm">
+            <?php foreach($movieList as $myMovie){
+                include('movieCard.php');
+            }?>
+        </form>
+    </div>
+</div>
