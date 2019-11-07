@@ -142,7 +142,7 @@ class ShowDAOPDO implements IShowDAOPDO{
         $showList = $this->GetAllxShowRoom($showRoom);
         try{
             $id = $show->getId();                       
-            $query = "UPDATE Shows SET show_date = :show_date, show_time = :show_time, id_movie = :id_movie, id_show_room = :id_show_room WHERE id_show = '$id'"; 
+            $query = "UPDATE Shows SET show_date = :show_date, show_time = :show_time, id_movie = :id_movie, id_show_room = :id_show_room WHERE id_show = '$id' AND s.active = 1 and s.show_date > NOW() ORDER BY sr.id_cinema;"; 
             $parameters["show_date"] = $show->getDate();
             $parameters["show_time"] = $show->getTime();
             $parameters["id_movie"] = $movie->getIdmovie();
