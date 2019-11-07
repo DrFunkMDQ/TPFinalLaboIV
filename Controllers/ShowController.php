@@ -24,8 +24,8 @@ class ShowController
     }
 
     public function ShowListShowView($idShowroom){
-        $this->myShow = $this->ShowRoomDAOPDO->searchById($idShowroom);
-        $this->ShowDAOPDO = $this->ShowDAOPDO->GetAllxShowRoom($this->myShow);            
+        $this->myShowRoom = $this->ShowRoomDAOPDO->searchById($idShowroom);
+        $this->ShowDAOPDO = $this->ShowDAOPDO->GetAllxShowRoom($this->myShowRoom);            
         require_once(VIEWS_PATH."showList.php");
     }
     
@@ -41,9 +41,34 @@ class ShowController
         $showRoom = $this->ShowRoomDAOPDO->searchById($idShowRoom);        
         $show = new Show();
         $show->setDate($date);            
-        $show->setTime($time);                               
-        $this->ShowDAOPDO->Add($show, $movie, $showRoom);
-        header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');
+        $show->setTime($time);  
+        var_dump($this->ShowExist($show, $showRoom));
+        if($this->ShowExist($show, $showRoom) != null){
+            $this->ShowDAOPDO->Add($show, $movie, $showRoom);            
+        }      
+        else{
+            echo'<script type="text/javascript">
+            alert("Processing Error!");                
+            </script>';  
+        }
+        header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView'); 
+    }
+
+    public function ShowExist($show, $showRoom){
+        $aux = 1; 
+        $ShowList = $this->ShowDAOPDO->GetAllxShowRoom($showRoom);
+              
+        if(!empty($ShowList)){
+            foreach ($ShowList as $myShow) {
+                if($myShow->getDate() == $show->getDate() && $myShow->getTime() == $show->getTime().":00"){
+                    $aux = null;
+                }
+                else{
+                    $aux = $myShow;
+                }
+            }
+        }                       
+        return $aux;
     }
     
     public function Explode($values){

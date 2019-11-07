@@ -40,11 +40,12 @@
                 foreach ($resultSet as $row){                
                     $user = new User();
                     $user->setUserName($row["user_name"]);
-                    $user->getUserLastName($row["user_last_name"]);
+                    $user->setUserLastName($row["user_last_name"]);
                     $user->setBirthday($row["user_birthday"]);                                
                     $user->setEmail($row["user_email"]);               
                     $user->setId($row["id_user"]);
-                    $user->getRole($row["id_rol"]);
+                    $user->setRole($row["id_role"]);
+                    $user->setPassword($row["user_password"]);
                     array_push($this->userList, $user);
                 } 
                 return $this->userList;

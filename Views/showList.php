@@ -6,7 +6,7 @@
   <thead>
   <form  method="post">
   <div class="btn-group pull-right px-2">
-    <button class="btn btn-primary" name = showId onclick = "this.form.action = '<?php echo FRONT_ROOT ?>Show/ShowAddShowView'" value="<?php echo $this->myShow->getId(); ?>"> New Show </button>
+    <button class="btn btn-primary" name = showId onclick = "this.form.action = '<?php echo FRONT_ROOT ?>Show/ShowAddShowView'" value="<?php echo $this->myShowRoom->getId(); ?>"> New Show </button>
     </div>
   </div>
   </form>
