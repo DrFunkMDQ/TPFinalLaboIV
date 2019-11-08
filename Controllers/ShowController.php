@@ -50,7 +50,6 @@ class ShowController
         $show = new Show();
         $show->setDate($date);            
         $show->setTime($time);  
-        var_dump($this->ShowExist($show, $showRoom));
         if($this->ShowExist($show, $showRoom) != null){
             $this->ShowDAOPDO->Add($show, $movie, $showRoom);            
         }      

@@ -104,6 +104,7 @@
             $movie->setLanguage($movieArray["original_language"]);
             $movie->setImage($movieArray["poster_path"]);
             $movie->setGenre($movieArray["genre_ids"]);
+            $movie->setTrailer($nivueArray["trailer"]);
             return $movie;                
         }
 

@@ -17,7 +17,7 @@
 			</div>
 			<div class="movie-info">
 				<div class="info-section">
-					<button class="btn btn-link" type="submit" name = "SeeMovieShows" onclick="this.form.action = '<?php echo FRONT_ROOT?>/Show/ShowMovieShowList'" value="<?php echo $myMovie->getIdmovie()?>">See Functions</button>
+					<button class="btn btn-link" type="submit" name = "SeeMovieShows" onclick="this.form.action = '<?php echo FRONT_ROOT?>Show/ShowMovieShowList'" value="<?php echo $myMovie->getIdmovie()?>">See Functions</button>
                 </div>
                 <div class="info-section">
 					<button class="btn btn-link" type="submit" name = "SeeMovieTrailer">See Trailer</button>

@@ -65,7 +65,7 @@ class ShowDAOPDO implements IShowDAOPDO{
         {
             $this->showList = array();  
             $id = $movie->getIdmovie();   
-            $query = "SELECT s.show_date, s.show_time, c.cinema_name, c.id_cinema, sr.show_room_name, sr.id_show_room FROM shows AS s JOIN showrooms AS sr ON sr.id_show_room = s.id_show_room JOIN cinemas AS c ON c.id_cinema = sr.id_cinema WHERE s.id_movie = ".$movie->getIdmovie()." AND show_date > NOW();";
+            $query = "SELECT s.show_date, s.show_time, c.cinema_name, c.id_cinema, sr.show_room_name, sr.id_show_room FROM shows AS s JOIN showrooms AS sr ON sr.id_show_room = s.id_show_room JOIN cinemas AS c ON c.id_cinema = sr.id_cinema WHERE s.id_movie = ".$movie->getIdmovie()." AND s.active = 1 AND show_date > NOW() ORDER BY c.id_cinema;";
             $this->connection = Connection::GetInstance();
             $resultSet = $this->connection->Execute($query);                
             foreach ($resultSet as $row)
@@ -165,7 +165,7 @@ class ShowDAOPDO implements IShowDAOPDO{
         $showList = $this->GetAllxShowRoom($showRoom);
         try{
             $id = $show->getId();                       
-            $query = "UPDATE Shows SET show_date = :show_date, show_time = :show_time, id_movie = :id_movie, id_show_room = :id_show_room WHERE id_show = '$id' AND s.active = 1 and s.show_date > NOW() ORDER BY sr.id_cinema;"; 
+            $query = "UPDATE Shows SET show_date = :show_date, show_time = :show_time, id_movie = :id_movie, id_show_room = :id_show_room WHERE id_show = '$id'"; 
             $parameters["show_date"] = $show->getDate();
             $parameters["show_time"] = $show->getTime();
             $parameters["id_movie"] = $movie->getIdmovie();
@@ -181,7 +181,7 @@ class ShowDAOPDO implements IShowDAOPDO{
 
     public function getListingMovies(){
         try{                 
-            $query = "SELECT id_movie FROM shows group by id_movie;"; 
+            $query = "SELECT id_movie FROM shows where show_date > NOW() and active = 1 group by id_movie;"; 
             $this->connection = Connection::GetInstance();
             $aux = $this->connection->Execute($query); 
             $movieIdList = array();
@@ -195,7 +195,7 @@ class ShowDAOPDO implements IShowDAOPDO{
         }
     }
 
-    public function getMovieShows($movie){
+    /*public function getMovieShows($movie){
         try{                 
             $query = "SELECT id_movie FROM shows group by id_movie;"; 
             $this->connection = Connection::GetInstance();
@@ -209,7 +209,7 @@ class ShowDAOPDO implements IShowDAOPDO{
         catch(Exception $ex){
             throw $ex;
         }
-    }
+    }*/
 
 }
 ?>
