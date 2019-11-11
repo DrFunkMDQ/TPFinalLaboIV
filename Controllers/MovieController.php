@@ -34,7 +34,7 @@
 
         private function PrepareMovieList(){
                 $this->firstMovie = array_shift($this->movieList);
-                $this->genreList = $this->genreDAO->GetAll();
+                $this->genreList = $this->genreDAO->GetActiveGenres();
         }
 
         public function GetMoviesFromApi(){

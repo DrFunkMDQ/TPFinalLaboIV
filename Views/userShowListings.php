@@ -1,9 +1,5 @@
 <?php
     include_once('adminNav.php');
-    //var_dump($movieList);
-        /*foreach($movieList as $myMovie){
-            include('movieCard.php');
-        }*/
             
 ?>
 <div class="container-fluid px-5">

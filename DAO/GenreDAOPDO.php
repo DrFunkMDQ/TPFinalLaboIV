@@ -50,6 +50,25 @@
             }          
         }        
 
+        public function GetActiveGenres(){
+            try{
+                $this->genreList = array();
+                $query = "SELECT g.id_genre, g.genre_name FROM genres AS g JOIN movies_by_genres AS mbg ON g.id_genre = mbg.id_genre group by g.id_genre order by g.genre_name asc;";
+                $this->connection = Connection::GetInstance();
+                $resultSet = $this->connection->Execute($query);               
+                foreach ($resultSet as $row){                
+                    $Genre = new Genre();
+                    $Genre->setName($row["genre_name"]);
+                    $Genre->setId($row["id_genre"]);
+                    array_push($this->genreList, $Genre);
+                }  
+                return $this->genreList;
+            }
+            catch(Exception $ex){
+                throw $ex;
+            }          
+        }        
+
         private function GetGenresFromApi(){
             $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=".API_KEY."&language=en-US");
             $result = json_decode($json, true);
