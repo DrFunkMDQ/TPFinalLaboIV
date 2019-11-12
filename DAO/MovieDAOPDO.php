@@ -14,7 +14,6 @@
         private $movieByGenre = 'movies_by_genres';
 
         public function Add(Movie $movie){
-            array_push($this->movieList, $movie);
             try{
                 $movieId = $movie->getIdmovie();
                 $query = "INSERT INTO ".$this->tableName." (id_movie, movie_name, movie_overview, movie_language, movie_image) VALUES (:id_movie, :movie_name, :movie_overview, :movie_language, :movie_image);";
@@ -88,14 +87,6 @@
             return $movieList;   
         }
 
-        public function GetMoviesInDisplay(){
-            try {
-                $query = "";
-            } catch (Exception $ex) {
-                throw $ex;
-            }
-        }
-
         public function arrayToMovie(array $movieArray){
             $movie = new Movie();
             $movie->setIdMovie($movieArray['id']);
@@ -103,8 +94,7 @@
             $movie->setOverview($movieArray["overview"]);
             $movie->setLanguage($movieArray["original_language"]);
             $movie->setImage($movieArray["poster_path"]);
-            $movie->setGenre($movieArray["genre_ids"]);
-            $movie->setTrailer($nivueArray["trailer"]);
+            $movie->setGenre($movieArray["genre_ids"]);            
             return $movie;                
         }
 
@@ -113,8 +103,19 @@
             foreach($this->movieList as $movieArray){
                 $movie = new Movie();
                 $movie = $this->arrayToMovie($movieArray);
-                $this->Add($movie);
+                if(empty($this->validateMovieExists($movie)))
+                    $this->Add($movie);
             }
+        }
+
+        public function validateMovieExists($movie){
+            $flag = 1;
+            $query = "SELECT * FROM movies WHERE id_movie = ".$movie->getIdmovie();
+            $this->connection = Connection::GetInstance();
+            $resultSet = $this->connection->Execute($query);    
+            if(empty($resultSet))
+                $flag = 0;
+            return $flag;
         }
         
         public function searchMovieById($id){

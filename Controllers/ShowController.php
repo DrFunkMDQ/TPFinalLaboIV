@@ -50,7 +50,7 @@ class ShowController
         $show = new Show();
         $show->setDate($date);            
         $show->setTime($time);  
-        if($this->ShowExist($show, $showRoom) != null){
+        if($this->ShowExists($show, $showRoom) != null){
             $this->ShowDAOPDO->Add($show, $movie, $showRoom);            
         }      
         else{
@@ -61,10 +61,9 @@ class ShowController
         header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView'); 
     }
 
-    public function ShowExist($show, $showRoom){
+    public function ShowExists($show, $showRoom){
         $aux = 1; 
         $ShowList = $this->ShowDAOPDO->GetAllxShowRoom($showRoom);
-              
         if(!empty($ShowList)){
             foreach ($ShowList as $myShow) {
                 if($myShow->getDate() == $show->getDate() && $myShow->getTime() == $show->getTime().":00"){
@@ -85,8 +84,7 @@ class ShowController
         }
         else{
             $this->ShowUpdateShowView($array[0], $array[1]);            
-        }
-        
+        }   
     }
 
     public function Remove($id, $idShowRoom){          
@@ -103,22 +101,7 @@ class ShowController
         header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');
     }
 
-    /*public function Update($id, $showRoom){
-        $myShow = $this->ShowDAOPDO->searchById($id, $showRoom);
-            if($myShow != null){                
-                //$this->ShowUpdateShowView($myShow);
-                $this->ShowDAOPDO->Update($id, $myShow);                 
-            }
-            else{                
-                echo'<script type="text/javascript">
-                alert("Processing Error!");                
-                </script>';   
-                $this->ShowListShowView();             
-            }
-                    
-    }*/
-
-    public function AddShowUpdate($id, $date, $time, $idShowRoom, $idMovie){        
+    public function ShowUpdate($id, $date, $time, $idShowRoom, $idMovie){        
         $movie = $this->MovieDAOPDO->searchMovieById($idMovie);
         $showRoom = $this->ShowRoomDAOPDO->searchById($idShowRoom);
         $show = new Show();
@@ -149,8 +132,6 @@ class ShowController
         $showList = $this->ShowDAOPDO->GetAllxMovie($movie);
         require_once(VIEWS_PATH."userShowMovieShows.php");        
     }
-
-
 }
 
 

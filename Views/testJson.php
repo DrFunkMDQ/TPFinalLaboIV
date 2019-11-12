@@ -39,7 +39,7 @@
             //$movie = new Movie();
             //$movie->setMovieName("peli de prueba")->setOverview("test")->setLanguage("en")->setGenre($list)->setIdMovie(1);
 
-            $password = "123456";
+            /*$password = "123456";
             $hash = password_hash($password, PASSWORD_DEFAULT);
             var_dump($hash);
 
@@ -53,7 +53,6 @@
 
 
 
-<<<<<<< HEAD
             //$mdao = new MovieDAO();
             //$a = $mdao->GetAll();
             //var_dump($a);
@@ -94,12 +93,17 @@
             $idShow = 2;
             $controller->AddShowUpdate($idShow, $date, $time, $idShowRoom, $idMovie2);            
             //$controller->Update(2, $showRoom, $newShowRoom, $newMovie);           
-            //var_dump($ShowDAOPDO->GetAllxMovie($movie));
+            //var_dump($ShowDAOPDO->GetAllxMovie($movie));*/
+
+            $mdao = new MovieDAOPDO;
+            $movie = new Movie();
+            $movie->setIdmovie(453405);
+            $movie->setMovieName('el bromas');
+            var_dump($mdao->validateMovieExists($movie));
+
             
             
             
-=======
->>>>>>> updates
 
 
 
