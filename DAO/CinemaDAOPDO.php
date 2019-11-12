@@ -5,6 +5,7 @@
     use \Exception as Exception;
     use DAO\ICinemaDAO as ICinemaDAO;
     use Models\Cinema as Cinema;
+    use Models\ShowRoom as ShowRoom;
     
 
     class CinemaDAOPDO implements ICinemaDAO
@@ -13,25 +14,21 @@
         private $connection;
         private $tableName = "cinemas";
 
+
         public function Add(Cinema $cinema){
             array_push($this->cinemaList, $cinema);
-             try
-            {
+             try{
                 $query = "INSERT INTO ".$this->tableName." (cinema_name, cinema_address, cinema_capacity, cinema_ticket_price) VALUES (:cinema_name, :cinema_address, :cinema_capacity, :cinema_ticket_price);";
                 $parameters["cinema_name"] = $cinema->getCinemaName();
                 $parameters["cinema_address"] = $cinema->getAddress();
                 $parameters["cinema_capacity"] = $cinema->getCapacity();
                 $parameters["cinema_ticket_price"] = $cinema->getTicketPrice();               
-
                 $this->connection = Connection::GetInstance();
-
                 $this->connection->ExecuteNonQuery($query, $parameters);
             }
-            catch(Exception $ex)
-            {
+            catch(Exception $ex){
                 throw $ex;
             }
-            
         }
 
         public function GetAll(){

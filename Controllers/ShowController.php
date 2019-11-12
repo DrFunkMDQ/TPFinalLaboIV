@@ -133,6 +133,7 @@ class ShowController
         $movie = $this->MovieDAOPDO->searchMovieById($idMovie);
         $showList = $this->ShowDAOPDO->GetAllxMovie($movie);
         $cinemaList= $this->CinemaDAOPDO->cinemaByMovieList($movie);
+        $showRoomList= $this->ShowRoomDAOPDO->showRoomByMovieList($movie);
         require_once(VIEWS_PATH."userShowMovieShows.php");        
     }
 }
