@@ -14,6 +14,7 @@ class ShowController
     private $ShowDAOPDO;
     private $ShowRoomDAOPDO;
     private $MovieDAOPDO;
+    private $CinemaDAOPDO;
     private $myShow;
     private $moviesList;
         
@@ -22,6 +23,7 @@ class ShowController
         $this->ShowDAOPDO = new ShowDAOPDO();//PDO
         $this->ShowRoomDAOPDO = new ShowRoomDAOPDO();
         $this->MovieDAOPDO = new MovieDAOPDO();
+        $this->CinemaDAOPDO = new CinemaDAOPDO();
     }
 
     public function UserShowsListView(){
@@ -130,6 +132,7 @@ class ShowController
     public function ShowMovieShowList($idMovie){
         $movie = $this->MovieDAOPDO->searchMovieById($idMovie);
         $showList = $this->ShowDAOPDO->GetAllxMovie($movie);
+        $cinemaList= $this->CinemaDAOPDO->cinemaByMovieList($movie);
         require_once(VIEWS_PATH."userShowMovieShows.php");        
     }
 }
