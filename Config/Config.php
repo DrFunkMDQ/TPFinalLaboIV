@@ -15,7 +15,7 @@ define("YOUTUBE_URL","https://www.youtube.com/embed/");
 //PDO
 define("DB_HOST", "localhost");
 define("DB_NAME", "MoviePass");
-define("DB_USER", "root2");
+define("DB_USER", "root");
 define("DB_PASS", "");
 ?>
 
