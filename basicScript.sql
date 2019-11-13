@@ -81,7 +81,7 @@ constraint fk_id_show_room foreign key (id_show_room) references ShowRooms (id_s
 alter table movies add movie_active boolean default '0'; 
 alter table ShowRooms add ticket_price float unsigned not null;
 ALTER TABLE showrooms ADD active_showroom boolean default 1;
-
+ALTER TABLE movies RENAME COLUMN movie_traier to movie_trailer;
 
 drop table users;
     

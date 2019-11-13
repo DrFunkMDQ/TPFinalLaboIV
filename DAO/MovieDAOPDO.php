@@ -16,12 +16,13 @@
         public function Add(Movie $movie){
             try{
                 $movieId = $movie->getIdmovie();
-                $query = "INSERT INTO ".$this->tableName." (id_movie, movie_name, movie_overview, movie_language, movie_image) VALUES (:id_movie, :movie_name, :movie_overview, :movie_language, :movie_image);";
+                $query = "INSERT INTO ".$this->tableName." (id_movie, movie_name, movie_overview, movie_language, movie_image, movie_trailer) VALUES (:id_movie, :movie_name, :movie_overview, :movie_language, :movie_image, :movie_trailer);";
                 $parameters["id_movie"] = $movieId;
                 $parameters["movie_name"] = $movie->getMovieName();     
                 $parameters["movie_overview"] = $movie->getOverview();     
                 $parameters["movie_language"] = $movie->getLanguage();     
-                $parameters["movie_image"] = $movie->getImage();     
+                $parameters["movie_image"] = $movie->getImage();  
+                $parameters["movie_trailer"] = $this->GetTrailerFromAPI($movie);
                 $this->connection = Connection::GetInstance();
                 $this->connection->ExecuteNonQuery($query, $parameters);
                 foreach ($movie->getGenre() as $genre) {
@@ -54,6 +55,7 @@
                     $Movie->setOverview($row["movie_overview"]);
                     $Movie->setLanguage($row["movie_language"]);
                     $Movie->setImage($row["movie_image"]);
+                    $Movie->setTrailer($row["movie_trailer"]);
                     $genreQuery = "SELECT g.genre_name FROM movies_by_genres AS mbg INNER JOIN genres AS g ON g.id_genre = mbg.id_genre INNER JOIN movies AS m ON mbg.id_movie = m.id_movie where m.id_movie =".$Movie->getIdMovie();
                     $this->connection = Connection::GetInstance();       
                     $resultSet = $this->connection->Execute($genreQuery);
@@ -157,6 +159,26 @@
                 }
             }
             return $myMovie;
+        }
+
+        public function GetTrailerFromAPI(Movie $movie){
+            try {
+                $json = file_get_contents("https://api.themoviedb.org/3/movie/".$movie->getIdmovie()."/videos?api_key=".API_KEY);
+                $result = json_decode($json, true);
+                $movieData = $result["results"];
+                $trailerKey = "";
+                foreach($movieData as $movieVideo){
+                    if($movieVideo["type"] == "Trailer"){
+                        $movieTrailer = $movieVideo;
+                        $trailerKey = $movieTrailer["key"];
+                    }
+                }
+                $movieTrailerURL = YOUTUBE_URL.$trailerKey;
+                return $movieTrailerURL;
+            } 
+            catch (Exception $ex) {
+                throw $ex;
+            }
         }
 
     }
