@@ -15,7 +15,7 @@
 
         public function ShowNewUserFormView(){            
             require_once(VIEWS_PATH."newUserForm.php");
-        }
+        }       
 
         public function ShowLoginFormView(){            
             require_once(VIEWS_PATH."Login.php");
@@ -26,12 +26,9 @@
             $user = $this->userDAO->searchByEmail($email); 
             
             if(($user != null) && (password_verify($password, $user->getPassword()) == $password))
-            {
-                
+            {               
                 $_SESSION["loggedUser"] = $user;
-
-                $listPath = FRONT_ROOT."Home/Index2";
-
+                $listPath = FRONT_ROOT."Home/Index";                               
                 header("Location: $listPath");
             }
             else
@@ -40,6 +37,13 @@
                 </script>';  
                 $this->ShowLoginFormView();
         }
+
+        public function LogOut(){            
+            session_destroy();
+            $listPath = FRONT_ROOT."Home/Index";                               
+            header("Location: $listPath");
+        }
+        
         
 
         public function AddUser($email, $password, $firstName, $lastName, $birthday){

@@ -16,7 +16,12 @@
 
 	session_start();
 
-	//require_once(VIEWS_PATH."header.php");
+	if(isset($_SESSION["loggedUser"]) && $_SESSION["loggedUser"]->getRole() == 2){    
+        include('Views/adminNav.php');         
+    }
+    else{
+    	include('Views/nav.php');
+    }   
 
 	Router::Route(new Request());
 ?>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-<?php
-  include('adminNav.php');
+<?php  
+  
 ?>
 
 

@@ -84,4 +84,14 @@ ALTER TABLE showrooms ADD active_showroom boolean default 1;
 ALTER TABLE movies RENAME COLUMN movie_traier to movie_trailer;
 
 drop table users;
+
+        ***Carrito***
+        
+CREATE TABLE IF NOT EXISTS `products` ( 
+  `id_product` int(11) NOT NULL AUTO_INCREMENT, 
+  `show` varchar(100) NOT NULL, 
+  `movie` varchar(250) NOT NULL, 
+  `price` decimal(6,2) NOT NULL, 
+  PRIMARY KEY (`id_product`) 
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
     

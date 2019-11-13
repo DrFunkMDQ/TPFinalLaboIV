@@ -20,9 +20,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar10">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Cinema/ShowAddCinemaView">Add Cinema</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Cinema/ShowListCinemaView">Cinema List</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Movie/ListNowPlayingMovies">Movie List</a> </li>
           <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Movie/getMoviesFromApi">Get Movies from API</a> </li>
           <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Movie/getGenresFromApi">Get Genres from API</a> </li>
           <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Show/ShowListingView">Movie Listing</a> </li>
@@ -35,7 +32,7 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="<?php echo FRONT_ROOT ?>User/ShowLoginFormView">Log in</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?php echo FRONT_ROOT ?>User/LogOut">Log out</a>
+                <a class="dropdown-item" href="<?php echo FRONT_ROOT ?>Home/LogOut">Log out</a>
               </div>
         </div>
         </ul>
