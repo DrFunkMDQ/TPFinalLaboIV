@@ -53,7 +53,6 @@ class ShowRoomDAOPDO implements IShowRoomDAOPDO{
         try{
             $this->showRoomsList = array();
             $cinemaId = $cinema->getId();
-            //$query = "SELECT * FROM ". $this->tableName . "WHERE id_cinema = ". $cinemaId;
             $query = "SELECT * FROM ShowRooms WHERE id_cinema = ".$cinemaId;
             $this->connection = Connection::GetInstance();
             $resultSet = $this->connection->Execute($query);
@@ -124,5 +123,35 @@ class ShowRoomDAOPDO implements IShowRoomDAOPDO{
             throw $ex;
         }
     }
+
+    public function showRoomByMovieList($movie){
+        try{
+            $this->showRoomsList = array();
+            $query = "SELECT sr.id_show_room, sr.show_room_name, sr.id_cinema 
+            FROM shows AS s 
+            JOIN showrooms AS sr 
+            ON s.id_show_room = sr.id_show_room
+            JOIN cinemas AS c
+            ON c.id_cinema = sr.id_cinema
+            WHERE s.active = 1
+            AND show_date > NOW()
+            AND s.id_movie = ".$movie->getIdmovie()." GROUP BY sr.id_show_room";
+            $this->connection = Connection::GetInstance();
+            $resultSet = $this->connection->Execute($query);
+            foreach ($resultSet as $row){                
+                $showRoom = new ShowRoom();          
+                $showRoom->setId($row["id_show_room"]);
+                $showRoom->setName($row["show_room_name"]);
+                $cinema = new Cinema();
+                $showRoom->setCinema($cinema->setId($row["id_cinema"]));
+                array_push($this->showRoomsList, $showRoom);
+            }  
+            return $this->showRoomsList;
+        }
+        catch(Exception $ex){
+            throw $ex;
+        }
+    }
+
 }
 ?>
