@@ -1,7 +1,3 @@
-<?php
-    include_once('adminNav.php');
-            
-?>
 <div class="container-fluid px-5">
     <div>
 

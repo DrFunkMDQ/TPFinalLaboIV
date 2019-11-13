@@ -1,6 +1,3 @@
-<?php
-  include('adminNav.php');
-?>
 <div class="container-fluid px-5">
 <table id="tablePreview" class="table table-striped table-hover table-borderless">
   <thead>
