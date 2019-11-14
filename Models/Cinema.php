@@ -9,7 +9,6 @@
         private $CinemaName;
         private $Address;
         private $Capacity;
-        private $TicketPrice;
         private $ShowRoomsList;
 
         //Getters && Setters
@@ -51,20 +50,6 @@
         public function setCapacity($Capacity)
         {
                 $this->Capacity = $Capacity;
-
-                return $this;
-        }
-
-        
-        public function getTicketPrice()
-        {
-                return $this->TicketPrice;
-        }
-
-        
-        public function setTicketPrice($TicketPrice)
-        {
-                $this->TicketPrice = $TicketPrice;
 
                 return $this;
         }

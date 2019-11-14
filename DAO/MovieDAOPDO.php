@@ -135,15 +135,11 @@
 
         public function SetActive(Movie $movie){
             $movieList = $this->GetAll();
-            try {
-                         
+            try {      
                 $query = "UPDATE movies SET movie_active = 1 WHERE id_movie = ".$movie->getIdmovie().";";                      
-
                 $this->connection = Connection::GetInstance();
-
                 $aux = $this->connection->ExecuteNonQuery($query);
                 return $aux;
-                
             }
             catch (Exception $ex) {
                 throw $ex;

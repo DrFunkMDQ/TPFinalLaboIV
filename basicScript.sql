@@ -7,7 +7,6 @@ create table cinemas(
     cinema_name nvarchar(20) not null,
     cinema_address nvarchar(30),
     cinema_capacity int unsigned not null,
-    cinema_ticket_price float unsigned not null,
 constraint pk_id_cinema primary key (id_cinema)
 );
 

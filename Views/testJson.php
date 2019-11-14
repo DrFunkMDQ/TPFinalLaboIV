@@ -9,6 +9,7 @@
             Autoload::start();
             use Controllers\MovieController as MovieController;
             use DAO\MovieDAOPDO as MovieDAOPDO; 
+            use DAO\CinemaDAOPDO as CinemaDAOPDO; 
             use DAO\MovieDAO as MovieDAO; 
             use Models\Movie as Movie;
             use Models\Cinema as Cinema;
@@ -96,10 +97,14 @@
             //var_dump($ShowDAOPDO->GetAllxMovie($movie));*/
 
             $mdao = new MovieDAOPDO;
-            $movie = new Movie();
-            $movie->setIdmovie(453405);
-            $movie->setMovieName('el bromas');
-            var_dump($mdao->validateMovieExists($movie));
+            $cdao = new CinemaDAOPDO;
+            $cinema = new Cinema();
+            $cinema->setCinemaName("cinema");
+            var_dump($cdao->cinemaExists($cinema));
+
+            $now = new DateTime();
+
+            var_dump($now);
 
             
             

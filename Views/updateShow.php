@@ -1,7 +1,4 @@
 
-<?php include('adminNav.php');
-        
-?>
 
 
 <body>

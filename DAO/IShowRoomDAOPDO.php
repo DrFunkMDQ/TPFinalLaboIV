@@ -6,7 +6,7 @@
 
     interface IShowRoomDAOPDO
     {
-        function Add(ShowRoom $showRoom, Cinema $cinema);
+        function Add(ShowRoom $showRoom);
         function GetAll();
         function Remove(ShowRoom $showRoom);
     }

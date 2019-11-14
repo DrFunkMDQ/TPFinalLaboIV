@@ -1,4 +1,3 @@
-<?php include('adminNav.php')?>
 
   <div class="py-5 bg-dark text-light">
     <div class="container">

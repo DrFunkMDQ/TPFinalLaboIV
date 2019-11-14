@@ -11,16 +11,31 @@ class ShowRoomDAOPDO implements IShowRoomDAOPDO{
     private $connection;
     private $tableName = "ShowRooms";
 
-    public function Add(ShowRoom $showRoom, Cinema $cinema){
+    public function Add(ShowRoom $showRoom){
         array_push($this->showRoomsList, $showRoom);
         try{
             $query = "INSERT INTO ".$this->tableName." (show_room_name, show_room_capacity, id_cinema, ticket_price) VALUES (:show_room_name, :show_room_capacity, :id_cinema, :ticket_price);";
             $parameters["show_room_name"] = $showRoom->getName();
             $parameters["show_room_capacity"] = $showRoom->getCapacity();
-            $parameters["id_cinema"] = $cinema->getId(); 
+            $parameters["id_cinema"] = $showRoom->getCinema()->getId(); 
             $parameters["ticket_price"] = $showRoom->getTicketPrice();                                
             $this->connection = Connection::GetInstance();
             $this->connection->ExecuteNonQuery($query, $parameters);            
+        }
+        catch(Exception $ex){
+            throw $ex;
+        }
+    }
+
+    public function showRoomExists($showRoom){
+        try{
+            $flag = 1;
+            $query = "SELECT * FROM showrooms WHERE show_room_name = '" .$showRoom->getName()."' AND id_cinema = ".$showRoom->getCinema()->getId();
+            $this->connection = Connection::GetInstance();
+            $resultSet = $this->connection->Execute($query);    
+            if(empty($resultSet))
+                $flag = 0;
+            return $flag;
         }
         catch(Exception $ex){
             throw $ex;

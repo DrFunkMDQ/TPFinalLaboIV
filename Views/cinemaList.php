@@ -1,4 +1,4 @@
-<?php include('adminNav.php') ?>
+
 
 <body class="align-items-end bg-gray">
   <div class="py-5 align">

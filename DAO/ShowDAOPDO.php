@@ -51,8 +51,7 @@ class ShowDAOPDO implements IShowDAOPDO{
         }
         catch(Exception $ex){
             throw $ex;
-        }
-        
+        } 
     }
 
     public function GetAllxMovie($movie){     
@@ -81,8 +80,7 @@ class ShowDAOPDO implements IShowDAOPDO{
         catch(Exception $ex)
         {
             throw $ex;
-        }
-                    
+        }          
     }     
 
     function GetAllxShowRoom(ShowRoom $ShowRoom) {
@@ -173,9 +171,6 @@ class ShowDAOPDO implements IShowDAOPDO{
             throw $ex;
         }
     }
-
-
-
 
 }
 ?>

@@ -36,13 +36,13 @@
             require_once(VIEWS_PATH."updateCinema.php");
         }
 
-        public function AddCinema($name, $address, $capacity, $ticketPrice){
+        public function AddCinema($name, $address, $capacity){
             $cinema = new Cinema();
             $cinema->setCinemaName($name);
             $cinema->setAddress($address);
             $cinema->setCapacity($capacity);
-            $cinema->setTicketPrice($ticketPrice);
-            $this->cinemaDAO->Add($cinema);
+            if(!$this->cinemaDAO->cinemaExists($cinema))
+                $this->cinemaDAO->Add($cinema);
             $this->ShowAddCinemaView();
         }
         
@@ -72,13 +72,12 @@
             }                        
         }
 
-        public function AddCinemaUpdate($id, $name, $address, $capacity, $ticketPrice){//Igual a AddCinema pero redirecciona a otra View
+        public function AddCinemaUpdate($id, $name, $address, $capacity){//Igual a AddCinema pero redirecciona a otra View
             $updateCinema = new Cinema();
             $updateCinema->setId($id);
             $updateCinema->setCinemaName($name);
             $updateCinema->setAddress($address);
             $updateCinema->setCapacity($capacity);
-            $updateCinema->setTicketPrice($ticketPrice);
             $this->cinemaDAO->update($updateCinema);
             $this->ShowListCinemaView();
         }

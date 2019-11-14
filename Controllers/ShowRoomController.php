@@ -33,13 +33,15 @@
         }
 
         public function AddShowRoom($name, $capacity, $ticketPrice, $cinemaId){
-            var_dump($cinemaId);
             $cinema = $this->CinemaDAOPDO->searchById($cinemaId);
             $showRoom = new ShowRoom();
+            $cinema = new Cinema();
             $showRoom->setName($name);            
             $showRoom->setCapacity($capacity);                      
-            $showRoom->setTicketPrice($ticketPrice);                      
-            $this->ShowRoomDAOPDO->Add($showRoom, $cinema);            
+            $showRoom->setTicketPrice($ticketPrice);  
+            $showRoom->setCinema($cinema->setId($cinemaId));   
+            if(!$this->ShowRoomDAOPDO->showRoomExists($showRoom))                 
+                $this->ShowRoomDAOPDO->Add($showRoom);            
             header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');
         }
         

@@ -18,13 +18,27 @@
         public function Add(Cinema $cinema){
             array_push($this->cinemaList, $cinema);
              try{
-                $query = "INSERT INTO ".$this->tableName." (cinema_name, cinema_address, cinema_capacity, cinema_ticket_price) VALUES (:cinema_name, :cinema_address, :cinema_capacity, :cinema_ticket_price);";
+                $query = "INSERT INTO ".$this->tableName." (cinema_name, cinema_address, cinema_capacity) VALUES (:cinema_name, :cinema_address, :cinema_capacity);";
                 $parameters["cinema_name"] = $cinema->getCinemaName();
                 $parameters["cinema_address"] = $cinema->getAddress();
                 $parameters["cinema_capacity"] = $cinema->getCapacity();
-                $parameters["cinema_ticket_price"] = $cinema->getTicketPrice();               
                 $this->connection = Connection::GetInstance();
                 $this->connection->ExecuteNonQuery($query, $parameters);
+            }
+            catch(Exception $ex){
+                throw $ex;
+            }
+        }
+
+        public function cinemaExists($cinema){
+            try{
+                $flag = 1;
+                $query = "SELECT * FROM CINEMAS WHERE cinema_name = '" .$cinema->getCinemaName()."'";
+                $this->connection = Connection::GetInstance();
+                $resultSet = $this->connection->Execute($query);    
+                if(empty($resultSet))
+                    $flag = 0;
+                return $flag;
             }
             catch(Exception $ex){
                 throw $ex;
@@ -42,7 +56,6 @@
                     $cinema->setCinemaName($row["cinema_name"]);
                     $cinema->setAddress($row["cinema_address"]);
                     $cinema->setCapacity($row["cinema_capacity"]);                                
-                    $cinema->setTicketPrice($row["cinema_ticket_price"]);               
                     $cinema->setId($row["id_cinema"]);
                     array_push($this->cinemaList, $cinema);
                 }  
@@ -69,8 +82,6 @@
         }
 
         public function searchById($cinemaId){ /// Se puede hacer que reotorne un boolean y no el cine
-            
-            var_dump($cinemaId);
             $cinemaList = $this->GetAll();
             $myCinema = null;
             foreach ($cinemaList as $cinema) {
@@ -94,11 +105,10 @@
         
         public function update($cinema){
             try{     
-                $query = "UPDATE cinemas SET cinema_name = :cinema_name, cinema_address = :cinema_address, cinema_capacity = :cinema_capacity, cinema_ticket_price = :cinema_ticket_price WHERE id_cinema = ".$cinema->getId();
+                $query = "UPDATE cinemas SET cinema_name = :cinema_name, cinema_address = :cinema_address, cinema_capacity = :cinema_capacity WHERE id_cinema = ".$cinema->getId();
                 $parameters["cinema_name"] = $cinema->getCinemaName();
                 $parameters["cinema_address"] = $cinema->getAddress();
                 $parameters["cinema_capacity"] = $cinema->getCapacity();
-                $parameters["cinema_ticket_price"] = $cinema->getTicketPrice();                         
                 $this->connection = Connection::GetInstance();
                 $this->connection->ExecuteNonQuery($query, $parameters);
             }
