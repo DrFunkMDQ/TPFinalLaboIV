@@ -38,20 +38,35 @@ class ShowDAOPDO implements IShowDAOPDO{
         }
     }
 
-    public function Add(Show $show, Movie $movie, ShowRoom $showRoom){
+    public function Add(Show $show){
         array_push($this->showList, $show);       
         try{                
             $query = "INSERT INTO ".$this->tableName." (show_date, show_time, id_movie, id_show_room) VALUES (:show_date, :show_time, :id_movie, :id_show_room);";
             $parameters["show_date"] = $show->getDate();
             $parameters["show_time"] = $show->getTime();
-            $parameters["id_movie"] = $movie->getIdmovie();
-            $parameters["id_show_room"] = $showRoom->getId();                    
+            $parameters["id_movie"] = $show->getMovie()->getIdmovie();
+            $parameters["id_show_room"] = $show->getShowRoom()->getId();                    
             $this->connection = Connection::GetInstance();
             $this->connection->ExecuteNonQuery($query, $parameters);                
         }
         catch(Exception $ex){
             throw $ex;
         } 
+    }
+
+    public function showExists($show){
+        try{
+            $flag = 1;
+            $query = "SELECT * FROM shows WHERE show_date = '".$show->getDate()."' AND show_time = '".$show->getTime()."' AND id_show_room = ".$show->getShowRoom()->getId();
+            $this->connection = Connection::GetInstance();
+            $resultSet = $this->connection->Execute($query);    
+            if(empty($resultSet))
+                $flag = 0;
+            return $flag;
+        }
+        catch(Exception $ex){
+            throw $ex;
+        }
     }
 
     public function GetAllxMovie($movie){     

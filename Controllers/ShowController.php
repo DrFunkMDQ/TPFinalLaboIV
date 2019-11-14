@@ -4,6 +4,7 @@ namespace Controllers;
 use Models\Cinema as Cinema;
 use Models\ShowRoom as ShowRoom;
 use Models\Show as Show;
+use Models\Movie as Movie;
 use DAO\CinemaDAOPDO as CinemaDAOPDO;
 use DAO\MovieDAOPDO as MovieDAOPDO;
 use DAO\ShowRoomDAOPDO as ShowRoomDAOPDO;
@@ -27,7 +28,7 @@ class ShowController
     }
 
     public function UserShowsListView(){
-        //$this->moviesList = $this->MovieDAOPDO->GetMoviesInDisplay();
+        $this->moviesList = $this->MovieDAOPDO->GetMoviesInDisplay();
         $this->moviesList = $this->MovieDAOPDO->GetAll();
         $myMovie = array_shift($this->moviesList);
         require_once(VIEWS_PATH."userShowList.php");
@@ -50,34 +51,19 @@ class ShowController
         $movie = $this->MovieDAOPDO->searchMovieById($idMovie);
         $showRoom = $this->ShowRoomDAOPDO->searchById($idShowRoom);        
         $show = new Show();
+        $movie = new Movie();
+        $showRoom = new ShowRoom();
+        $showRoom->setId($idShowRoom);
+        $movie->setIdMovie($idMovie);
         $show->setDate($date);            
-        $show->setTime($time);  
-        if($this->ShowExists($show, $showRoom) != null){
-            $this->ShowDAOPDO->Add($show, $movie, $showRoom);            
-        }      
-        else{
-            echo'<script type="text/javascript">
-            alert("Processing Error!");                
-            </script>';  
-        }
+        $show->setTime($time); 
+        $show->setShowRoom($showRoom);
+        $show->setMovie($movie);
+        if(!$this->ShowDAOPDO->showExists($show))    
+            $this->ShowDAOPDO->Add($show);
         header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView'); 
     }
 
-    public function ShowExists($show, $showRoom){
-        $aux = 1; 
-        $ShowList = $this->ShowDAOPDO->GetAllxShowRoom($showRoom);
-        if(!empty($ShowList)){
-            foreach ($ShowList as $myShow) {
-                if($myShow->getDate() == $show->getDate() && $myShow->getTime() == $show->getTime().":00"){
-                    $aux = null;
-                }
-                else{
-                    $aux = $myShow;
-                }
-            }
-        }                       
-        return $aux;
-    }
     
     public function Explode($values){
         $array = explode("/", $values);
