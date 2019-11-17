@@ -10,21 +10,56 @@ body{
     background-attachment: fixed;
     background-size: 100% 100%;
  }
+ .pageHeader{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+  height: 70px;
+  }
 
  .pageHeaderTitle{
     float: left;
     width: 50%;
   }
+
   .pageHeaderFilter{
     float: right;
-    width: 200px;
+    width: 50%;
   }
-  .pageHeader{
-    margin-top: 30px;
-    margin-bottom: 30px;
-    width: 100%;
-    height: 70px;
+
+  .headerRightFIlter{
+    float: right;
+    width: 60%;
   }
-  .pageContent{
-    width: 100%;
+
+  .headerRightFIlter input {
+    float: left;
+    width: 50%;
+  }
+
+  .headerRightFIlter button {
+    float: right;
+    width: 130px;
+  }
+
+  .headerLeftFIlter{
+    float: left;
+    width: 40%;
+  }
+
+  .headerLeftFIlter div {
+    float: right;
+    margin-right: 40px;
+  }
+
+  .cinemasHeaderName{
+    width: 30%;  
+  }
+
+  .cinemasHeaderAddress{
+    width: 60%;
+  }
+
+  .cinemasAccordion{
+    margin-top: -25px;
   }

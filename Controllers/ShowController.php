@@ -135,14 +135,12 @@ class ShowController
     }
 
     public function ShowListingByGenre($genre){
-        $movieList = $this->ShowDAOPDO->getListingMovies();
         $movieList = $this->ShowDAOPDO->ListingMoviesByGenre($genre);
         $this->genreList = $this->GenreDAO->GetActiveListingGenres();
         require_once(VIEWS_PATH."userShowListings.php");
     }
 
     public function ShowListingByDate($date){
-        $movieList = $this->ShowDAOPDO->getListingMovies();
         $movieList = $this->ShowDAOPDO->getListingsByDate($date);
         $this->genreList = $this->GenreDAO->GetActiveListingGenres();
         require_once(VIEWS_PATH."userShowListings.php");
