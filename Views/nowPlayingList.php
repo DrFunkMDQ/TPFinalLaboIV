@@ -3,7 +3,7 @@
   <thead>
   <form  method="post">
   <div class="btn-group pull-right px-2">
-    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filter by Genre </button>
+  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filter by Genre </button>
     <div class="dropdown-menu"> 
     <?php foreach ($this->genreList as $genre){?>
       <button class="dropdown-item" type="submit" name="<?php echo $genre->getName(); ?>" onclick = "this.form.action = '<?php echo FRONT_ROOT ?>Movie/ListMoviesByGenre'" value="<?php echo $genre->getName(); ?>"><?php echo $genre->getName(); ?></button>
