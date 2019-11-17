@@ -9,6 +9,7 @@ use DAO\CinemaDAOPDO as CinemaDAOPDO;
 use DAO\MovieDAOPDO as MovieDAOPDO;
 use DAO\ShowRoomDAOPDO as ShowRoomDAOPDO;
 use DAO\ShowDAOPDO as ShowDAOPDO;
+use \Datetime;
 
 class ShowController
 {
@@ -48,21 +49,37 @@ class ShowController
     }
 
     public function Add($date, $time, $idShowRoom, $idMovie){
-        $movie = $this->MovieDAOPDO->searchMovieById($idMovie);
-        $showRoom = $this->ShowRoomDAOPDO->searchById($idShowRoom);        
-        $show = new Show();
-        $movie = new Movie();
-        $showRoom = new ShowRoom();
-        $showRoom->setId($idShowRoom);
-        $movie->setIdMovie($idMovie);
-        $show->setDate($date);            
-        $show->setTime($time); 
-        $show->setShowRoom($showRoom);
-        $show->setMovie($movie);
-        if(!$this->ShowDAOPDO->showExists($show))    
-            $this->ShowDAOPDO->Add($show);
-        header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView'); 
-    }
+        $now = new DateTime();
+        if($date >= $now->format('Y-m-d')){
+            $movie = $this->MovieDAOPDO->searchMovieById($idMovie);
+            $showRoom = $this->ShowRoomDAOPDO->searchById($idShowRoom);        
+            $show = new Show();
+            $movie = new Movie();
+            $showRoom = new ShowRoom();
+            $showRoom->setId($idShowRoom);
+            $movie->setIdMovie($idMovie);
+            $show->setDate($date);            
+            $show->setTime($time); 
+            $show->setShowRoom($showRoom);
+            $show->setMovie($movie);
+            if(!$this->ShowDAOPDO->showExists($show)){    
+                $this->ShowDAOPDO->Add($show);
+                header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView'); 
+            }
+            else{
+                echo'<script type="text/javascript">
+                alert("Show already exists");
+                location="http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView";                
+                </script>';    
+            }
+        }
+        else{
+            echo'<script type="text/javascript">
+            alert("Date in the past!");   
+            location="http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView";                     
+            </script>';    
+        }
+    }  
 
     
     public function Explode($values){
