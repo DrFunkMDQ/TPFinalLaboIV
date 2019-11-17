@@ -1,16 +1,3 @@
-<head>
-	<link rel="stylesheet" href="<?php echo CSS_PATH . "/movieListStyle.css" ?>" type="text/css">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-	<link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
-	<script>
-		$('#myModal').on('shown.bs.modal', function() {
-			$('#myInput').trigger('focus')
-		})
-	</script>
-</head>
-
 <?php 
 	$modalId = preg_replace('/[^A-Za-z0-9\-]/', '', $myMovie->getMovieName());
 ?>

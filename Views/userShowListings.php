@@ -1,15 +1,17 @@
-
-<div class="container-fluid px-5">
-
-    <div class="moviesList">
-        <div>
-            <h2 class="cardsTitle">Now Playing Movies</h2>
+<body>
+    <div class="container-fluid px-5">
+        <div class="pageHeader">
+            <div class="pageHeaderTitle">
+                <h2 class="cardsTitle">Now Playing Movies</h2>
+            </div>
         </div>
-        <form action="post" class="cardsForm">
-            <?php foreach($movieList as $myMovie){
-                include('movieCard.php');
-            }?>
-        </form>
+        <div>
+            <form action="post" class="cardsForm">
+                <?php foreach ($movieList as $myMovie) {
+                    include('movieCard.php');
+                } ?>
+            </form>
+        </div>
     </div>
 </div>
 

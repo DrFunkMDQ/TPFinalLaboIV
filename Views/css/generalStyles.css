@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.5;
+    color: #333;
+    text-align: left;
+    background-image: url(/TPFinalLaboIV/Views/images/default-background.png);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+ }
+
+ .pageHeaderTitle{
+    float: left;
+    width: 50%;
+  }
+  .pageHeaderFilter{
+    float: right;
+    width: 200px;
+  }
+  .pageHeader{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    height: 70px;
+  }
+  .pageContent{
+    width: 100%;
+  }

@@ -1,6 +1,4 @@
-
-
-<body class="align-items-end bg-gray">
+<div class="align-items-end bg-gray">
   <div class="py-5 align">
     <div class="container  rounded">
       <div class="row rounded bg-dark text-uppercase text-light">
@@ -14,8 +12,8 @@
           <?php foreach ($cinemaList as $cinema) : ?>
           <?php $activeTab = array_shift($firstShowRooms);?>
             <div class="card">
-              <div class="card-header">
-                <div class="row bg-light">
+              <div class="card-header bg-light">
+                <div class="row">
                   <div class="col-md-3 py-1">
                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<?php echo str_replace(' ', '', $cinema->getCinemaName()); ?>">
                       <?php echo $cinema->getCinemaName(); ?>
