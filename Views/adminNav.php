@@ -8,13 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+  <link rel="stylesheet" href="<?php echo CSS_PATH . "/generalStyles.css" ?>">
+  <link rel="stylesheet" href="<?php echo CSS_PATH . "/movieListStyle.css" ?>" type="text/css">
+  <script>
+		$('#myModal').on('shown.bs.modal', function() {
+			$('#myInput').trigger('focus')
+		})
+	</script>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="container"> <a class="navbar-brand" href="#">
+  <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
+    <div class="container"> <a class="navbar-brand" href="<?php echo FRONT_ROOT ?>Home/Index">
         <i class="fa d-inline fa-lg fa-stop-circle"></i>
-        <b> BRAND</b>
+        <b>MoviePass</b>
       </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar10">
         <span class="navbar-toggler-icon"></span>
       </button>

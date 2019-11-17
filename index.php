@@ -20,7 +20,7 @@
         include('Views/adminNav.php');         
     }
     else{
-    	include('Views/nav.php');
+    	include('Views/userNav.php');
     }   
 
 	Router::Route(new Request());
