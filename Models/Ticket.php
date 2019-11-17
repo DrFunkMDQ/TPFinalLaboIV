@@ -4,9 +4,12 @@
         
         //Attributes
 
-        private $QR;
-        private $TicketName;
-        //Function??
+        private $id;
+        private $QR;        
+        private $Show;
+        private $State;
+        private $Purchase;
+        
 
         //Getters && Setters        
         
@@ -20,18 +23,59 @@
                 $this->QR = $QR;
 
                 return $this;
+        }  
+
+        public function getShow()
+        {
+                return $this->Show;
         }
 
          
-        public function getTicketName()
+        public function setShow($Show)
         {
-                return $this->TicketName;
+                $this->Show = $Show;
+
+                return $this;
         }
 
-       
-        public function setTicketName($TicketName)
+        
+        public function getState()
         {
-                $this->TicketName = $TicketName;
+                return $this->State;
+        }
+
+        
+        public function setState($State)
+        {
+                $this->State = $State;
+
+                return $this;
+        }
+
+        
+        public function getId()
+        {
+                return $this->id;
+        }
+
+         
+        public function setId($id)
+        {
+                $this->id = $id;
+
+                return $this;
+        }
+
+         
+        public function getPurchase()
+        {
+                return $this->Purchase;
+        }
+
+        
+        public function setPurchase($Purchase)
+        {
+                $this->Purchase = $Purchase;
 
                 return $this;
         }

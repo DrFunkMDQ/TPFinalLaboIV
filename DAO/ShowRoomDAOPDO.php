@@ -112,8 +112,9 @@ class ShowRoomDAOPDO implements IShowRoomDAOPDO{
     }
 
     public function searchById($id){
+        $myShowRoom = null;
         $showRoomsList = $this->GetAll();
-        foreach($showRoomsList as $showRoom){
+        foreach($showRoomsList as $showRoom){                        
             if($showRoom->getId() == $id){
                 $myShowRoom = $showRoom;
             }
