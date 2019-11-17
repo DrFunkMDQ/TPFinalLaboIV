@@ -33,8 +33,8 @@
         }
 
         private function PrepareMovieList(){
-                $this->firstMovie = array_shift($this->movieList);
-                $this->genreList = $this->genreDAO->GetActiveGenres();
+            $this->firstMovie = array_shift($this->movieList);
+            $this->genreList = $this->genreDAO->GetActiveGenres();
         }
 
         public function GetMoviesFromApi(){
@@ -49,7 +49,7 @@
 
         public function ListMoviesByGenre(string $genre){
             $this->movieList = $this->movieDAO->GetAll();
-            $this->movieList = $this->genreDAO->MoviesByGenre($genre, $this->movieList);
+            $this->movieList = $this->genreDAO->MoviesByGenre($genre);
             $this->PrepareMovieList();
             $this->ShowNowPlayingView();
         }

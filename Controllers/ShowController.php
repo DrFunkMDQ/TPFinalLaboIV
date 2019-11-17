@@ -9,6 +9,7 @@ use DAO\CinemaDAOPDO as CinemaDAOPDO;
 use DAO\MovieDAOPDO as MovieDAOPDO;
 use DAO\ShowRoomDAOPDO as ShowRoomDAOPDO;
 use DAO\ShowDAOPDO as ShowDAOPDO;
+use DAO\GenreDAOPDO as GenreDAO;
 
 class ShowController
 {
@@ -16,8 +17,10 @@ class ShowController
     private $ShowRoomDAOPDO;
     private $MovieDAOPDO;
     private $CinemaDAOPDO;
+    private $GenreDAO;
     private $myShow;
     private $moviesList;
+    private $genreList;
         
 
     public function __construct(){            
@@ -25,14 +28,9 @@ class ShowController
         $this->ShowRoomDAOPDO = new ShowRoomDAOPDO();
         $this->MovieDAOPDO = new MovieDAOPDO();
         $this->CinemaDAOPDO = new CinemaDAOPDO();
+        $this->GenreDAO = new GenreDAO();
     }
 
-    public function UserShowsListView(){
-        $this->moviesList = $this->MovieDAOPDO->GetMoviesInDisplay();
-        $this->moviesList = $this->MovieDAOPDO->GetAll();
-        $myMovie = array_shift($this->moviesList);
-        require_once(VIEWS_PATH."userShowList.php");
-    }
 
     public function ShowListShowView($idShowroom){
         $this->myShowRoom = $this->ShowRoomDAOPDO->searchById($idShowroom);
@@ -64,7 +62,7 @@ class ShowController
         header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView'); 
     }
 
-    
+    //Divides with a slash the show ID and the showroom ID
     public function Explode($values){
         $array = explode("/", $values);
         if(key($_POST) == "ShowRoomRemove"){
@@ -106,12 +104,8 @@ class ShowController
     }
 
     public function ShowListingView(){
-        $listing = $this->ShowDAOPDO->getListingMovies();
-        $movieList = array();
-        foreach ($listing as $movieID) {
-            $movie = $this->MovieDAOPDO->searchMovieById($movieID);
-            array_push($movieList, $movie);
-        }
+        $movieList = $this->ShowDAOPDO->getListingMovies();
+        $this->genreList = $this->GenreDAO->GetActiveListingGenres();
         require_once(VIEWS_PATH."userShowListings.php");
     }
 
@@ -122,7 +116,21 @@ class ShowController
         $showRoomList= $this->ShowRoomDAOPDO->showRoomByMovieList($movie);
         require_once(VIEWS_PATH."userShowMovieShows.php");        
     }
+
+    public function ShowListingByGenre($genre){
+        $movieList = $this->ShowDAOPDO->getListingMovies();
+        $movieList = $this->ShowDAOPDO->ListingMoviesByGenre($genre);
+        $this->genreList = $this->GenreDAO->GetActiveListingGenres();
+        require_once(VIEWS_PATH."userShowListings.php");
+    }
+
+    public function ShowListingByDate($date){
+        $movieList = $this->ShowDAOPDO->getListingMovies();
+        $movieList = $this->ShowDAOPDO->getListingsByDate($date);
+        $this->genreList = $this->GenreDAO->GetActiveListingGenres();
+        require_once(VIEWS_PATH."userShowListings.php");
+    }
 }
 
-
 ?>
+
