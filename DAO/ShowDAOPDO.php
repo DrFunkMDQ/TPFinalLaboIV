@@ -2,6 +2,7 @@
 
 use DAO\IShowDAOPDO as IShowDAO;
 use DAO\ShowRoomDAOPDO as ShowRoomDAO;
+use DAO\MovieDAOPDO as MovieDAOPDO;
 use Models\Show as Show;
 use Models\Cinema as Cinema;
 use Models\ShowRoom as ShowRoom;
@@ -176,16 +177,91 @@ class ShowDAOPDO implements IShowDAOPDO{
             $query = "SELECT id_movie FROM shows where show_date > NOW() and active = 1 group by id_movie;"; 
             $this->connection = Connection::GetInstance();
             $aux = $this->connection->Execute($query); 
-            $movieIdList = array();
+            $movieList = array();
+            $movieDAO = new MovieDAOPDO;
             foreach ($aux as $movie) {
-                array_push($movieIdList, $movie['id_movie']);
+                $listedMovie = $movieDAO->searchMovieById($movie['id_movie']);
+                array_push($movieList, $listedMovie);
             }                       
-            return $movieIdList;
+            return $movieList;
         }
         catch(Exception $ex){
             throw $ex;
         }
     }
 
+    public function ListingMoviesByGenre($genre){
+        try{
+            $this->genreList = array();
+            $query = "SELECT m.movie_name, m.id_movie, m.movie_overview, m.movie_language, m.movie_image 
+            FROM movies_by_genres AS mbg 
+            JOIN genres AS g 
+            ON g.id_genre = mbg.id_genre 
+            JOIN shows AS s 
+            ON mbg.id_movie = s.id_movie 
+            JOIN movies as m
+            ON m.id_movie = s.id_movie
+            WHERE s.show_date > NOW() and active = 1 AND g.genre_name ='$genre'";
+            $this->connection = Connection::GetInstance();
+            $resultSet = $this->connection->Execute($query);               
+            foreach ($resultSet as $row){                
+                $movie = new Movie();
+                $movie->setMovieName($row["movie_name"]);
+                $movie->setIdMovie($row["id_movie"]);
+                $movie->setOverview($row["movie_overview"]);
+                $movie->setLanguage($row["movie_language"]);
+                $movie->setImage($row["movie_image"]);
+                $genreQuery = "SELECT g.genre_name FROM movies_by_genres AS mbg INNER JOIN genres AS g ON g.id_genre = mbg.id_genre INNER JOIN movies AS m ON mbg.id_movie = m.id_movie where m.id_movie =".$movie->getIdMovie();
+                $this->connection = Connection::GetInstance();       
+                $resultSet = $this->connection->Execute($genreQuery);
+                $genreArray = array();
+                foreach($resultSet as $value){
+                    $genres = $value['genre_name'];
+                    array_push($genreArray, $genres);
+                }
+                $movie->setGenre($genreArray); 
+                array_push($this->genreList, $movie);
+            }  
+            return $this->genreList;
+        }
+        catch(Exception $ex){
+            throw $ex;
+        }
+    }
+
+    public function getListingsByDate($date){
+        try{
+            $this->genreList = array();
+            $query = "SELECT m.movie_name, m.id_movie, m.movie_overview, m.movie_language, m.movie_image
+            from shows AS s 
+            JOIN movies as m
+            ON m.id_movie = s.id_movie
+            WHERE s.show_date > NOW() and active = 1 AND s.show_date ='$date'";
+            $this->connection = Connection::GetInstance();
+            $resultSet = $this->connection->Execute($query);               
+            foreach ($resultSet as $row){                
+                $movie = new Movie();
+                $movie->setMovieName($row["movie_name"]);
+                $movie->setIdMovie($row["id_movie"]);
+                $movie->setOverview($row["movie_overview"]);
+                $movie->setLanguage($row["movie_language"]);
+                $movie->setImage($row["movie_image"]);
+                $genreQuery = "SELECT g.genre_name FROM movies_by_genres AS mbg INNER JOIN genres AS g ON g.id_genre = mbg.id_genre INNER JOIN movies AS m ON mbg.id_movie = m.id_movie where m.id_movie =".$movie->getIdMovie();
+                $this->connection = Connection::GetInstance();       
+                $resultSet = $this->connection->Execute($genreQuery);
+                $genreArray = array();
+                foreach($resultSet as $value){
+                    $genres = $value['genre_name'];
+                    array_push($genreArray, $genres);
+                }
+                $movie->setGenre($genreArray); 
+                array_push($this->genreList, $movie);
+            }  
+            return $this->genreList;
+        }
+        catch(Exception $ex){
+            throw $ex;
+        }
+    }
 }
 ?>

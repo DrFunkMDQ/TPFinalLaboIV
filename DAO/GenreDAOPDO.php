@@ -85,9 +85,6 @@
             }
         }
 
-
-
-
         /////MODIFICAR ESTO
 
         public function GenreToMovies(Array $movieList){
@@ -120,7 +117,7 @@
             return $genreArray;
         }
 
-        public function MoviesByGenre(string $genre, Array $movieList){
+        public function MoviesByGenre(string $genre){
             try{
                 $this->genreList = array();
                 $query = "SELECT m.* FROM movies_by_genres AS mbg INNER JOIN genres AS g ON g.id_genre = mbg.id_genre INNER JOIN movies AS m ON mbg.id_movie = m.id_movie WHERE g.genre_name ='$genre'";
@@ -151,9 +148,33 @@
             }
         } 
 
-
-
-
+        public function GetActiveListingGenres(){
+            try{
+                $this->genreList = array();
+                $query = "SELECT g.id_genre, g.genre_name
+                FROM genres AS g 
+                JOIN movies_by_genres AS mbg 
+                ON g.id_genre = mbg.id_genre 
+                JOIN shows as s
+                ON s.id_movie = mbg.id_movie
+                where s.active = 1
+                and s.show_date > NOW()
+                group by g.id_genre 
+                order by g.genre_name asc";
+                $this->connection = Connection::GetInstance();
+                $resultSet = $this->connection->Execute($query);               
+                foreach ($resultSet as $row){                
+                    $Genre = new Genre();
+                    $Genre->setName($row["genre_name"]);
+                    $Genre->setId($row["id_genre"]);
+                    array_push($this->genreList, $Genre);
+                }  
+                return $this->genreList;
+            }
+            catch(Exception $ex){
+                throw $ex;
+            }          
+        }     
 
 
     }

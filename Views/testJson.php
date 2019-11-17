@@ -96,15 +96,11 @@
             //$controller->Update(2, $showRoom, $newShowRoom, $newMovie);           
             //var_dump($ShowDAOPDO->GetAllxMovie($movie));*/
 
-            $mdao = new MovieDAOPDO;
-            $cdao = new CinemaDAOPDO;
-            $cinema = new Cinema();
-            $cinema->setCinemaName("cinema");
-            var_dump($cdao->cinemaExists($cinema));
 
-            $now = new DateTime();
+            $sdao = new ShowDAOPDO;
+            $mlist = $sdao->getListingsByDate('2019-11-29');
+            var_dump($mlist);
 
-            var_dump($now);
 
             
             

@@ -25,10 +25,19 @@
                 $parameters["movie_trailer"] = $this->GetTrailerFromAPI($movie);
                 $this->connection = Connection::GetInstance();
                 $this->connection->ExecuteNonQuery($query, $parameters);
-                foreach ($movie->getGenre() as $genre) {
+                if(!empty($movie->getGenre())){
+                    foreach ($movie->getGenre() as $genre) {
+                        $query = "INSERT INTO ".$this->movieByGenre." (id_movie, id_genre) VALUES (:id_movie, :id_genre)";
+                        $genreParameters["id_movie"] = $movieId;
+                        $genreParameters["id_genre"] = $genre;
+                        $this->connection = Connection::GetInstance();
+                        $this->connection->ExecuteNonQuery($query, $genreParameters);
+                    }
+                }
+                else{
                     $query = "INSERT INTO ".$this->movieByGenre." (id_movie, id_genre) VALUES (:id_movie, :id_genre)";
                     $genreParameters["id_movie"] = $movieId;
-                    $genreParameters["id_genre"] = $genre;
+                    $genreParameters["id_genre"] = 9999;
                     $this->connection = Connection::GetInstance();
                     $this->connection->ExecuteNonQuery($query, $genreParameters);
                 }
