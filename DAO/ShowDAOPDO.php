@@ -1,6 +1,6 @@
 <?php namespace DAO;
 
-use DAO\IShowDAOPDO as IShowDAO;
+use DAO\IShowDAOPDO as IShowDAOPDO;
 use DAO\ShowRoomDAOPDO as ShowRoomDAO;
 use DAO\MovieDAOPDO as MovieDAOPDO;
 use Models\Show as Show;
@@ -152,7 +152,29 @@ class ShowDAOPDO implements IShowDAOPDO{
             }
         }
         return $myShow;
-    }    
+    } 
+    
+    public function getById($idShow){ 
+        
+        try {
+            $this->showList = array();
+            $query = "SELECT * FROM ". $this->tableName. " where id_show = '$idShow'";            
+            $this->connection = Connection::GetInstance();
+            $resultSet = $this->connection->Execute($query);
+            foreach ($resultSet as $row){
+                $show = new Show();
+                $show->setDate($row["show_date"]);                
+                $show->setTime($row["show_time"]);
+                $show->setMovie($row["id_movie"]);
+                $show->setShowRoom($row["id_show_room"]);
+                $show->setId($row["id_show"]);                
+            } 
+            return $show;
+        } 
+        catch (Exception $ex) {
+            throw $ex;
+        }
+    } 
     
     public function update($show, Movie $movie, ShowRoom $showRoom){
         $showList = $this->GetAllxShowRoom($showRoom);
