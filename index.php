@@ -21,7 +21,8 @@
     }
     else{
     	include('Views/nav.php');
-    }   
+	}   
+	
 
 	Router::Route(new Request());
 ?>

@@ -135,10 +135,11 @@
             $purchase->setPurchaseDate(20190220);
             $purchase->setUser($user);
 
-            $controller->AddToCart(10, 5);
-                       
-            $controller->Add();
+            //$controller->AddToCart(14, 4);  
+                                  
+            //$controller->Add();
 
+            var_dump($this->ticketsList);
             
             
             
