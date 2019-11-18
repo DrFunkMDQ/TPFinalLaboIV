@@ -1,4 +1,4 @@
-
+<?php require_once('VerifySessionAdmin.php'); ?>  
 
 <body>
   <div class="py-5 bg-dark text-white">

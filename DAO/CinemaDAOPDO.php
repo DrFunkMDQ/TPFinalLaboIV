@@ -18,10 +18,9 @@
         public function Add(Cinema $cinema){
             array_push($this->cinemaList, $cinema);
              try{
-                $query = "INSERT INTO ".$this->tableName." (cinema_name, cinema_address, cinema_capacity) VALUES (:cinema_name, :cinema_address, :cinema_capacity);";
+                $query = "INSERT INTO ".$this->tableName." (cinema_name, cinema_address) VALUES (:cinema_name, :cinema_address);";
                 $parameters["cinema_name"] = $cinema->getCinemaName();
                 $parameters["cinema_address"] = $cinema->getAddress();
-                $parameters["cinema_capacity"] = $cinema->getCapacity();
                 $this->connection = Connection::GetInstance();
                 $this->connection->ExecuteNonQuery($query, $parameters);
             }
@@ -48,7 +47,12 @@
         public function GetAll(){
             try{
                 $this->cinemaList = array();
-                $query = "SELECT * FROM ".$this->tableName;
+                $query = "SELECT c.id_cinema, c.cinema_name, c.cinema_address, ifnull(sum(sr.show_room_capacity), 0) as 'cinema_capacity'
+                FROM cinemas as c
+                left join showrooms as sr
+                on c.id_cinema = sr.id_cinema
+                where c.active = 1
+                group by c.id_cinema";
                 $this->connection = Connection::GetInstance();
                 $resultSet = $this->connection->Execute($query);
                 foreach ($resultSet as $row){                
@@ -70,7 +74,7 @@
             try
                 {
                     $name = $cinema->getCinemaName();
-                    $query = "DELETE FROM cinemas WHERE cinema_name = '$name'";               
+                    $query = "UPDATE cinemas SET active = 0 WHERE cinema_name = '$name'";               
                     $this->connection = Connection::GetInstance();
                     $a = $this->connection->ExecuteNonQuery($query);  
                     return $a;                                          
@@ -105,10 +109,9 @@
         
         public function update($cinema){
             try{     
-                $query = "UPDATE cinemas SET cinema_name = :cinema_name, cinema_address = :cinema_address, cinema_capacity = :cinema_capacity WHERE id_cinema = ".$cinema->getId();
+                $query = "UPDATE cinemas SET cinema_name = :cinema_name, cinema_address = :cinema_address WHERE id_cinema = ".$cinema->getId();
                 $parameters["cinema_name"] = $cinema->getCinemaName();
                 $parameters["cinema_address"] = $cinema->getAddress();
-                $parameters["cinema_capacity"] = $cinema->getCapacity();
                 $this->connection = Connection::GetInstance();
                 $this->connection->ExecuteNonQuery($query, $parameters);
             }

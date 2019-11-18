@@ -1,3 +1,6 @@
+<?php require_once('VerifySessionAdmin.php'); ?>  
+
+
 <div class="container-fluid px-5">
   <div class="pageHeader">
     <div class="pageHeaderTitle">

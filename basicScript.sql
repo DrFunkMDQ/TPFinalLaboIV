@@ -81,6 +81,8 @@ alter table movies add movie_active boolean default '0';
 alter table ShowRooms add ticket_price float unsigned not null;
 ALTER TABLE showrooms ADD active_showroom boolean default 1;
 ALTER TABLE movies RENAME COLUMN movie_traier to movie_trailer;
+alter table cinemas drop column cinema_ticket_price;
+alter table cinemas drop column cinema_capacity;
 
 drop table users;
 
