@@ -16,7 +16,7 @@
 
 	session_start();
 
-	if(isset($_SESSION["loggedUser"]) && $_SESSION["loggedUser"]->getRole() == 2){    
+	if(isset($_SESSION["loggedUser"]) && $_SESSION["loggedUser"]->getRole() == 1){    
         include('Views/adminNav.php');         
     }
     else{

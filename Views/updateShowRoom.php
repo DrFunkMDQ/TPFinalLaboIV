@@ -1,3 +1,5 @@
+<?php require_once('VerifySessionAdmin.php'); ?>  
+
 <div class="py-1 bg-dark">
 <div class="container">
     <div class="row">

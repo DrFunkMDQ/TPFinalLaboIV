@@ -40,9 +40,16 @@
             $showRoom->setCapacity($capacity);                      
             $showRoom->setTicketPrice($ticketPrice);  
             $showRoom->setCinema($cinema->setId($cinemaId));   
-            if(!$this->ShowRoomDAOPDO->showRoomExists($showRoom))                 
+            if(!$this->ShowRoomDAOPDO->showRoomExists($showRoom)){                 
                 $this->ShowRoomDAOPDO->Add($showRoom);            
-            header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');
+                header('location:http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView');
+            }
+            else{
+                echo'<script type="text/javascript">
+                alert("A ShowRoom with that name already exists on the current Cinema");   
+                location="http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView";                     
+                </script>';   
+            }
         }
         
         public function Remove($name){ 

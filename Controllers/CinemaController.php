@@ -36,14 +36,20 @@
             require_once(VIEWS_PATH."updateCinema.php");
         }
 
-        public function AddCinema($name, $address, $capacity){
+        public function AddCinema($name, $address){
             $cinema = new Cinema();
             $cinema->setCinemaName($name);
             $cinema->setAddress($address);
-            $cinema->setCapacity($capacity);
-            if(!$this->cinemaDAO->cinemaExists($cinema))
+            if(!$this->cinemaDAO->cinemaExists($cinema)){
                 $this->cinemaDAO->Add($cinema);
-            $this->ShowAddCinemaView();
+                $this->ShowAddCinemaView();
+            }
+            else{
+                echo'<script type="text/javascript">
+                alert("A Cinema with that name already exists");   
+                location="http://localhost/TPFinalLaboIV/Cinema/ShowListCinemaView";                     
+                </script>';   
+            }
         }
         
         public function RemoveCinema($cinemaName){            
@@ -72,12 +78,11 @@
             }                        
         }
 
-        public function AddCinemaUpdate($id, $name, $address, $capacity){//Igual a AddCinema pero redirecciona a otra View
+        public function AddCinemaUpdate($id, $name, $address){//Igual a AddCinema pero redirecciona a otra View
             $updateCinema = new Cinema();
             $updateCinema->setId($id);
             $updateCinema->setCinemaName($name);
             $updateCinema->setAddress($address);
-            $updateCinema->setCapacity($capacity);
             $this->cinemaDAO->update($updateCinema);
             $this->ShowListCinemaView();
         }

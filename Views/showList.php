@@ -1,3 +1,5 @@
+<?php require_once('VerifySessionAdmin.php'); ?>  
+
 <head>
   <link rel="stylesheet" href="<?php echo CSS_PATH . "/showsListStyle.css" ?>" type="text/css">
 </head>
