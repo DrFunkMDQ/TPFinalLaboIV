@@ -22,5 +22,6 @@
             $this->movieList = $this->movieDAO->GetAll();
             $this->firstMovie = array_shift($this->movieList);
         }
+
     }
 ?>

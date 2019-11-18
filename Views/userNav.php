@@ -1,4 +1,6 @@
+
 <?php  ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -11,10 +13,10 @@
   <link rel="stylesheet" href="<?php echo CSS_PATH . "/generalStyles.css" ?>">
   <link rel="stylesheet" href="<?php echo CSS_PATH . "/movieListStyle.css" ?>" type="text/css">
   <script>
-		$('#myModal').on('shown.bs.modal', function() {
-			$('#myInput').trigger('focus')
-		})
-	</script>
+    $('#myModal').on('shown.bs.modal', function() {
+      $('#myInput').trigger('focus')
+    })
+  </script>
 </head>
 
 <body>
@@ -28,19 +30,25 @@
       <div class="collapse navbar-collapse" id="navbar10">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Show/ShowListingView">Movie Listing</a> </li>
-          
-        <ul>
-        <div class="btn-group">
-            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Dropdown </button>
-              <div class="dropdown-menu"> 
-                <a class="dropdown-item" href="<?php echo FRONT_ROOT ?>User/ShowNewUserFormView">Sign In</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?php echo FRONT_ROOT ?>User/ShowLoginFormView">Log in</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?php echo FRONT_ROOT ?>User/LogOut">Log out</a>
+          <?php if (isset($_SESSION["loggedUser"])) : ?>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowProfileView">Perfil</a>
+            </li>
+          <?php endif; ?>
+          <ul>
+            <div class="btn-group">
+              <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Menu</button>
+              <div class="dropdown-menu">
+                <?php if (!isset($_SESSION["loggedUser"])) : ?>
+                  <a class="dropdown-item" href="<?php echo FRONT_ROOT ?>User/ShowNewUserFormView">Sign In</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="<?php echo FRONT_ROOT ?>User/ShowLoginFormView">Log in</a>
+                <?php else : ?>
+                  <a class="dropdown-item" href="<?php echo FRONT_ROOT ?>User/LogOut">Log out</a>
+                <?php endif; ?>
               </div>
-        </div>
-        </ul>
+            </div>
+          </ul>
       </div>
     </div>
   </nav>

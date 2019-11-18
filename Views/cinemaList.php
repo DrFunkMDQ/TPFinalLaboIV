@@ -23,7 +23,7 @@
           <div class="card">
             <div class="card-header bg-light">
               <div class="row">
-                <div class="col-md-3 py-1">
+                <div class="col-md-3 ">
                   <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<?php echo str_replace(' ', '', $cinema->getCinemaName()); ?>">
                     <?php echo $cinema->getCinemaName(); ?>
                   </button>

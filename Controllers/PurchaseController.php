@@ -19,60 +19,60 @@
     {
         private $purchaseDAO;
         private $showDAO;
-        private $ticketDAO;
-        private $auxList;
-        private $ticketsList; 
+        private $ticketDAO; 
 
         public function __construct()
         {            
             $this->purchaseDAO = new PurchaseDAOPDO();
             $this->ticketDAO = new TicketDAOPDO();
             $this->showDAO = new ShowDAOPDO();
-            $this->setauxList();
-            $this->ticketsList = array();
-        }
-
-        
-
-        public function setauxList(){
-            if(isset($_SESSION["Shopping-Cart"])){
-                $this->auxList = $_SESSION["Shopping-Cart"];
-            }
-            else{
-                $this->auxList = array();
-            }           
-        }
+        }      
 
         public function Add(){
-            $this->prepareTickets();
+
+
             $Purchase = new Purchase();
             $Purchase->setPurchaseDate(date("Ymd"));
             $Purchase->setUser($_SESSION["loggedUser"]);
-            $Purchase->setTotal($this->purchaseDAO->calculateTotal($this->ticketsList));
+            $Purchase->setTotal($this->purchaseDAO->calculateTotal($_SESSION["Shopping-Cart-Object"]));
             $Purchase->setId($this->purchaseDAO->Add($Purchase));         
-            foreach ($this->ticketsList as $show) {
+            foreach ($_SESSION["Shopping-Cart-Object"] as $show) {
                 $Ticket = new Ticket;
                 $Ticket->setPurchase($Purchase);                
                 $Ticket->setShow($show);
                 $Ticket->setQr('test');
                 $this->ticketDAO->Add($Ticket);
-            }
-            $this->SendMail($Purchase->getUser()->getEmail(), 'hola', 'chau');
+            } 
+            $_SESSION["Shopping-Cart-Object"] = null;
+            $_SESSION["Shopping-Cart-String"] = null;
+
+            require_once(VIEWS_PATH."index.php");
+            
+            //Email            
+            
         }        
 
-        public function prepareTickets(){            
-            foreach ($this->auxList as $idShow => $quantity) {                               
-                for($i=0;$i<$quantity;$i++){
-                    $show = $this->showDAO->getById($idShow);                                     
-                    array_push($this->ticketsList,$show);                                                       
-                }                
-            }            
+        public function prepareTickets(){ 
+            $aux = array(); 
+            foreach ( $_SESSION["Shopping-Cart-String"] as $idShow => $quantity) {                                              
+                for($i=0;$i<$quantity;$i++){             
+                    $show = $this->showDAO->getById($idShow);                    
+                    array_push($aux,$show);                                          
+                }             
+            }  
+            $_SESSION["Shopping-Cart-Object"] = $aux;         
         }
 
-        public function AddToCart($quantity, $idShow){            
-            $this->auxList[$quantity] = $idShow;            
-            $_SESSION["Shopping-Cart"] = $this->auxList;
-            var_dump($_SESSION["Shopping-Cart"]);          
+        public function AddToCart($quantity,$idShow){ 
+            $_SESSION["Shopping-Cart-String"][$quantity] = $idShow;
+            $this->prepareTickets();
+        }
+
+        public function RemoveItemCart($key){
+            $index = $_SESSION["Shopping-Cart-Object"][$key]->getId();
+            unset($_SESSION["Shopping-Cart-String"][$index]);                      
+            unset($_SESSION["Shopping-Cart-Object"][$key]);
+            require_once(VIEWS_PATH."shoppingCart.php"); 
         }
 
         function SendMail( $ToEmail, $MessageHTML, $MessageTEXT ) {

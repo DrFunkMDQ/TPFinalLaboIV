@@ -22,6 +22,7 @@
         include('Views/adminNav.php');         
     }
     else{
+
 		if(isset($_SESSION['fbUser'])){
 			$udao = new UserDAOPDO();
 			$userArray = array();
@@ -51,7 +52,9 @@
 			include('Views/userNav.php');
 		}
 
+
     }   
+
 
 	Router::Route(new Request());
 ?>
