@@ -48,23 +48,141 @@
         }
 
         public function GetAllxUser(User $User){
-            return 1;
+            try{
+                $query = "SELECT * 
+                FROM purchases
+                WHERE id_user = ".$User ->getId();
+                $this->connection = Connection::GetInstance();
+                $resultSet = $this->connection->Execute($query);     
+                return $resultSet;          
+            }  
+            catch(Exception $ex){
+                throw $ex;
+            }    
         }
+
         public function GetAllxShowRoom(ShowRoom $ShowRoom){
-            return 1;
+            try{
+                $query = "SELECT IFNULL(count(t.id_ticket),0) as 'tickets', IFNULL(sum(t.ticket_price),0) as 'total'
+                FROM purchases as p
+                LEFT JOIN tickets as t
+                ON p.id_purchase = t.id_purchase
+                JOIN shows as s
+                on t.id_show = s.id_show
+                JOIN showrooms as sr
+                on sr.id_show_room = s.id_show_room
+                JOIN cinemas as c
+                on sr.id_cinema = c.id_cinema
+                where s.id_show_room = ".$ShowRoom ->getId();
+                $this->connection = Connection::GetInstance();
+                $resultSet = $this->connection->Execute($query);     
+                return $resultSet;          
+            }  
+            catch(Exception $ex){
+                throw $ex;
+            } 
         }
+
         public function GetAllxShow(Show $Show){
-            return 1;      
+            try{
+                $query = "SELECT IFNULL(count(t.id_ticket),0) as 'tickets', IFNULL(sum(t.ticket_price),0) as 'total'
+                FROM purchases as p
+                LEFT JOIN tickets as t
+                ON p.id_purchase = t.id_purchase
+                JOIN shows as s
+                on t.id_show = s.id_show
+                where s.id_show = ".$Show->getId();
+                $this->connection = Connection::GetInstance();
+                $resultSet = $this->connection->Execute($query);     
+                return $resultSet;          
+            }  
+            catch(Exception $ex){
+                throw $ex;
+            }      
         }
-        public function GetAllxDate($Date){
-            return 1;
+
+        public function GetAllxDate($Date1, $Date2){
+            try{
+                $query = "SELECT IFNULL(count(t.id_ticket),0) as 'tickets', IFNULL(sum(t.ticket_price),0) as 'total'
+                FROM purchases as p
+                LEFT JOIN tickets as t
+                ON p.id_purchase = t.id_purchase
+                JOIN shows as s
+                on t.id_show = s.id_show
+                JOIN showrooms as sr
+                on sr.id_show_room = s.id_show_room
+                JOIN cinemas as c
+                on sr.id_cinema = c.id_cinema
+                WHERE p.purchase_date BETWEEN '".$Date1."' AND '".$Date2."'";
+                $this->connection = Connection::GetInstance();
+                $resultSet = $this->connection->Execute($query);     
+                return $resultSet;          
+            }  
+            catch(Exception $ex){
+                throw $ex;
+            }  
         }
         public function GetAllxMovie(Movie $Movie){
-            return 1;
+            try{
+                $query = "SELECT IFNULL(count(t.id_ticket),0) as 'tickets', IFNULL(sum(t.ticket_price),0) as 'total'
+                FROM purchases as p
+                LEFT JOIN tickets as t
+                ON p.id_purchase = t.id_purchase
+                JOIN shows as s
+                on t.id_show = s.id_show
+                JOIN showrooms as sr
+                on sr.id_show_room = s.id_show_room
+                JOIN cinemas as c
+                on sr.id_cinema = c.id_cinema
+                where s.id_movie = ".$Movie->getIdmovie();
+                $this->connection = Connection::GetInstance();
+                $resultSet = $this->connection->Execute($query);     
+                return $resultSet;          
+            }  
+            catch(Exception $ex){
+                throw $ex;
+            }  
         }
+
         public function GetAllxCinema(Cinema $Cinema){
-            return 1;
+            try{
+                $query = "SELECT IFNULL(count(t.id_ticket),0) as 'tickets', IFNULL(sum(t.ticket_price),0) as 'total'
+                FROM purchases as p
+                LEFT JOIN tickets as t
+                ON p.id_purchase = t.id_purchase
+                JOIN shows as s
+                on t.id_show = s.id_show
+                JOIN showrooms as sr
+                on sr.id_show_room = s.id_show_room
+                JOIN cinemas as c
+                on sr.id_cinema = c.id_cinema
+                where c.id_cinema = ".$Cinema->getId();
+                $this->connection = Connection::GetInstance();
+                $resultSet = $this->connection->Execute($query);     
+                return $resultSet;          
+            }  
+            catch(Exception $ex){
+                throw $ex;
+            }  
         }        
+
+        public function GetAllxPurchase(Purchase $Purchase){
+            try{
+                $query = "SELECT s.id_movie, sr.id_show_room, t.ticket_price
+                FROM tickets AS t
+                JOIN shows AS s
+                ON s.id_show = t.id_show
+                JOIN showrooms AS sr
+                ON sr.id_show_room = s.id_show_room
+                WHERE t.id_purchase = ".$Purchase->getId();
+                $this->connection = Connection::GetInstance();
+                $resultSet = $this->connection->Execute($query);     
+                return $resultSet;          
+            }  
+            catch(Exception $ex){
+                throw $ex;
+            }  
+        }
 
         public function GetAll(){
             try{

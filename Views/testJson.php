@@ -17,6 +17,7 @@
             use Models\Show as Show;
             use DAO\ShowRoomDAOPDO as ShowRoomDAOPDO;
             use DAO\ShowDAOPDO as ShowDAOPDO;
+            use DAO\UserDAOPDO as UserDAOPDO;
             use Controllers\ShowRoomController as ShowRoomController;
             use Controllers\ShowController as ShowController;
 
@@ -111,7 +112,7 @@
             //var_dump($mlist);
 
 
-            $controller = new PurchaseController;
+            /*$controller = new PurchaseController;
             $DAO = new PurchaseDAOPDO();
             $DAO2 = new TicketDAOPDO();
            
@@ -140,13 +141,21 @@
 
             $controller->AddToCart(28, 5);
                        
-            $controller->Add();
+            $controller->Add();*/
+            //$DAO = new PurchaseDAOPDO();
 
-            
-            
-            
-
-
+            //$SR = new Room();
+            //$SR->setId(13);
+            //$list = $DAO->GetAllxDate('2019-01-01', '2019-12-30');
+            //foreach($list as $row){
+            //    echo $row['tickets'];  
+            //    echo '<br>';          
+            //    echo $row['total'];            
+            //}   
+            session_start();              
+            var_dump($_SESSION);
+            $udao = new UserDAOPDO;
+            var_dump($udao->searchByEmail('jj@jj.com'));
 
 ?>
 <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=mensaje">
