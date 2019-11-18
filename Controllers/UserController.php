@@ -5,7 +5,7 @@
     use Models\Purchase as Purchase;
     use Models\Ticket as Ticket;
     use DAO\UserDAOPDO as UserDAOPDO;
-    //use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
+    use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
     class UserController
     {
         private $userDAO;
@@ -14,7 +14,7 @@
 
         public function __construct(){
             $this->userDAO = new UserDAOPDO();//PDO
-            //$this->purchaseDAO = new PurchaseDAOPDO;
+            $this->purchaseDAO = new PurchaseDAOPDO;
         }
 
         public function ShowNewUserFormView(){            
@@ -101,7 +101,13 @@
 
         public function ShowProfileView(){
             $loggedUser = $_SESSION["loggedUser"];
+            $userPurchases = $this->GetUserPurchases($loggedUser);
             require_once(VIEWS_PATH."userProfile.php");
+        }
+
+        private function GetUserPurchases(User $user){
+            $this->purchasesList = $this->purchaseDAO->GetAllxUser($user);
+            return $this->purchasesList;
         }
     }
 

@@ -15,6 +15,74 @@ body{
    opacity: 0.9;
  }
 
+ .cinemaShowsCard{
+   width: 100%;
+   float: left;
+   margin-bottom: 35px;
+ }
+
+ .modal-content{
+  opacity: 1;
+}
+
+.modal-dialog{
+  background-color: darkgreen;
+}
+
+ .cinemaShowsCard .modal-dialog{
+   margin-top: 100px;
+ }
+ 
+ .movieShowsSection{
+  text-align: left;
+  float: left;
+  width: 60%;
+ }
+
+
+ .movieShowPoster {
+  top: 0;
+  max-width: 35%;
+  float: right;
+  position: relative;
+  border-radius: 20px;
+}
+
+ .showRoomDataCard{
+   height: auto;
+   margin-top: -25px;
+   background-color: #ddd;
+   opacity: 0.9;
+   border-bottom: 1px solid #333;
+ }
+
+ .showRoomDataCard .row{
+   margin-bottom: 5px;
+ }
+
+ .showRoomDataCard .showRoomName {
+   margin-top: 25px;
+   margin-left: 20px;
+   padding-top: 20px;
+ }
+
+ .showRoomDataCard .row{
+   width: 80%;
+   margin-left: 50px;
+   padding-top: 5px;
+ }
+
+ .showRoomDataCard input {
+   width: 40px;
+   height: 25px;
+   margin-left: 5px;
+ }
+
+ .showRoomDataCard button {
+  float: right;
+  margin-top: -5px;
+}
+
  .collapse .card-body .table {
    margin-bottom: -10px;
  }
