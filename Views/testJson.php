@@ -118,25 +118,27 @@
             session_start();
             
             $user = new User();            
-            $user->setId(15);
+            $user->setId(3);
+            $user->setEmail('emilioherrada@hotmail.com');
             $_SESSION["loggedUser"] = $user;
+            var_dump($user);
 
             $showRoom = new Room();
             $showRoom->setTicketPrice(200);
             
             $show1 = new Show();
-            $show1->setId(8);
+            $show1->setId(28);
             $show1->setShowRoom($showRoom);
-            $show2 = new Show();
-            $show2->setId(5);
-            $show3 = new Show();
-            $show3->setId(5);
+           // $show2 = new Show();
+            //$show2->setId(27);
+           // $show3 = new Show();
+           // $show3->setId(26);
              
             $purchase = new Purchase();
             $purchase->setPurchaseDate(20190220);
             $purchase->setUser($user);
 
-            $controller->AddToCart(10, 5);
+            $controller->AddToCart(28, 5);
                        
             $controller->Add();
 

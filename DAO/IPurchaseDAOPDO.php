@@ -15,7 +15,7 @@
         public function GetAllxUser(User $User);
         public function GetAllxShowRoom(ShowRoom $ShowRoom);
         public function GetAllxShow(Show $Show);
-        public function GetAllxDate($Date);
+        public function GetAllxDate($Date1, $Date2);
         public function GetAllxMovie(Movie $Movie);
         public function GetAllxCinema(Cinema $Cinema);
         public function GetAll();        
