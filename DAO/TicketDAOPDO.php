@@ -1,6 +1,7 @@
 <?php namespace DAO;
 
 use DAO\ITicketDAOPDO as ITicketDAOPDO;
+use DAO\ShowRoomDAOPDO as ShowRoomDAOPDO;
 use Models\Show as Show;
 use Models\Ticket as Ticket;
 use Models\Purchase as Purchase;
@@ -12,12 +13,15 @@ class TicketDAOPDO implements ITicketDAOPDO{
     private $tableName = "tickets";
 
     public function Add(Ticket $Ticket){
-        array_push($this->ticketsList, $Ticket);              
+        array_push($this->ticketsList, $Ticket); 
+        $ShowRoomDAO = new ShowRoomDAOPDO();             
         try{                
-            $query = "INSERT INTO ".$this->tableName." (id_show, id_purchase, qr) VALUES (:id_show, :id_purchase, :qr);";
+            $query = "INSERT INTO ".$this->tableName." (id_show, id_purchase, qr, ticket_price) VALUES (:id_show, :id_purchase, :qr, :ticket_price);";
             $parameters["id_show"] = $Ticket->getShow()->getId();
             $parameters["id_purchase"] = $Ticket->getPurchase()->getId();          
-            $parameters["qr"] = $Ticket->getQR();                               
+            $parameters["qr"] = $Ticket->getQR(); 
+            $showRoom = $ShowRoomDAO->searchById($Ticket->getShow()->getShowRoom());
+            $parameters["ticket_price"] = $showRoom->getTicketPrice();                               
             $this->connection = Connection::GetInstance();
             $this->connection->ExecuteNonQuery($query, $parameters);                
         }

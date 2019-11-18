@@ -73,11 +73,12 @@ class ShowDAOPDO implements IShowDAOPDO{
     public function GetAllxMovie($movie){     
         try{
             $this->showList = array();  
-            $query = "SELECT s.show_date, s.show_time, c.cinema_name, c.id_cinema, sr.show_room_name, sr.id_show_room FROM shows AS s JOIN showrooms AS sr ON sr.id_show_room = s.id_show_room JOIN cinemas AS c ON c.id_cinema = sr.id_cinema WHERE s.id_movie = ".$movie->getIdmovie()." AND s.active = 1 AND show_date > NOW() ORDER BY c.id_cinema;";
+            $query = "SELECT s.id_show, s.show_date, s.show_time, c.cinema_name, c.id_cinema, sr.show_room_name, sr.id_show_room FROM shows AS s JOIN showrooms AS sr ON sr.id_show_room = s.id_show_room JOIN cinemas AS c ON c.id_cinema = sr.id_cinema WHERE s.id_movie = ".$movie->getIdmovie()." AND s.active = 1 AND show_date > NOW() ORDER BY c.id_cinema;";
             $this->connection = Connection::GetInstance();
             $resultSet = $this->connection->Execute($query);                
             foreach ($resultSet as $row){                
                 $show = new Show();
+                $show->setId($row["id_show"]);
                 $show->setDate($row["show_date"]); 
                 $show->setTime($row["show_time"]);
                 $show->setMovie($movie);                               
