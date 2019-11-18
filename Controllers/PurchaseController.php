@@ -48,7 +48,7 @@
         public function prepareTickets(){ 
             $aux = array(); 
             foreach ( $_SESSION["Shopping-Cart-String"] as $idShow => $quantity) {                                              
-                for($i=0;$i<$quantity;$i++){                    
+                for($i=0;$i<$quantity;$i++){             
                     $show = $this->showDAO->getById($idShow);                    
                     array_push($aux,$show);                                          
                 }             
@@ -56,10 +56,9 @@
             $_SESSION["Shopping-Cart-Object"] = $aux;         
         }
 
-        public function AddToCart($quantity,$idShow){                                    
+        public function AddToCart($quantity,$idShow){ 
             $_SESSION["Shopping-Cart-String"][$quantity] = $idShow;
-            $this->prepareTickets();///////QUITAR///////////           
-            require_once(VIEWS_PATH."shoppingCart.php"); 
+            $this->prepareTickets();
         }
 
         public function RemoveItemCart($key){

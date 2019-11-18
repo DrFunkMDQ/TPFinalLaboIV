@@ -145,6 +145,13 @@ class ShowController
         $this->genreList = $this->GenreDAO->GetActiveListingGenres();
         require_once(VIEWS_PATH."userShowListings.php");
     }
+
+    public function AddToCart($idShow, $quantity){ 
+        $_SESSION["Shopping-Cart-String"][$idShow] = $quantity;
+        var_dump($idShow);
+        $show = $this->ShowDAOPDO->getById($idShow);//Esta funcion del ShowDAOPDO devuelve el objeto show, pero dentro solo tiene un ID MOVIE, no el objeto movie completo
+        $this->ShowMovieShowList($show->getMovie());
+    }
 }
 
 ?>
