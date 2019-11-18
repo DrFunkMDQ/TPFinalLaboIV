@@ -27,6 +27,8 @@
             $this->ticketsList = array();
         }
 
+        
+
         public function setauxList(){
             if(isset($_SESSION["Shopping-Cart"])){
                 $this->auxList = $_SESSION["Shopping-Cart"];
@@ -64,7 +66,8 @@
 
         public function AddToCart($quantity, $idShow){            
             $this->auxList[$quantity] = $idShow;            
-            $_SESSION["Shopping-Cart"] = $this->auxList;          
+            $_SESSION["Shopping-Cart"] = $this->auxList;
+            var_dump($_SESSION["Shopping-Cart"]);          
         }
     }
 ?>
