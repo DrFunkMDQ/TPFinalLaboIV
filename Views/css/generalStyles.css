@@ -10,6 +10,21 @@ body{
     background-attachment: fixed;
     background-size: 100% 100%;
  }
+
+ table{
+   opacity: 0.9;
+ }
+
+ .collapse .card-body .table {
+   margin-bottom: -10px;
+ }
+
+  .collapse .card-body .table .row{
+    border-radius: 15px;
+    border-bottom: 2px solid #ddd;
+    vertical-align: middle;
+  }
+
  .pageHeader{
   margin-top: 30px;
   margin-bottom: 30px;
@@ -62,4 +77,40 @@ body{
 
   .cinemasAccordion{
     margin-top: -25px;
+    opacity: 0.9;
+  }
+
+  .cinemasAccordion .accordion .tab-content .row {
+    border-radius: 15px;
+  } 
+
+  .profileDataSection{
+    margin-top: 60px;
+    margin-left: 60px;
+    text-align: left;
+    float: left;
+    width: 500px;
+  }
+
+  .profileDataSection .profileData{
+    border-color: #12bbad;
+    border-radius: 5px;
+    height: 150px;
+    width: 60%;
+  }
+  .profileDataSection .profileData .rowLabel{
+    width: 100px;
+    color: #f3f3f3 !important;
+  }
+
+  .profileTicketsSection{
+    margin-top: 60px;
+    width: 50%;
+    text-align: left;
+    opacity: 0.9;
+    float: right;
+  }
+
+  .profileTicketsSection .accordion {
+    margin-top: -30px;
   }
