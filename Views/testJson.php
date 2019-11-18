@@ -105,6 +105,7 @@
             //var_dump($ShowDAOPDO->GetAllxMovie($movie));*/
 
 
+
             //$sdao = new ShowDAOPDO;
             //$mlist = $sdao->getListingsByDate('2019-11-29');
             //var_dump($mlist);
@@ -146,3 +147,4 @@
 
 
 ?>
+<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=mensaje">
