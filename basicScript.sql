@@ -86,13 +86,24 @@ alter table cinemas drop column cinema_capacity;
 
 drop table users;
 
-        ***Carrito***
-        
-CREATE TABLE IF NOT EXISTS `products` ( 
-  `id_product` int(11) NOT NULL AUTO_INCREMENT, 
-  `show` varchar(100) NOT NULL, 
-  `movie` varchar(250) NOT NULL, 
-  `price` decimal(6,2) NOT NULL, 
-  PRIMARY KEY (`id_product`) 
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+       
+CREATE TABLE IF NOT EXISTS purchases ( 
+  id_purchase int(11) unsigned auto_increment,   
+  total decimal(6,2) NOT NULL,
+  purchase_date date not null,
+  id_user int unsigned not null, 
+  constraint pk_id_purchase primary key (id_purchase),
+  constraint fk_id_user foreign key (id_user) references users (id_user)  
+);
+
+CREATE TABLE IF NOT EXISTS tickets(
+    id_ticket int unsigned auto_increment,
+    id_show int unsigned not null,
+    id_purchase int unsigned not null,
+    state int not null DEFAULT 1,
+    qr nvarchar(50) not null,
+    constraint pk_id_ticket primary key (id_ticket),
+    constraint fk_id_show foreign key (id_show) references Shows (id_show),
+    constraint fk_id_purchase foreign key (id_purchase) references purchases (id_purchase)
+);
     

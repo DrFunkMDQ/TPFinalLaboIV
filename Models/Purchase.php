@@ -1,43 +1,31 @@
 <?php namespace Models;
 
     class Purchase{
-        private $pucrchaseDate;
-        private $numberOfTickets;
-        private $total;
-        private $discount;
-        private $TicketList; //class ticket
         
-
         //Attributes
-       
+
+        private $id;
+        private $purchaseDate;
+        private $total;
+        private $User;
+        private $TicketList;         
+        
+       //Getters && Setters  
+
         public function getPucrchaseDate()
         {
                 return $this->pucrchaseDate;
         }
 
         
-        public function setPucrchaseDate($pucrchaseDate)
+        public function setPurchaseDate($pucrchaseDate)
         {
                 $this->pucrchaseDate = $pucrchaseDate;
 
                 return $this;
         }
 
-         
-        public function getNumberOfTickets()
-        {
-                return $this->numberOfTickets;
-        }
-
-        
-        public function setNumberOfTickets($numberOfTickets)
-        {
-                $this->numberOfTickets = $numberOfTickets;
-
-                return $this;
-        }
-
-       
+               
         public function getTotal()
         {
                 return $this->total;
@@ -52,19 +40,6 @@
         }
 
          
-        public function getDiscount()
-        {
-                return $this->discount;
-        }
-
-       
-        public function setDiscount($discount)
-        {
-                $this->discount = $discount;
-
-                return $this;
-        }
-
         public function getTicketList()
         {
                 return $this->TicketList;
@@ -73,6 +48,32 @@
         public function setTicketList($TicketList)
         {
                 $this->TicketList = $TicketList;
+
+                return $this;
+        }
+        
+        public function getUser()
+        {
+                return $this->User;
+        }
+       
+        public function setUser($User)
+        {
+                $this->User = $User;
+
+                return $this;
+        }
+
+         
+        public function getId()
+        {
+                return $this->id;
+        }
+
+        
+        public function setId($id)
+        {
+                $this->id = $id;
 
                 return $this;
         }

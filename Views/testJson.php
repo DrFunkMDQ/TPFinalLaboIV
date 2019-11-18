@@ -20,6 +20,14 @@
             use Controllers\ShowRoomController as ShowRoomController;
             use Controllers\ShowController as ShowController;
 
+            use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
+            use Models\Purchase as Purchase;
+            use Models\User as User;
+            use Models\Ticket as Ticket;
+            use DAO\TicketDAOPDO as TicketDAOPDO;
+            use Controllers\PurchaseController as PurchaseController;
+            
+
 
             
             //$movieController = new MovieController();
@@ -97,9 +105,44 @@
             //var_dump($ShowDAOPDO->GetAllxMovie($movie));*/
 
 
-            $sdao = new ShowDAOPDO;
-            $mlist = $sdao->getListingsByDate('2019-11-29');
-            var_dump($mlist);        
+
+            //$sdao = new ShowDAOPDO;
+            //$mlist = $sdao->getListingsByDate('2019-11-29');
+            //var_dump($mlist);
+
+
+            $controller = new PurchaseController;
+            $DAO = new PurchaseDAOPDO();
+            $DAO2 = new TicketDAOPDO();
+           
+            session_start();
+            
+            $user = new User();            
+            $user->setId(15);
+            $_SESSION["loggedUser"] = $user;
+
+            $showRoom = new Room();
+            $showRoom->setTicketPrice(200);
+            
+            $show1 = new Show();
+            $show1->setId(8);
+            $show1->setShowRoom($showRoom);
+            $show2 = new Show();
+            $show2->setId(5);
+            $show3 = new Show();
+            $show3->setId(5);
+             
+            $purchase = new Purchase();
+            $purchase->setPurchaseDate(20190220);
+            $purchase->setUser($user);
+
+            $controller->AddToCart(10, 5);
+                       
+            $controller->Add();
+
+            
+            
+            
 
 
 
