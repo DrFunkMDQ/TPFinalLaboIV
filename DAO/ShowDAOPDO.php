@@ -162,8 +162,8 @@ class ShowDAOPDO implements IShowDAOPDO{
             $query = "SELECT * FROM ". $this->tableName. " where id_show = '$idShow'";            
             $this->connection = Connection::GetInstance();
             $resultSet = $this->connection->Execute($query);
+            $show = new Show();
             foreach ($resultSet as $row){
-                $show = new Show();
                 $show->setDate($row["show_date"]);                
                 $show->setTime($row["show_time"]);
                 $show->setMovie($row["id_movie"]);
