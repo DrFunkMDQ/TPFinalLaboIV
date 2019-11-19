@@ -1,4 +1,3 @@
-<?php ?>
 
 <!DOCTYPE html>
 <html>
@@ -11,10 +10,10 @@
   <link rel="stylesheet" href="<?php echo CSS_PATH . "/generalStyles.css" ?>">
   <link rel="stylesheet" href="<?php echo CSS_PATH . "/movieListStyle.css" ?>" type="text/css">
   <script>
-		$('#myModal').on('shown.bs.modal', function() {
-			$('#myInput').trigger('focus')
-		})
-	</script>
+    $('#myModal').on('shown.bs.modal', function() {
+      $('#myInput').trigger('focus')
+    })
+  </script>
 </head>
 
 <body>
@@ -35,11 +34,18 @@
           <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Show/ShowListingView">Movie Listing</a> </li>
           <?php if (isset($_SESSION["loggedUser"])) : ?>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowProfileView">Perfil</a>
+              <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowProfileView">
+                <img src="<?php echo IMG_PATH ?>profile-icon.png" alt="Profile" class="navIcon">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo FRONT_ROOT ?>Purchase/ShowCartView">
+                <img src="<?php echo IMG_PATH ?>cart-icon.png" alt="Cart" class="navIcon">
+              </a>
             </li>
           <?php endif; ?>
-        <ul>
-        <div class="btn-group">
+          <ul>
+            <div class="btn-group">
               <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Menu</button>
               <div class="dropdown-menu">
                 <?php if (!isset($_SESSION["loggedUser"])) : ?>
@@ -51,7 +57,7 @@
                 <?php endif; ?>
               </div>
             </div>
-        </ul>
+          </ul>
       </div>
     </div>
   </nav>

@@ -1,18 +1,23 @@
 <?php
     namespace Controllers;
 
-    use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
+use DAO\MovieDAOPDO;
+use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
     use DAO\ShowDAOPDO as ShowDAOPDO;
     use DAO\TicketDAOPDO as TicketDAOPDO;
+    use DAO\ShowRoomDAOPDO as ShowRoomDAOPDO;
+    use Models\Movie;
     use Models\User as User;
     use Models\Purchase as Purchase;       
+    use Models\Show as Show;
+    use Models\ShowRoom as ShowRoom;
     use Models\Show as Show;   
 
     //EMAIL
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
-    
+
     use Models\Ticket as Ticket;
 
     class PurchaseController
@@ -20,12 +25,16 @@
         private $purchaseDAO;
         private $showDAO;
         private $ticketDAO; 
+        private $movieDAO;
+        private $showRoomDAO;
 
         public function __construct()
         {            
             $this->purchaseDAO = new PurchaseDAOPDO();
             $this->ticketDAO = new TicketDAOPDO();
             $this->showDAO = new ShowDAOPDO();
+            $this->movieDAO = new MovieDAOPDO();
+            $this->showRoomDAO = new ShowRoomDAOPDO();
         }      
 
         public function Add(){
@@ -50,29 +59,69 @@
             
             //Email            
             
-        }        
+        }
 
-        public function prepareTickets(){ 
-            $aux = array(); 
-            foreach ( $_SESSION["Shopping-Cart-String"] as $idShow => $quantity) {                                              
-                for($i=0;$i<$quantity;$i++){             
-                    $show = $this->showDAO->getById($idShow);                    
-                    array_push($aux,$show);                                          
-                }             
-            }  
-            $_SESSION["Shopping-Cart-Object"] = $aux;         
+        public function prepareTickets()
+        {
+            $aux = array();
+            if (isset($_SESSION["Shopping-Cart-String"])) {
+                foreach ($_SESSION["Shopping-Cart-String"] as $idShow => $quantity) {
+                    for ($i = 0; $i < $quantity; $i++) {
+                        $show = $this->showDAO->getById($idShow);
+                        array_push($aux, $show);
+                    }
+                }
+            }
+            $_SESSION["Shopping-Cart-Object"] = $aux;
+            return $aux;
         }
 
         public function AddToCart($quantity,$idShow){ 
             $_SESSION["Shopping-Cart-String"][$quantity] = $idShow;
-            $this->prepareTickets();
+        }
+
+        public function AddShowCartView($quantity,$idShow){ 
+            $this->AddToCart($quantity, $idShow);
+            $this->ShowCartView();
         }
 
         public function RemoveItemCart($key){
             $index = $_SESSION["Shopping-Cart-Object"][$key]->getId();
             unset($_SESSION["Shopping-Cart-String"][$index]);                      
             unset($_SESSION["Shopping-Cart-Object"][$key]);
-            require_once(VIEWS_PATH."shoppingCart.php"); 
+            require_once(VIEWS_PATH."shoppingCart.php");
+        }
+
+        public function ShowCartView(){
+            $showsList = $this->PrepareCartLines();
+            $this->FillShowsData($showsList);
+            require_once(VIEWS_PATH."shoppingCart.php");
+        }
+
+        private function FillShowsData($showsList){
+            $auxList = array();
+            foreach($showsList as $show){
+                $movie = $show->getMovie();
+                $showRoom = $show->getShowRoom();
+                $movie = $this->movieDAO->searchMovieById($movie);
+                $showRoom = $this->showRoomDAO->searchById($showRoom);
+                $show->setMovie($movie);
+                $show->setShowRoom($showRoom);
+                array_push($auxList,$show);
+            }
+        }
+
+        private function PrepareCartLines()
+        {
+            $aux = array();
+            if (isset($_SESSION["Shopping-Cart-String"])) {
+                foreach ($_SESSION["Shopping-Cart-String"] as $idShow => $quantity) {
+                    $show = $this->showDAO->getById($idShow);
+                    array_push($aux, $show);
+                }
+            }
+            $_SESSION["Shopping-Cart-Object"] = $aux;
+            return $aux;
         }
 
         function SendMail( $ToEmail, $MessageHTML, $MessageTEXT ) {

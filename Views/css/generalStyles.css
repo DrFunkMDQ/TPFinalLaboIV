@@ -11,15 +11,25 @@ body{
     background-size: 100% 100%;
  }
 
+ nav .navIcon{
+   height: 25px;
+ }
+
  table{
    opacity: 0.9;
  }
 
- .cinemaShowsCard{
+ .leftSectionTable{
    width: 100%;
    float: left;
    margin-bottom: 35px;
  }
+
+ .leftSectionCartForm{
+  width: 100%;
+  float: left;
+  margin-top: 35px;
+}
 
  .modal-content{
   opacity: 1;
@@ -29,11 +39,12 @@ body{
   background-color: darkgreen;
 }
 
- .cinemaShowsCard .modal-dialog{
+ .leftSectionTable .modal-dialog{
    margin-top: 100px;
  }
  
- .movieShowsSection{
+ 
+ .leftSection{
   text-align: left;
   float: left;
   width: 60%;
@@ -48,7 +59,16 @@ body{
   border-radius: 20px;
 }
 
- .showRoomDataCard{
+.rightSectionImg {
+  top: 0;
+  max-width: 35%;
+  float: right;
+  position: relative;
+  border-radius: 20px;
+  opacity: 0.8;
+}
+
+ .leftSectionTableCard{
    height: auto;
    margin-top: -25px;
    background-color: #ddd;
@@ -56,31 +76,50 @@ body{
    border-bottom: 1px solid #333;
  }
 
- .showRoomDataCard .row{
-   margin-bottom: 5px;
- }
-
- .showRoomDataCard .showRoomName {
+ .leftSectionTableCard .tableCardTitle {
    margin-top: 25px;
    margin-left: 20px;
    padding-top: 20px;
  }
 
- .showRoomDataCard .row{
+ .leftSectionTable .paymentCardTitle {
+  margin-bottom: 15px;
+  margin-left: 20px;
+  padding-top: 20px;
+}
+
+ .leftSectionTableCard .row{
    width: 80%;
    margin-left: 50px;
    padding-top: 5px;
+   margin-bottom: 5px;
  }
 
- .showRoomDataCard input {
+ .leftSectionTableCard .row .paymentLogo{
+   height: 25px;
+ }
+
+ .leftSectionTableCard input {
    width: 40px;
    height: 25px;
    margin-left: 5px;
  }
 
- .showRoomDataCard button {
+ .leftSectionTableCard .cardNumber {
+  width: 200px;
+  height: 25px;
+  margin-left: 5px;
+}
+
+ .leftSectionTableCard button {
   float: right;
   margin-top: -5px;
+}
+.leftSectionTableCard .row button {
+  float: right;
+  width: 70px;
+  margin-top: -5px;
+  margin-bottom: 15px;
 }
 
  .collapse .card-body .table {
