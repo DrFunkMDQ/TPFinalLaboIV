@@ -1,12 +1,12 @@
-<div class="showRoomDataCard">
-    <div class="showRoomName">
+<div class="leftSectionTableCard">
+    <div class="tableCardTitle">
         <h4><?php echo ($showRoom->getName()); ?></h4>
     </div>
     <?php foreach ($showList as $show) :
         $showShowRoom = $show->getShowRoom();
         $modalId = preg_replace('/[^A-Za-z0-9\-]/', '', $movie->getMovieName()) . $show->getId();
         if ($showShowRoom->getId() == $showRoom->getId()) : ?>
-            <form method="post" action="<?php echo FRONT_ROOT ?>Show/AddToCart">
+            <form method="post">
                 <div class="row">
                     <div class="col-md-4 py-2">
                         <span>Date: </span>
@@ -33,12 +33,13 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                You are adding Tickets for <?php echo ($movie->getMovieName()) ?> For this <?php echo ($show->getDate() . " at " . $show->getTime()) ?>
+                                You are adding Tickets for "<?php echo ($movie->getMovieName()) ?>"<br>
+                                For this <?php echo ($show->getDate() . " at " . $show->getTime()) ?><br>
                                 Do you want to continue shopping or checkout??
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-secondary">Add to Cart</button>
-                                <button type="button" class="btn btn-primary">Go to Cart</button>
+                                <button type="submit" class="btn btn-secondary" onclick="this.form.action = '<?php echo FRONT_ROOT ?>Show/AddToCart'">Add to Cart</button>
+                                <button type="submit" class="btn btn-primary" onclick="this.form.action = '<?php echo FRONT_ROOT ?>Purchase/AddShowCartView'">Add and Go to Cart</button>
                             </div>
                         </div>
                     </div>

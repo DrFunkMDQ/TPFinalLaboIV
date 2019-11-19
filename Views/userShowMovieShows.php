@@ -2,7 +2,7 @@
   <div class="pageHeader">
     <h2>Movie Shows for <?php echo ($movie->getMovieName()) ?></h2>
   </div>
-  <div class="movieShowsSection">
+  <div class="leftSection">
     <?php foreach($cinemaList as $cinema):?>
       <?php include(VIEWS_PATH . 'movieShowCinemaCard.php') ?>
     <?php endforeach?>

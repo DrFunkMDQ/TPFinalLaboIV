@@ -1,4 +1,4 @@
-<div class="cinemaShowsCard">
+<div class="leftSectionTable">
     <table class="table table-borderless table-light">
         <thead>
             <tr class="my-2 rounded bg-dark text-uppercase text-light">
@@ -9,7 +9,7 @@
     <?php foreach($showRoomList as $showRoom):?>
         <?php $showRoomCinema = $showRoom->getCinema();
             if($showRoomCinema->getId() == $cinema->getId()) :?>
-                <div class="showRoomDataCard">
+                <div class="leftSectionTableCard">
                     <?php include(VIEWS_PATH."movieShowRoomCard.php")?>
                 </div>
             <?php endif?>

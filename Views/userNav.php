@@ -31,7 +31,14 @@
           <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Show/ShowListingView">Movie Listing</a> </li>
           <?php if (isset($_SESSION["loggedUser"])) : ?>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowProfileView">Perfil</a>
+              <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowProfileView">
+                <img src="<?php echo IMG_PATH ?>profile-icon.png" alt="Profile" class="navIcon">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo FRONT_ROOT ?>Purchase/ShowCartView">
+                <img src="<?php echo IMG_PATH ?>cart-icon.png" alt="Cart" class="navIcon">
+              </a>
             </li>
           <?php endif; ?>
           <ul>
