@@ -8,8 +8,9 @@
     use Models\Movie as Movie;
     use Models\Cinema as Cinema;
     use Models\ShowRoom as ShowRoom;
+use Models\Ticket;
 
-    class PurchaseDAOPDO implements IPurchaseDAOPDO{
+class PurchaseDAOPDO implements IPurchaseDAOPDO{
 
         private $purchasesList = array();
         private $connection;
@@ -49,12 +50,22 @@
 
         public function GetAllxUser(User $User){
             try{
+                $purchasesList = array();
                 $query = "SELECT * 
                 FROM purchases
                 WHERE id_user = ".$User ->getId();
                 $this->connection = Connection::GetInstance();
-                $resultSet = $this->connection->Execute($query);     
-                return $resultSet;          
+                $resultSet = $this->connection->Execute($query);
+                foreach($resultSet as $row){
+                    $purchase = new Purchase();
+                    $purchase->setId($row["id_purchase"]);
+                    $purchase->setTotal($row["total"]);
+                    $purchase->setPurchaseDate($row["purchase_date"]);
+                    $purchase->setUser($User);
+                    $purchase->setTicketList(null);//Esta lista la va a cargar la controladora
+                    array_push($purchasesList, $purchase);
+                }
+                return $purchasesList;          
             }  
             catch(Exception $ex){
                 throw $ex;
@@ -165,24 +176,6 @@
                 throw $ex;
             }  
         }        
-
-        public function GetAllxPurchase($purchaseId){
-            try{
-                $query = "SELECT s.id_movie, sr.id_show_room, t.ticket_price
-                FROM tickets AS t
-                JOIN shows AS s
-                ON s.id_show = t.id_show
-                JOIN showrooms AS sr
-                ON sr.id_show_room = s.id_show_room
-                WHERE t.id_purchase = '$purchaseId'";
-                $this->connection = Connection::GetInstance();
-                $resultSet = $this->connection->Execute($query);     
-                return $resultSet;          
-            }  
-            catch(Exception $ex){
-                throw $ex;
-            }  
-        }
 
         public function GetAll(){
             try{

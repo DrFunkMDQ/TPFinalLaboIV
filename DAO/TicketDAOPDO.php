@@ -43,6 +43,29 @@ class TicketDAOPDO implements ITicketDAOPDO{
         } 
     }
     
+    public function GetAllxPurchase(Purchase $purchase){
+        try{
+            $purchaseId = $purchase->getId();
+            $ticketsList = array();
+            $query = "SELECT *
+            FROM tickets
+            WHERE id_purchase = '$purchaseId'";
+            $this->connection = Connection::GetInstance();
+            $resultSet = $this->connection->Execute($query);     
+            foreach($resultSet as $row){
+                $ticket = new Ticket();
+                $ticket->setId($row["id_ticket"]);
+                $ticket->setShow($row["id_show"]);
+                $ticket->setPurchase($purchase);
+                array_push($ticketsList, $ticket);
+            }
+            
+            return $ticketsList;         
+        }  
+        catch(Exception $ex){
+            throw $ex;
+        }  
+    }
 }
 
 ?>
