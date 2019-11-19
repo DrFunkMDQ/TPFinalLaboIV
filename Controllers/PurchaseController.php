@@ -20,9 +20,7 @@
 
     use Models\Ticket as Ticket;
 
-    //require ('../vendor/autoload.php'); // Add the path as appropriate
-
-
+    
     class PurchaseController
     {
         private $purchaseDAO;
@@ -56,10 +54,10 @@
                 array_push($ticketList, $Ticket);
             } 
             //EMAIL
-            //$this->SendMail($Purchase->getUser()->getEmail(), $ticketList);
+            $this->SendMail($Purchase->getUser()->getEmail(), $ticketList);
             $_SESSION["Shopping-Cart-Object"] = null;
             $_SESSION["Shopping-Cart-String"] = null;
-            header('location:http://localhost/TPFinalLaboIV/');      
+            //header('location:http://localhost/TPFinalLaboIV/');      
             
         }
 
@@ -127,14 +125,17 @@
         }
 
         function SendMail($ToEmail, $TicketList) {
-<<<<<<< HEAD
-=======
-            require '../vendor/autoload.php'; // Add the path as appropriate
->>>>>>> 12f47134870585437550443d37403f6717c3dc45
+            require ('C:/wamp64/www/TPFinalLaboIV/vendor/autoload.php'); // Add the path as appropriate
             $Mail = new PHPMailer();
             $Mail->IsSMTP(); // Use SMTP
             $Mail->Host        = "smtp.gmail.com"; // Sets SMTP server
             $Mail->SMTPDebug   = 2; // 2 to enable SMTP debug information
+            $Mail->SMTPOptions = array(
+                'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true)
+                );
             $Mail->SMTPAuth    = TRUE; // enable SMTP authentication
             $Mail->SMTPSecure  = "tls"; //Secure conection
             $Mail->Port        = 587; // set the SMTP port
