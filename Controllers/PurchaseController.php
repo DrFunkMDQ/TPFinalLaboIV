@@ -30,7 +30,7 @@
 
         public function Add(){
 
-
+            $ticketList = Array();
             $Purchase = new Purchase();
             $Purchase->setPurchaseDate(date("Ymd"));
             $Purchase->setUser($_SESSION["loggedUser"]);
@@ -42,13 +42,13 @@
                 $Ticket->setShow($show);
                 $Ticket->setQr('test');
                 $this->ticketDAO->Add($Ticket);
+                array_push($ticketList, $Ticket);
             } 
+            //EMAIL
+            $this->SendMail($Purchase->getUser()->getEmail(), $ticketList);
             $_SESSION["Shopping-Cart-Object"] = null;
             $_SESSION["Shopping-Cart-String"] = null;
-
-            require_once(VIEWS_PATH."index.php");
-            
-            //Email            
+            require_once(VIEWS_PATH."index.php");       
             
         }        
 
@@ -75,7 +75,7 @@
             require_once(VIEWS_PATH."shoppingCart.php"); 
         }
 
-        function SendMail( $ToEmail, $MessageHTML, $MessageTEXT ) {
+        function SendMail($ToEmail, $TicketList) {
             require '../vendor/autoload.php'; // Add the path as appropriate
             $Mail = new PHPMailer();
             $Mail->IsSMTP(); // Use SMTP

@@ -19,7 +19,7 @@
                     <div class="col-sm-4 py-2">
                         <span>Qty: </span>
                         <input type="text" name = "idShow" style="display:none" value="<?php echo($show->getId())?>" required>
-                        <input type="number" min="1" max="99" step="1" value="1" name = "quantity" required>
+                        <input type="number" min="1" max="<?php echo $remainingList[$show->getId()]; ?>" step="1" value="1" name = "quantity" required>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<?php echo ($modalId) ?>">Add</button>
                     </div>
                 </div>

@@ -153,17 +153,20 @@
             //    echo '<br>';          
             //    echo $row['total'];            
             //}   
-            session_start();              
-            var_dump($_SESSION);
-            $udao = new UserDAOPDO;
-            var_dump($udao->searchByEmail('jj@jj.com'));
+            ///session_start();              
+            //var_dump($_SESSION);
+            //$udao = new UserDAOPDO;
+            //var_dump($udao->searchByEmail('jj@jj.com'));
 
             //$controller->AddToCart(14, 4);  
                                   
             //$controller->Add();
 
-            var_dump($this->ticketsList);
+            //var_dump($this->ticketsList);
             
+            $sdao = new ShowDAOPDO;
+            $mlist = $sdao->getRemianingTicketsList();
+            var_dump($mlist);
             
             
 

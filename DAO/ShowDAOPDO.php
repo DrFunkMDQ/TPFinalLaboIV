@@ -224,7 +224,8 @@ class ShowDAOPDO implements IShowDAOPDO{
             ON mbg.id_movie = s.id_movie 
             JOIN movies as m
             ON m.id_movie = s.id_movie
-            WHERE s.show_date > NOW() and active = 1 AND g.genre_name ='$genre'";
+            WHERE s.show_date > NOW() and active = 1 AND g.genre_name ='$genre'
+            GROUP BY m.id_movie";
             $this->connection = Connection::GetInstance();
             $resultSet = $this->connection->Execute($query);               
             foreach ($resultSet as $row){                
@@ -282,6 +283,28 @@ class ShowDAOPDO implements IShowDAOPDO{
             }  
             return $this->genreList;
         }
+        catch(Exception $ex){
+            throw $ex;
+        }
+    }
+
+    public function getRemianingTicketsList(){
+        try{
+            $remainingList = array();
+            $query = "SELECT s.id_show, ifnull((sr.show_room_capacity - (count(t.id_ticket))), sr.show_room_capacity) as 'remaining_tickets'
+            from shows AS s 
+            LEFT JOIN tickets AS t
+            ON s.id_show = t.id_show
+            JOIN showrooms AS sr
+            ON sr.id_show_room = s.id_show_room
+            group by id_show";
+            $this->connection = Connection::GetInstance();
+            $resultSet = $this->connection->Execute($query);
+            foreach ($resultSet as $row) {
+                $remainingList[$row['id_show']] = $row['remaining_tickets'];
+            }         
+            return $remainingList;
+            }  
         catch(Exception $ex){
             throw $ex;
         }

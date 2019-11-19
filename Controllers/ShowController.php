@@ -131,6 +131,7 @@ class ShowController
         $showList = $this->ShowDAOPDO->GetAllxMovie($movie);
         $cinemaList= $this->CinemaDAOPDO->cinemaByMovieList($movie);
         $showRoomList= $this->ShowRoomDAOPDO->showRoomByMovieList($movie);
+        $remainingList = $this->ShowDAOPDO->getRemianingTicketsList();
         require_once(VIEWS_PATH."userShowMovieShows.php");        
     }
 
