@@ -51,14 +51,30 @@
                 $Ticket->setPurchase($Purchase);                
                 $Ticket->setShow($show);
                 $this->ticketDAO->Add($Ticket);
+                $Ticket->setId($this->ticketDAO->getLastTicketId());
                 array_push($ticketList, $Ticket);
             } 
             //EMAIL
-            $this->SendMail($Purchase->getUser()->getEmail(), $ticketList);
+            $Body = $this->prepareEmailBody($ticketList);
+            $this->SendMail($Purchase->getUser()->getEmail(), $ticketList, $Body);
             $_SESSION["Shopping-Cart-Object"] = null;
             $_SESSION["Shopping-Cart-String"] = null;
 
             header('location:http://localhost/TPFinalLaboIV/Home/Index');        
+        }
+
+        private function prepareEmailBody($TicketList){
+            $body = "";
+            $movie = new Movie();
+            foreach ($TicketList as $Ticket) {
+                $movie = $this->movieDAO->searchMovieById($Ticket->getShow()->getMovie());
+                $body .= $Ticket->getShow()->getDate(). " ".$Ticket->getShow()->getTime()." ".$movie->getMovieName()."<br><IMG SRC = ".QR.$Ticket->getId()."></IMG><br>";
+            }
+            return $body;
+        }
+
+        private function getLastId(){
+
         }
 
         public function prepareTickets()
@@ -125,7 +141,7 @@
             return $aux;
         }
 
-        function SendMail($ToEmail, $TicketList) {
+        function SendMail($ToEmail, $TicketList, $Body) {
             require ('C:/wamp64/www/TPFinalLaboIV/vendor/autoload.php'); // Add the path as appropriate
             $Mail = new PHPMailer();
             $Mail->IsSMTP(); // Use SMTP
@@ -152,8 +168,8 @@
             $Mail->WordWrap    = 900; // RFC 2822 Compliant for Max 998 characters per line
             $Mail->AddAddress( $ToEmail ); // To:
             $Mail->isHTML( TRUE );
-            $Mail->Body    = "hola";
-            $Mail->AltBody = "hola";
+            $Mail->Body    = $Body;
+            $Mail->AltBody = "";
             $Mail->Send();
             $Mail->SmtpClose();
             if ( $Mail->IsError() ) { // ADDED - This error checking was missing

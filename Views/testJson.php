@@ -112,7 +112,7 @@
             //var_dump($mlist);
 
 
-            $controller = new PurchaseController;
+            //$controller = new PurchaseController;
             /*$DAO = new PurchaseDAOPDO();
             $DAO2 = new TicketDAOPDO();
            
@@ -142,7 +142,7 @@
 
             $controller->AddToCart(28, 5);*/
                        
-            $controller->Add();
+            //$controller->Add();
             //$DAO = new PurchaseDAOPDO();
 
             //$SR = new Room();
@@ -165,9 +165,9 @@
 
             //var_dump($this->ticketsList);
             
-            $sdao = new ShowDAOPDO;
-            $mlist = $sdao->getRemianingTicketsList();
-            var_dump($mlist);
+            $pdao = new PurchaseDAOPDO;
+            //$mlist = $sdao->getRemianingTicketsList();
+            var_dump($pdao->getLastTicketId());
             
             
 

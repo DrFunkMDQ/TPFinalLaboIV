@@ -28,6 +28,21 @@ class TicketDAOPDO implements ITicketDAOPDO{
             throw $ex;
         }         
     }
+
+    public function getLastTicketId(){
+        try{
+            $query = "SELECT max(id_ticket) as 'LastId'
+            FROM tickets";
+            $this->connection = Connection::GetInstance();
+            $resultSet = $this->connection->Execute($query); 
+            $lastId = $resultSet[0];     
+            return  $lastId['LastId'];
+        }  
+        catch(Exception $ex){
+            throw $ex;
+        } 
+    }
+    
 }
 
 ?>

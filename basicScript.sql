@@ -65,10 +65,8 @@ create table users(
 constraint pk_id_user primary key (id_user),
 constraint fk_id_role foreign key (id_role) references roles (id_role)
 );
-use moviepass;
-drop table users;
 
- create table Shows(
+create table Shows(
 	id_show int unsigned auto_increment,
     show_date date not null,
     show_time time not null,
@@ -80,7 +78,6 @@ constraint fk_id_movie foreign key (id_movie) references movies (id_movie),
 constraint fk_id_show_room foreign key (id_show_room) references ShowRooms (id_show_room)
 );
 
-       
 CREATE TABLE IF NOT EXISTS purchases ( 
   id_purchase int(11) unsigned auto_increment,   
   total decimal(6,2) NOT NULL,

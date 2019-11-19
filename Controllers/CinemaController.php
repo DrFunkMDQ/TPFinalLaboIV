@@ -42,7 +42,7 @@
             $cinema->setAddress($address);
             if(!$this->cinemaDAO->cinemaExists($cinema)){
                 $this->cinemaDAO->Add($cinema);
-                $this->ShowAddCinemaView();
+                $this->ShowListCinemaView();
             }
             else{
                 echo'<script type="text/javascript">
