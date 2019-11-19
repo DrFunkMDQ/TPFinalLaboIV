@@ -57,7 +57,7 @@
             $this->SendMail($Purchase->getUser()->getEmail(), $ticketList);
             $_SESSION["Shopping-Cart-Object"] = null;
             $_SESSION["Shopping-Cart-String"] = null;
-            //header('location:http://localhost/TPFinalLaboIV/');      
+            header('location:http://localhost/TPFinalLaboIV/');      
             
         }
 
