@@ -127,6 +127,10 @@
         }
 
         function SendMail($ToEmail, $TicketList) {
+<<<<<<< HEAD
+=======
+            require '../vendor/autoload.php'; // Add the path as appropriate
+>>>>>>> 12f47134870585437550443d37403f6717c3dc45
             $Mail = new PHPMailer();
             $Mail->IsSMTP(); // Use SMTP
             $Mail->Host        = "smtp.gmail.com"; // Sets SMTP server
