@@ -112,8 +112,8 @@
             //var_dump($mlist);
 
 
-            /*$controller = new PurchaseController;
-            $DAO = new PurchaseDAOPDO();
+            $controller = new PurchaseController;
+            /*$DAO = new PurchaseDAOPDO();
             $DAO2 = new TicketDAOPDO();
            
             session_start();
@@ -140,9 +140,9 @@
             $purchase->setUser($user);
 
 
-            $controller->AddToCart(28, 5);
+            $controller->AddToCart(28, 5);*/
                        
-            $controller->Add();*/
+            $controller->Add();
             //$DAO = new PurchaseDAOPDO();
 
             //$SR = new Room();
@@ -153,16 +153,16 @@
             //    echo '<br>';          
             //    echo $row['total'];            
             //}   
-            session_start();              
-            var_dump($_SESSION);
-            $udao = new UserDAOPDO;
-            var_dump($udao->searchByEmail('jj@jj.com'));
+            //session_start();              
+            //var_dump($_SESSION);
+            //$udao = new UserDAOPDO;
+            //var_dump($udao->searchByEmail('jj@jj.com'));
 
             //$controller->AddToCart(14, 4);  
                                   
             //$controller->Add();
 
-            var_dump($this->ticketsList);
+            //var_dump($this->ticketsList);
             
             
             
