@@ -10,13 +10,15 @@ create table cinemas(
 constraint pk_id_cinema primary key (id_cinema)
 );
 
+drop table movies;
+
 create table movies(
 	  id_movie int unsigned,
     movie_name nvarchar(500) not null,
     movie_overview nvarchar(1500),
     movie_language nvarchar(16),
     movie_image nvarchar(500),
-	movie_traier nvarchar(50),
+	movie_trailer nvarchar(50),
 
 constraint pk_id_movie primary key (id_movie)
 );
