@@ -1,5 +1,6 @@
-<?php //require "verify-session.php";  
-?>
+
+<?php  ?>
+
 
 <!DOCTYPE html>
 <html>

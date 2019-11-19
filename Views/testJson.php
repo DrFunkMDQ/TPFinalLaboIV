@@ -17,6 +17,7 @@
             use Models\Show as Show;
             use DAO\ShowRoomDAOPDO as ShowRoomDAOPDO;
             use DAO\ShowDAOPDO as ShowDAOPDO;
+            use DAO\UserDAOPDO as UserDAOPDO;
             use Controllers\ShowRoomController as ShowRoomController;
             use Controllers\ShowController as ShowController;
 
@@ -112,35 +113,56 @@
 
 
             $controller = new PurchaseController;
-            $DAO = new PurchaseDAOPDO();
+            /*$DAO = new PurchaseDAOPDO();
             $DAO2 = new TicketDAOPDO();
            
             session_start();
             
             $user = new User();            
-            $user->setId(15);
+            $user->setId(3);
+            $user->setEmail('emilioherrada@hotmail.com');
             $_SESSION["loggedUser"] = $user;
+            var_dump($user);
 
             $showRoom = new Room();
             $showRoom->setTicketPrice(200);
             
             $show1 = new Show();
-            $show1->setId(8);
+            $show1->setId(28);
             $show1->setShowRoom($showRoom);
-            $show2 = new Show();
-            $show2->setId(5);
-            $show3 = new Show();
-            $show3->setId(5);
+           // $show2 = new Show();
+            //$show2->setId(27);
+           // $show3 = new Show();
+           // $show3->setId(26);
              
             $purchase = new Purchase();
             $purchase->setPurchaseDate(20190220);
             $purchase->setUser($user);
 
+
+            $controller->AddToCart(28, 5);*/
+                       
+            $controller->Add();
+            //$DAO = new PurchaseDAOPDO();
+
+            //$SR = new Room();
+            //$SR->setId(13);
+            //$list = $DAO->GetAllxDate('2019-01-01', '2019-12-30');
+            //foreach($list as $row){
+            //    echo $row['tickets'];  
+            //    echo '<br>';          
+            //    echo $row['total'];            
+            //}   
+            //session_start();              
+            //var_dump($_SESSION);
+            //$udao = new UserDAOPDO;
+            //var_dump($udao->searchByEmail('jj@jj.com'));
+
             //$controller->AddToCart(14, 4);  
                                   
             //$controller->Add();
 
-            var_dump($this->ticketsList);
+            //var_dump($this->ticketsList);
             
             
             

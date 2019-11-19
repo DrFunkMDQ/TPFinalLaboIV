@@ -14,8 +14,7 @@
         private $tableName = "users";
 
         public function Add(User $user){
-            array_push($this->userList, $user);
-             try{
+            try{
                 $query = "INSERT INTO ".$this->tableName." (user_name, user_last_name, user_birthday, user_email, user_password) VALUES (:user_name, :user_last_name, :user_birthday, :user_email, :user_password);";
                 $parameters["user_name"] = $user->getUserName();
                 $parameters["user_last_name"] = $user->getUserLastName();
@@ -29,6 +28,7 @@
                 throw $ex;
             }   
         }
+
 
         public function GetAll(){
             
@@ -68,7 +68,7 @@
             }
         }
 
-        public function searchByEmail($userEmail){ /// Se puede hacer que reotorne un boolean y no el cine
+        public function searchByEmail($userEmail){ /// Se puede hacer que reotorne un boolean y no el usuario
             $userList = $this->GetAll();
             $myUser = null;
             foreach ($userList as $user) {

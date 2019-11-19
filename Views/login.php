@@ -1,4 +1,4 @@
-  <div class="py-5 bg-dark text-light">
+<div class="py-5 bg-dark text-light">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -6,6 +6,7 @@
             <div class="form-group"> <label>Email address</label> <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required="required"> <small class="form-text text-muted">We'll never share your email with anyone else.</small> </div>
             <div class="form-group"> <label>Password</label> <input type="password" class="form-control" name="password" id="password" placeholder="Password" required="required"> </div>            
             <button type="submit" class="btn btn-primary">Submit</button>
+            <a href='http://localhost/TPFinalLaboIV/views/fblogin.php'>Login with Facebook</a>
           </form>
         </div>
       </div>
