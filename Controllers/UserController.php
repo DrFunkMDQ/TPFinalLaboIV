@@ -6,15 +6,21 @@
     use Models\Ticket as Ticket;
     use DAO\UserDAOPDO as UserDAOPDO;
     use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
+    use DAO\MovieDAOPDO as MovieDAOPDO;
+    use DAO\ShowRoomDAOPDO as ShowRoomDAOPDO;
     class UserController
     {
         private $userDAO;
         private $purchaseDAO;
+        private $movieDAO;
+        private $showRoomDAO;
         private $purchasesList;
 
         public function __construct(){
             $this->userDAO = new UserDAOPDO();//PDO
             $this->purchaseDAO = new PurchaseDAOPDO;
+            $this->showRoomDAO = new ShowRoomDAOPDO;
+            $this->movieDAO = new MovieDAOPDO;
         }
 
         public function ShowNewUserFormView(){            
@@ -100,8 +106,13 @@
         }
 
         public function ShowProfileView(){
+            $ticketsList = array();
             $loggedUser = $_SESSION["loggedUser"];
             $userPurchases = $this->GetUserPurchases($loggedUser);
+            foreach ($userPurchases as $purchase) {
+                $ticketPurchase = $this->purchaseDAO->GetAllxPurchase($purchase['id_purchase']);
+                $ticketsList[$purchase['id_purchase']] = $ticketPurchase;                
+            }
             require_once(VIEWS_PATH."userProfile.php");
         }
 

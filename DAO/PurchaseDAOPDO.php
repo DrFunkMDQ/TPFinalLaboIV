@@ -166,7 +166,7 @@
             }  
         }        
 
-        public function GetAllxPurchase(Purchase $Purchase){
+        public function GetAllxPurchase($purchasId){
             try{
                 $query = "SELECT s.id_movie, sr.id_show_room, t.ticket_price
                 FROM tickets AS t
@@ -174,7 +174,7 @@
                 ON s.id_show = t.id_show
                 JOIN showrooms AS sr
                 ON sr.id_show_room = s.id_show_room
-                WHERE t.id_purchase = ".$Purchase->getId();
+                WHERE t.id_purchase = '$purchasId'";
                 $this->connection = Connection::GetInstance();
                 $resultSet = $this->connection->Execute($query);     
                 return $resultSet;          
