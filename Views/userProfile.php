@@ -1,3 +1,5 @@
+<?php require_once('VerifySessionUser.php'); ?>  
+
 <div class="container-fluid px-5">
     <div class="profileDataSection">
         <div>
