@@ -21,7 +21,7 @@ class PurchaseDAOPDO implements IPurchaseDAOPDO{
             try{                
                 $query = "INSERT INTO ".$this->tableName." (total, purchase_date, id_user) VALUES (:total, :purchase_date, :id_user);";
                 $parameters["total"] = $Purchase->getTotal();
-                $parameters["purchase_date"] = $Purchase->getPucrchaseDate();
+                $parameters["purchase_date"] = $Purchase->getPurchaseDate();
                 $parameters["id_user"] = $Purchase->getUser()->getId();                                                
                 $this->connection = Connection::GetInstance();
                 $this->connection->ExecuteNonQuery($query, $parameters);
