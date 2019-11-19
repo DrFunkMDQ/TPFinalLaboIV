@@ -6,20 +6,19 @@ create table cinemas(
 	id_cinema int unsigned auto_increment,
     cinema_name nvarchar(20) not null,
     cinema_address nvarchar(30),
-    cinema_capacity int unsigned not null,
+    active boolean default 1
 constraint pk_id_cinema primary key (id_cinema)
 );
 
 drop table movies;
 
 create table movies(
-	  id_movie int unsigned,
+	id_movie int unsigned,
     movie_name nvarchar(500) not null,
     movie_overview nvarchar(1500),
     movie_language nvarchar(16),
     movie_image nvarchar(500),
 	movie_trailer nvarchar(50),
-
 constraint pk_id_movie primary key (id_movie)
 );
 
@@ -42,7 +41,9 @@ create table ShowRooms(
 	id_show_room int unsigned auto_increment,
     show_room_name nvarchar(100) not null,
     id_cinema int unsigned,    
-    show_room_capacity int unsigned not null,    
+    show_room_capacity int unsigned not null,
+    ticket_price float unsigned not null,
+    active_showroom boolean default 1,
 constraint pk_id_show_room primary key (id_show_room),
 constraint fk_id_cinema foreign key (id_cinema) references movies (id_cinema)
 );
@@ -79,13 +80,9 @@ constraint fk_id_movie foreign key (id_movie) references movies (id_movie),
 constraint fk_id_show_room foreign key (id_show_room) references ShowRooms (id_show_room)
 );
 
-alter table movies add movie_active boolean default '0'; 
-alter table ShowRooms add ticket_price float unsigned not null;
-ALTER TABLE showrooms ADD active_showroom boolean default 1;
-ALTER TABLE movies RENAME COLUMN movie_traier to movie_trailer;
-alter table cinemas drop column cinema_ticket_price;
-alter table cinemas drop column cinema_capacity;
+
 alter table tickets add column ticket_price float;
+alter table cinemas add column active boolean default 1;
 
 
 drop table users;
@@ -105,7 +102,7 @@ CREATE TABLE IF NOT EXISTS tickets(
     id_show int unsigned not null,
     id_purchase int unsigned not null,
     state int not null DEFAULT 1,
-    qr nvarchar(50) not null,
+	ticket_price float,
     constraint pk_id_ticket primary key (id_ticket),
     constraint fk_id_show foreign key (id_show) references Shows (id_show),
     constraint fk_id_purchase foreign key (id_purchase) references purchases (id_purchase)

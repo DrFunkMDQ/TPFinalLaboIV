@@ -20,7 +20,11 @@
                         <span>Qty: </span>
                         <input type="text" name = "idShow" style="display:none" value="<?php echo($show->getId())?>" required>
                         <input type="number" min="1" max="<?php echo $remainingList[$show->getId()]; ?>" step="1" value="1" name = "quantity" required>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#<?php echo ($modalId) ?>">Add</button>
+                        <?php if ($remainingList[$show->getId()] > 0){ ?>
+                            <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#<?php echo ($modalId) ?>">Add</button>
+                        <?php } else { ?>
+                            <button type="button" disabled class="btn btn-primary" data-toggle="modal" data-target="#<?php echo ($modalId) ?>">Sold Out</button>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="modal" id="<?php echo ($modalId) ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
