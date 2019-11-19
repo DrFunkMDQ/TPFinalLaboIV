@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+<?php require_once('VerifySessionUser.php'); ?>  
+>>>>>>> sessionUser
 
 <div class="container-fluid px-5">
     <div class="profileDataSection">
