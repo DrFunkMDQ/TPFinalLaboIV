@@ -37,7 +37,7 @@
             $this->movieDAO = new MovieDAOPDO();
             $this->showRoomDAO = new ShowRoomDAOPDO();
         }      
-
+        
         public function Add(){
 
             $ticketList = Array();
@@ -57,8 +57,8 @@
             $this->SendMail($Purchase->getUser()->getEmail(), $ticketList);
             $_SESSION["Shopping-Cart-Object"] = null;
             $_SESSION["Shopping-Cart-String"] = null;
-            header('location:http://localhost/TPFinalLaboIV/');      
-            
+
+            header('location:http://localhost/TPFinalLaboIV/Home/Index');        
         }
 
         public function prepareTickets()
@@ -94,6 +94,7 @@
 
         public function ShowCartView(){
             $showsList = $this->PrepareCartLines();
+            $ticketList = $this->prepareTickets();
             $this->FillShowsData($showsList);
             require_once(VIEWS_PATH."shoppingCart.php");
         }
@@ -129,7 +130,7 @@
             $Mail = new PHPMailer();
             $Mail->IsSMTP(); // Use SMTP
             $Mail->Host        = "smtp.gmail.com"; // Sets SMTP server
-            $Mail->SMTPDebug   = 2; // 2 to enable SMTP debug information
+            //$Mail->SMTPDebug   = 2; // 2 to enable SMTP debug information
             $Mail->SMTPOptions = array(
                 'ssl' => array(
                 'verify_peer' => false,
@@ -155,7 +156,6 @@
             $Mail->AltBody = "hola";
             $Mail->Send();
             $Mail->SmtpClose();
-          
             if ( $Mail->IsError() ) { // ADDED - This error checking was missing
               return FALSE;
             }

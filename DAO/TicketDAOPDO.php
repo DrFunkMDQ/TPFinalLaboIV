@@ -19,7 +19,7 @@ class TicketDAOPDO implements ITicketDAOPDO{
             $query = "INSERT INTO ".$this->tableName." (id_show, id_purchase, ticket_price) VALUES (:id_show, :id_purchase, :ticket_price);";
             $parameters["id_show"] = $Ticket->getShow()->getId();
             $parameters["id_purchase"] = $Ticket->getPurchase()->getId();          
-            $showRoom = $Ticket->getShow()->getShowRoom();
+            $showRoom = $ShowRoomDAO->searchById($Ticket->getShow()->getShowRoom());
             $parameters["ticket_price"] = $showRoom->getTicketPrice();                               
             $this->connection = Connection::GetInstance();
             $this->connection->ExecuteNonQuery($query, $parameters);                

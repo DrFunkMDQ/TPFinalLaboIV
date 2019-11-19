@@ -41,7 +41,7 @@
             $total = 0;
             $ShowRoomDAO = new ShowRoomDAOPDO();
             foreach ($ticketList as $show) {
-                $showRoom = $show->getShowRoom();
+                $showRoom = $ShowRoomDAO->searchById($show->getShowRoom());
                 $total += $showRoom->getTicketPrice();
             }
             return $total;

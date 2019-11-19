@@ -6,7 +6,7 @@ create table cinemas(
 	id_cinema int unsigned auto_increment,
     cinema_name nvarchar(20) not null,
     cinema_address nvarchar(30),
-    active boolean default 1
+    active boolean default 1,
 constraint pk_id_cinema primary key (id_cinema)
 );
 
@@ -79,13 +79,6 @@ constraint pk_id_show primary key (id_show),
 constraint fk_id_movie foreign key (id_movie) references movies (id_movie),
 constraint fk_id_show_room foreign key (id_show_room) references ShowRooms (id_show_room)
 );
-
-
-alter table tickets add column ticket_price float;
-alter table cinemas add column active boolean default 1;
-
-
-drop table users;
 
        
 CREATE TABLE IF NOT EXISTS purchases ( 
