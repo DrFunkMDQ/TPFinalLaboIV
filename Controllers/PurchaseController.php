@@ -39,7 +39,7 @@ use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
 
         public function Add(){
 
-
+            $ticketList = Array();
             $Purchase = new Purchase();
             $Purchase->setPurchaseDate(date("Ymd"));
             $Purchase->setUser($_SESSION["loggedUser"]);
@@ -51,13 +51,13 @@ use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
                 $Ticket->setShow($show);
                 $Ticket->setQr('test');
                 $this->ticketDAO->Add($Ticket);
+                array_push($ticketList, $Ticket);
             } 
+            //EMAIL
+            $this->SendMail($Purchase->getUser()->getEmail(), $ticketList);
             $_SESSION["Shopping-Cart-Object"] = null;
             $_SESSION["Shopping-Cart-String"] = null;
-
-            require_once(VIEWS_PATH."index.php");
-            
-            //Email            
+            require_once(VIEWS_PATH."index.php");       
             
         }
 
@@ -124,7 +124,7 @@ use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
             return $aux;
         }
 
-        function SendMail( $ToEmail, $MessageHTML, $MessageTEXT ) {
+        function SendMail($ToEmail, $TicketList) {
             require '../vendor/autoload.php'; // Add the path as appropriate
             $Mail = new PHPMailer();
             $Mail->IsSMTP(); // Use SMTP

@@ -153,7 +153,11 @@
             //    echo '<br>';          
             //    echo $row['total'];            
             //}   
+<<<<<<< HEAD
             //session_start();              
+=======
+            ///session_start();              
+>>>>>>> last fixes
             //var_dump($_SESSION);
             //$udao = new UserDAOPDO;
             //var_dump($udao->searchByEmail('jj@jj.com'));
@@ -164,6 +168,9 @@
 
             //var_dump($this->ticketsList);
             
+            $sdao = new ShowDAOPDO;
+            $mlist = $sdao->getRemianingTicketsList();
+            var_dump($mlist);
             
             
 

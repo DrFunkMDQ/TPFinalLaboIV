@@ -83,7 +83,9 @@ ALTER TABLE showrooms ADD active_showroom boolean default 1;
 ALTER TABLE movies RENAME COLUMN movie_traier to movie_trailer;
 alter table cinemas drop column cinema_ticket_price;
 alter table cinemas drop column cinema_capacity;
-alter table cinemas add column active boolean default 1;
+alter table tickets add column ticket_price float;
+
+
 drop table users;
 
        
@@ -106,4 +108,6 @@ CREATE TABLE IF NOT EXISTS tickets(
     constraint fk_id_show foreign key (id_show) references Shows (id_show),
     constraint fk_id_purchase foreign key (id_purchase) references purchases (id_purchase)
 );
+
+alter table tickets add ticket_price float; 
     
