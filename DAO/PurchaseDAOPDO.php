@@ -41,7 +41,7 @@
             $total = 0;
             $ShowRoomDAO = new ShowRoomDAOPDO();
             foreach ($ticketList as $show) {
-                $showRoom = $ShowRoomDAO->searchById($show->getShowRoom());
+                $showRoom = $show->getShowRoom();
                 $total += $showRoom->getTicketPrice();
             }
             return $total;
@@ -166,7 +166,7 @@
             }  
         }        
 
-        public function GetAllxPurchase($purchasId){
+        public function GetAllxPurchase($purchaseId){
             try{
                 $query = "SELECT s.id_movie, sr.id_show_room, t.ticket_price
                 FROM tickets AS t
@@ -174,7 +174,7 @@
                 ON s.id_show = t.id_show
                 JOIN showrooms AS sr
                 ON sr.id_show_room = s.id_show_room
-                WHERE t.id_purchase = '$purchasId'";
+                WHERE t.id_purchase = '$purchaseId'";
                 $this->connection = Connection::GetInstance();
                 $resultSet = $this->connection->Execute($query);     
                 return $resultSet;          

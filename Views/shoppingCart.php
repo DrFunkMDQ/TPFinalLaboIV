@@ -75,7 +75,9 @@
               <input type="number" required>
             </div>
             <div class="col-md-5">
+            <form action="<?php echo FRONT_ROOT?>Purchase/Add" method="post">
               <button class="btn btn-primary">Buy</button>
+            </form>
             </div>
           </div>
         </div>

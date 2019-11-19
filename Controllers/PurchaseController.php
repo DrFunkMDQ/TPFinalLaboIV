@@ -1,8 +1,9 @@
 <?php
+
     namespace Controllers;
 
-use DAO\MovieDAOPDO;
-use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
+    use DAO\MovieDAOPDO;
+    use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
     use DAO\ShowDAOPDO as ShowDAOPDO;
     use DAO\TicketDAOPDO as TicketDAOPDO;
     use DAO\ShowRoomDAOPDO as ShowRoomDAOPDO;
@@ -10,8 +11,7 @@ use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
     use Models\User as User;
     use Models\Purchase as Purchase;       
     use Models\Show as Show;
-    use Models\ShowRoom as ShowRoom;
-    use Models\Show as Show;   
+    use Models\ShowRoom as ShowRoom; 
 
     //EMAIL
     use PHPMailer\PHPMailer\PHPMailer;
@@ -19,6 +19,9 @@ use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
     use PHPMailer\PHPMailer\Exception;
 
     use Models\Ticket as Ticket;
+
+    //require ('../vendor/autoload.php'); // Add the path as appropriate
+
 
     class PurchaseController
     {
@@ -39,7 +42,7 @@ use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
 
         public function Add(){
 
-
+            $ticketList = Array();
             $Purchase = new Purchase();
             $Purchase->setPurchaseDate(date("Ymd"));
             $Purchase->setUser($_SESSION["loggedUser"]);
@@ -49,15 +52,14 @@ use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
                 $Ticket = new Ticket;
                 $Ticket->setPurchase($Purchase);                
                 $Ticket->setShow($show);
-                $Ticket->setQr('test');
                 $this->ticketDAO->Add($Ticket);
+                array_push($ticketList, $Ticket);
             } 
+            //EMAIL
+            //$this->SendMail($Purchase->getUser()->getEmail(), $ticketList);
             $_SESSION["Shopping-Cart-Object"] = null;
             $_SESSION["Shopping-Cart-String"] = null;
-
-            require_once(VIEWS_PATH."index.php");
-            
-            //Email            
+            header('location:http://localhost/TPFinalLaboIV/');      
             
         }
 
@@ -124,8 +126,11 @@ use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
             return $aux;
         }
 
-        function SendMail( $ToEmail, $MessageHTML, $MessageTEXT ) {
+        function SendMail($ToEmail, $TicketList) {
+<<<<<<< HEAD
+=======
             require '../vendor/autoload.php'; // Add the path as appropriate
+>>>>>>> 12f47134870585437550443d37403f6717c3dc45
             $Mail = new PHPMailer();
             $Mail->IsSMTP(); // Use SMTP
             $Mail->Host        = "smtp.gmail.com"; // Sets SMTP server
@@ -140,13 +145,13 @@ use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
             $Mail->Encoding    = '8bit';
             $Mail->Subject     = 'Tickets from MoviePass';
             $Mail->ContentType = 'text/html; charset=utf-8\r\n';
-            $Mail->From        = 'MyGmail@gmail.com';
-            $Mail->FromName    = 'GMail Test';
+            $Mail->From        = 'moviepassutn2019@gmail.com';
+            $Mail->FromName    = 'MoviePass';
             $Mail->WordWrap    = 900; // RFC 2822 Compliant for Max 998 characters per line
             $Mail->AddAddress( $ToEmail ); // To:
             $Mail->isHTML( TRUE );
-            $Mail->Body    = $MessageHTML;
-            $Mail->AltBody = $MessageTEXT;
+            $Mail->Body    = "hola";
+            $Mail->AltBody = "hola";
             $Mail->Send();
             $Mail->SmtpClose();
           

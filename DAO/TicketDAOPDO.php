@@ -16,11 +16,10 @@ class TicketDAOPDO implements ITicketDAOPDO{
         array_push($this->ticketsList, $Ticket); 
         $ShowRoomDAO = new ShowRoomDAOPDO();             
         try{                
-            $query = "INSERT INTO ".$this->tableName." (id_show, id_purchase, qr, ticket_price) VALUES (:id_show, :id_purchase, :qr, :ticket_price);";
+            $query = "INSERT INTO ".$this->tableName." (id_show, id_purchase, ticket_price) VALUES (:id_show, :id_purchase, :ticket_price);";
             $parameters["id_show"] = $Ticket->getShow()->getId();
             $parameters["id_purchase"] = $Ticket->getPurchase()->getId();          
-            $parameters["qr"] = $Ticket->getQR(); 
-            $showRoom = $ShowRoomDAO->searchById($Ticket->getShow()->getShowRoom());
+            $showRoom = $Ticket->getShow()->getShowRoom();
             $parameters["ticket_price"] = $showRoom->getTicketPrice();                               
             $this->connection = Connection::GetInstance();
             $this->connection->ExecuteNonQuery($query, $parameters);                

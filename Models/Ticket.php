@@ -12,18 +12,6 @@
         
 
         //Getters && Setters        
-        
-        public function getQR()
-        {
-                return $this->QR;
-        }
-
-        public function setQR($QR)
-        {
-                $this->QR = $QR;
-
-                return $this;
-        }  
 
         public function getShow()
         {
