@@ -12,15 +12,15 @@
         
        //Getters && Setters  
 
-        public function getPucrchaseDate()
+        public function getPurchaseDate()
         {
-                return $this->pucrchaseDate;
+                return $this->purchaseDate;
         }
 
         
-        public function setPurchaseDate($pucrchaseDate)
+        public function setPurchaseDate($purchaseDate)
         {
-                $this->pucrchaseDate = $pucrchaseDate;
+                $this->purchaseDate = $purchaseDate;
 
                 return $this;
         }

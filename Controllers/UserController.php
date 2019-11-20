@@ -8,6 +8,8 @@
     use DAO\PurchaseDAOPDO as PurchaseDAOPDO;
     use DAO\MovieDAOPDO as MovieDAOPDO;
     use DAO\ShowRoomDAOPDO as ShowRoomDAOPDO;
+    use DAO\TicketDAOPDO as TicketDAOPDO;
+    use DAO\ShowDAOPDO as ShowDAOPDO;
     class UserController
     {
         private $userDAO;
@@ -15,12 +17,16 @@
         private $movieDAO;
         private $showRoomDAO;
         private $purchasesList;
+        private $ticketDAO;
+        private $showDAO;
 
         public function __construct(){
             $this->userDAO = new UserDAOPDO();//PDO
             $this->purchaseDAO = new PurchaseDAOPDO;
             $this->showRoomDAO = new ShowRoomDAOPDO;
             $this->movieDAO = new MovieDAOPDO;
+            $this->ticketDAO = new TicketDAOPDO;
+            $this->showDAO = new ShowDAOPDO;
         }
 
         public function ShowNewUserFormView(){            
@@ -109,15 +115,21 @@
             $ticketsList = array();
             $loggedUser = $_SESSION["loggedUser"];
             $userPurchases = $this->GetUserPurchases($loggedUser);
-            foreach ($userPurchases as $purchase) {
-                $ticketPurchase = $this->purchaseDAO->GetAllxPurchase($purchase['id_purchase']);
-                $ticketsList[$purchase['id_purchase']] = $ticketPurchase;                
-            }
             require_once(VIEWS_PATH."userProfile.php");
         }
 
         private function GetUserPurchases(User $user){
             $this->purchasesList = $this->purchaseDAO->GetAllxUser($user);
+            foreach ($this->purchasesList as $purchase) {
+                $purchase->setTicketList($this->ticketDAO->GetAllxPurchase($purchase));// En esta lista de tickets de la compra, los "show" de cada ticket vienen como id_show
+                foreach($purchase->getTicketList() as $ticket){ // En este bucle se busca el show por el id que tiene el ticket, y se le carga el objeto show al ticket
+                    $ticket->setShow($this->showDAO->getById($ticket->getShow()));
+                    $ticketShow = $ticket->getShow();//Despues de tener el objeto Show del ticket, se baja a una variable 
+                    $ticketShow->setShowRoom($this->showRoomDAO->searchById($ticketShow->getShowRoom()));//El objeto Show, tiene dentro objetos Movie y Showroom, pero en este caso vienen los IDs
+                    $ticketShow->setMovie($this->movieDAO->searchMovieById($ticketShow->getMovie()));//En estas dos lineas se cargan estos dos objetos de acuerdo a los IDs que tiene el objeto Show
+                    $ticket->setShow($ticketShow);
+                }
+            }
             return $this->purchasesList;
         }
     }
