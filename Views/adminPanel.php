@@ -1,4 +1,4 @@
-<?php require_once('VerifySessionUser.php');
+<?php require_once('VerifySessionAdmin.php');
 ?>
 
 <div class="container-fluid px-5">
