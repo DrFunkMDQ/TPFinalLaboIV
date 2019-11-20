@@ -121,6 +121,7 @@ use Models\User as User;
         }
 
         public function ShowAdminPanel(){
+            $this->ShowGrandTotals();
             $loggedUser = $_SESSION["loggedUser"];
             $cinemaList = $this->cinemaDAO->GetAll();  
             $showRoomsList = $this->showRoomDAO->GetAll(); 
@@ -128,6 +129,39 @@ use Models\User as User;
             $showList = $this->showDAO->GetAll();
             $this->FillShowsData($showList);
             require_once(VIEWS_PATH."adminPanel.php");
+        }
+
+        private function ShowGrandTotals(){
+            $_SESSION["Grand-Totals"] = $this->purchaseDAO->GetGrandTotal();
+        }
+
+        public function ShowTotalByCinema($cinemaId){
+            $cinema = $this->cinemaDAO->searchById($cinemaId);
+            $_SESSION["Total-cinema"] = $this->purchaseDAO->GetAllxCinema($cinema);
+            $this->ShowAdminPanel();
+        }
+
+        public function ShowTotalByShowRoom($showRoomId){
+            $showRoom = $this->showRoomDAO->searchById($showRoomId);
+            $_SESSION["Total-Showroom"] = $this->purchaseDAO->GetAllxShowRoom($showRoom);
+            $this->ShowAdminPanel();
+        }
+
+        public function ShowTotalByShow($showId){
+            $show = $this->showDAO->getById($showId);
+            $_SESSION["Total-Show"] = $this->purchaseDAO->GetAllxShow($show);
+            $this->ShowAdminPanel();
+        }
+
+        public function ShowTotalByMovie($movieId){
+            $movie = $this->movieDAO->searchMovieById($movieId);
+            $_SESSION["Total-Movie"] = $this->purchaseDAO->GetAllxMovie($movie);
+            $this->ShowAdminPanel();
+        }
+
+        public function ShowTotalByDate($startDate, $endDate){
+            $_SESSION["Total-Dates"] = $this->purchaseDAO->GetAllxDate($startDate, $endDate);
+            $this->ShowAdminPanel();
         }
 
         private function FillShowsData($showsList){

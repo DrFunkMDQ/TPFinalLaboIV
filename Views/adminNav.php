@@ -34,7 +34,7 @@
           <?php if (isset($_SESSION["loggedUser"])) : ?>
             <li class="nav-item">
               <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowAdminPanel">
-                <img src="<?php echo IMG_PATH ?>profile-icon.png" alt="Admin" class="navIcon">
+                <img src="<?php echo IMG_PATH ?>admin-image.png" alt="Admin" class="navIcon">
               </a>
             </li>
             <li class="nav-item">
