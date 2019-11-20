@@ -1,7 +1,7 @@
 <?php require_once('VerifySessionUser.php'); ?>  
 
 <div class="container-fluid px-5">
-    <div class="profileDataSection">
+    <div class="profileLeftSection">
         <div>
             <h2>Personal Information</h2>
         </div>
@@ -26,7 +26,7 @@
             </table>
         </div>
     </div>    
-    <div class="profileTicketsSection">
+    <div class="profileRightSection">
         <div>
             <h2>Purchase History</h2>
         </div>       

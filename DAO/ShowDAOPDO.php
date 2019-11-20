@@ -26,10 +26,10 @@ class ShowDAOPDO implements IShowDAOPDO{
             foreach ($resultSet as $row){
                 $show = new Show();
                 $show->setDate($row["show_date"]);
-                $show->setDate($row["show_time"]);
-                $show->setDate($row["id_movie"]);
-                $show->setDate($row["id_show_room"]);
-                $show->setDate($row["id_show"]);
+                $show->setTime($row["show_time"]);
+                $show->setMovie($row["id_movie"]);
+                $show->setShowRoom($row["id_show_room"]);
+                $show->setId($row["id_show"]);
                 array_push($this->showList, $show);
             }
             return $this->showList;
