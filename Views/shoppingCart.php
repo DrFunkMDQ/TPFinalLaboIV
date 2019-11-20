@@ -1,4 +1,4 @@
-<?php require_once('VerifySessionUser.php'); ?>  
+<?php require_once('VerifySessionAdmin.php'); ?>  
 
 <?php if (empty($_SESSION["Shopping-Cart-Object"])) : ?>
   echo'<script type="text/javascript">
