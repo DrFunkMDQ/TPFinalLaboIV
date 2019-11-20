@@ -1,7 +1,8 @@
 <?php
     namespace Controllers;
 
-    use Models\User as User;
+use DAO\CinemaDAOPDO;
+use Models\User as User;
     use Models\Purchase as Purchase;
     use Models\Ticket as Ticket;
     use DAO\UserDAOPDO as UserDAOPDO;
@@ -19,6 +20,7 @@
         private $purchasesList;
         private $ticketDAO;
         private $showDAO;
+        private $cinemaDAO;
 
         public function __construct(){
             $this->userDAO = new UserDAOPDO();//PDO
@@ -27,6 +29,7 @@
             $this->movieDAO = new MovieDAOPDO;
             $this->ticketDAO = new TicketDAOPDO;
             $this->showDAO = new ShowDAOPDO;
+            $this->cinemaDAO = new CinemaDAOPDO;
         }
 
         public function ShowNewUserFormView(){            
@@ -59,13 +62,6 @@
             $listPath = FRONT_ROOT."Home/Index";                               
             header("Location: $listPath");
         }
-        
-        public function prepareAdminDashboard(){
-            $cinemaList = $this->cinemaDAO->GetAll();  
-            $showRoomsList = $this->showRoomDAO->GetAll(); 
-            $movieList = $this->movieDAO->GetAll();
-            $showList = $this->ShowDAOPDO->GetAll();
-        } 
         
 
         public function AddUser($email, $password, $firstName, $lastName, $birthday){
@@ -126,7 +122,18 @@
 
         public function ShowAdminPanel(){
             $loggedUser = $_SESSION["loggedUser"];
+            $cinemaList = $this->cinemaDAO->GetAll();  
+            $showRoomsList = $this->showRoomDAO->GetAll(); 
+            $movieList = $this->movieDAO->GetAll();
+            $showList = $this->showDAO->GetAll();
+            $this->FillShowsData($showList);
             require_once(VIEWS_PATH."adminPanel.php");
+        }
+
+        private function FillShowsData($showsList){
+            foreach($showsList as $show){
+                $show->setMovie($this->movieDAO->searchMovieById($show->getMovie()));
+            }
         }
 
         private function GetUserPurchases(User $user){

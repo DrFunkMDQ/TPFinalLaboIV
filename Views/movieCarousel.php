@@ -1,5 +1,5 @@
-<div class="carousel slide carousel-slide" data-ride="carousel" id="carousel">
-  <div class="carousel-inner">
+<div class="carousel slide" data-ride="carousel" id="carousel">
+  <div class="carousel-inner carousel-slide">
     <div class="carousel-item active"> <img class="carouselImg" src="<?php echo W342_IMG . $this->firstMovie->getImage(); ?>">
       <div class="carousel-caption">
         <h5 class="m-0"><?php echo $this->firstMovie->getMovieName(); ?></h5>
