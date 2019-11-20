@@ -87,7 +87,11 @@ class PurchaseDAOPDO implements IPurchaseDAOPDO{
                 where s.id_show_room = ".$ShowRoom ->getId();
                 $this->connection = Connection::GetInstance();
                 $resultSet = $this->connection->Execute($query);     
-                return $resultSet;          
+                foreach($resultSet as $row){
+                    $result['tickets'] = $row['tickets'];
+                    $result['total'] = $row['total'];
+                }
+                return $result;           
             }  
             catch(Exception $ex){
                 throw $ex;
@@ -105,7 +109,11 @@ class PurchaseDAOPDO implements IPurchaseDAOPDO{
                 where s.id_show = ".$Show->getId();
                 $this->connection = Connection::GetInstance();
                 $resultSet = $this->connection->Execute($query);     
-                return $resultSet;          
+                foreach($resultSet as $row){
+                    $result['tickets'] = $row['tickets'];
+                    $result['total'] = $row['total'];
+                }
+                return $result;           
             }  
             catch(Exception $ex){
                 throw $ex;
@@ -127,12 +135,17 @@ class PurchaseDAOPDO implements IPurchaseDAOPDO{
                 WHERE p.purchase_date BETWEEN '".$Date1."' AND '".$Date2."'";
                 $this->connection = Connection::GetInstance();
                 $resultSet = $this->connection->Execute($query);     
-                return $resultSet;          
+                foreach($resultSet as $row){
+                    $result['tickets'] = $row['tickets'];
+                    $result['total'] = $row['total'];
+                }
+                return $result;           
             }  
             catch(Exception $ex){
                 throw $ex;
             }  
         }
+
         public function GetAllxMovie(Movie $Movie){
             try{
                 $query = "SELECT IFNULL(count(t.id_ticket),0) as 'tickets', IFNULL(sum(t.ticket_price),0) as 'total'
@@ -148,7 +161,11 @@ class PurchaseDAOPDO implements IPurchaseDAOPDO{
                 where s.id_movie = ".$Movie->getIdmovie();
                 $this->connection = Connection::GetInstance();
                 $resultSet = $this->connection->Execute($query);     
-                return $resultSet;          
+                foreach($resultSet as $row){
+                    $result['tickets'] = $row['tickets'];
+                    $result['total'] = $row['total'];
+                }
+                return $result;        
             }  
             catch(Exception $ex){
                 throw $ex;
@@ -157,6 +174,7 @@ class PurchaseDAOPDO implements IPurchaseDAOPDO{
 
         public function GetAllxCinema(Cinema $Cinema){
             try{
+                $result = array();
                 $query = "SELECT IFNULL(count(t.id_ticket),0) as 'tickets', IFNULL(sum(t.ticket_price),0) as 'total'
                 FROM purchases as p
                 LEFT JOIN tickets as t
@@ -170,7 +188,11 @@ class PurchaseDAOPDO implements IPurchaseDAOPDO{
                 where c.id_cinema = ".$Cinema->getId();
                 $this->connection = Connection::GetInstance();
                 $resultSet = $this->connection->Execute($query);     
-                return $resultSet;          
+                foreach($resultSet as $row){
+                    $result['tickets'] = $row['tickets'];
+                    $result['total'] = $row['total'];
+                }
+                return $result;          
             }  
             catch(Exception $ex){
                 throw $ex;

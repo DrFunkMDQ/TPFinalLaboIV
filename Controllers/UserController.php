@@ -60,6 +60,12 @@
             header("Location: $listPath");
         }
         
+        public function prepareAdminDashboard(){
+            $cinemaList = $this->cinemaDAO->GetAll();  
+            $showRoomsList = $this->showRoomDAO->GetAll(); 
+            $movieList = $this->movieDAO->GetAll();
+            $showList = $this->ShowDAOPDO->GetAll();
+        } 
         
 
         public function AddUser($email, $password, $firstName, $lastName, $birthday){

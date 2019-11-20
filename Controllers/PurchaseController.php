@@ -73,10 +73,6 @@
             return $body;
         }
 
-        private function getLastId(){
-
-        }
-
         public function prepareTickets()
         {
             $aux = array();
@@ -141,8 +137,11 @@
             return $aux;
         }
 
+
         function SendMail($ToEmail, $TicketList, $Body) {
-            require ('C:/wamp64/www/TPFinalLaboIV/vendor/autoload.php'); // Add the path as appropriate
+            $rootPath = ROOT."vendor/autoload.php";
+            $autoloadPath = ucwords(str_replace("\\","/", $rootPath));
+            require ($autoloadPath);
             $Mail = new PHPMailer();
             $Mail->IsSMTP(); // Use SMTP
             $Mail->Host        = "smtp.gmail.com"; // Sets SMTP server

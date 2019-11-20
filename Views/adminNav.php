@@ -30,7 +30,6 @@
           <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Cinema/ShowListCinemaView">Cinema List</a> </li>
           <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Movie/ListNowPlayingMovies">Movie List</a> </li>
           <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Movie/getMoviesFromApi">Get Movies from API</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Movie/getGenresFromApi">Get Genres from API</a> </li>
           <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Show/ShowListingView">Movie Listing</a> </li>
           <?php if (isset($_SESSION["loggedUser"])) : ?>
             <li class="nav-item">
