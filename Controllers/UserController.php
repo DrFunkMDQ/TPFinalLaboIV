@@ -76,7 +76,7 @@
             $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
             $user->setBirthday($birthday);
             $this->userDAO->Add($user);
-            $this->ShowNewUserFormView();
+            $this->ShowLoginFormView();
         }
         
         public function RemoveUser($userName){            
