@@ -48,6 +48,31 @@ class PurchaseDAOPDO implements IPurchaseDAOPDO{
             return $total;
         }
 
+        public function GetGrandTotal(){
+            try{
+                $query = "SELECT IFNULL(count(t.id_ticket),0) as 'tickets', IFNULL(sum(t.ticket_price),0) as 'total'
+                FROM purchases as p
+                LEFT JOIN tickets as t
+                ON p.id_purchase = t.id_purchase
+                JOIN shows as s
+                on t.id_show = s.id_show
+                JOIN showrooms as sr
+                on sr.id_show_room = s.id_show_room
+                JOIN cinemas as c
+                on sr.id_cinema = c.id_cinema";
+                $this->connection = Connection::GetInstance();
+                $resultSet = $this->connection->Execute($query);     
+                foreach($resultSet as $row){
+                    $result['tickets'] = $row['tickets'];
+                    $result['total'] = $row['total'];
+                }
+                return $result;           
+            }  
+            catch(Exception $ex){
+                throw $ex;
+            } 
+        }
+
         public function GetAllxUser(User $User){
             try{
                 $purchasesList = array();

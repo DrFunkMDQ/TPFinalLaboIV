@@ -14,10 +14,7 @@
                 </tr>
                 <tr>
                     <td class="bg-light btn-col">
-                        <button class="btn btn-primary" type="submit" onclick="this.form.action:'<?php echo FRONT_ROOT ?>Home/Index'">Go to Home</button>
-                    </td>
-                    <td class="bg-light btn-col">
-                        <button class="btn btn-primary" type="submit" onclick="this.form.action = '<?php echo FRONT_ROOT ?>User/ShowProfileView'">Profile</button>
+                        <button class="btn btn-primary" type="submit" onclick="this.form.action = '<?php echo FRONT_ROOT ?>User/ShowProfileView'">Back to Profile</button>
                     </td>
                 </tr>
             </div>
