@@ -33,6 +33,11 @@
           <li class="nav-item"> <a class="nav-link" href="<?php echo FRONT_ROOT ?>Show/ShowListingView">Movie Listing</a> </li>
           <?php if (isset($_SESSION["loggedUser"])) : ?>
             <li class="nav-item">
+              <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowAdminPanel">
+                <img src="<?php echo IMG_PATH ?>profile-icon.png" alt="Admin" class="navIcon">
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="<?php echo FRONT_ROOT ?>User/ShowProfileView">
                 <img src="<?php echo IMG_PATH ?>profile-icon.png" alt="Profile" class="navIcon">
               </a>

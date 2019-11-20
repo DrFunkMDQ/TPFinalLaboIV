@@ -57,10 +57,13 @@
             //EMAIL
             $Body = $this->prepareEmailBody($ticketList);
             $this->SendMail($Purchase->getUser()->getEmail(), $ticketList, $Body);
-            $_SESSION["Shopping-Cart-Object"] = null;
-            $_SESSION["Shopping-Cart-String"] = null;
+            $this->ShowConfirmationPage();        
+        }
 
-            header('location:http://localhost/TPFinalLaboIV/Home/Index');        
+        private function ShowConfirmationPage(){
+            include_once(VIEWS_PATH."ConfirmationPage.php");
+            $_SESSION["Shopping-Cart-Object"] = null;
+            $_SESSION["Shopping-Cart-String"] = null;            
         }
 
         private function prepareEmailBody($TicketList){

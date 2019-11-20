@@ -124,6 +124,11 @@
             require_once(VIEWS_PATH."userProfile.php");
         }
 
+        public function ShowAdminPanel(){
+            $loggedUser = $_SESSION["loggedUser"];
+            require_once(VIEWS_PATH."adminPanel.php");
+        }
+
         private function GetUserPurchases(User $user){
             $this->purchasesList = $this->purchaseDAO->GetAllxUser($user);
             foreach ($this->purchasesList as $purchase) {
